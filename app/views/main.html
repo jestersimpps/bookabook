@@ -23,11 +23,11 @@
 						<input type="text"
 						       class="form-control"
 						       id="inputfield2"
-						       placeholder="Book title, Genre, Author name, ISBN, ...">
+						       placeholder="Book title, Genre, Author name, ISBN, ..."
+						       ng-model="keyword">
 						<span class="input-group-btn">
 							<button class="btn btn-primary"
-							        data-type="last"
-							        ng-click="previewBook(keyword)">Search
+							        ng-click="showBook(keyword)">Search
 							</button>
 						</span>
 					</div>

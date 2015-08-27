@@ -24,9 +24,23 @@
 
 		<div class="collapse navbar-collapse"
 		     id="js-navbar-collapse">
-			<button type="button"
-			        class="btn btn-warning navbar-btn pull-right">Sign in
-			</button>
+			<div ng-show="authenticated">
+				<p class="navbar-text navbar-right">Signed in as
+					<a href="#/settings"
+					   class="navbar-link">Mark Otto
+					</a>
+				</p>
+			</div>
+			<div ng-hide="authenticated">
+				<button type="button"
+				        class="btn btn-warning navbar-btn pull-right"
+								ng-click="logIn()">Sign in
+				</button>
+				<button type="button"
+				        class="btn btn-normal navbar-btn pull-right"
+				        style="margin-right:5px;">Register
+				</button>
+			</div>
 			<ul class="nav navbar-nav">
 
 				<li class="active">
@@ -42,8 +56,6 @@
 		</div>
 	</div>
 </div>
-</div>
-
 
 <ul class="nav nav-tabs">
 	<li role="presentation"

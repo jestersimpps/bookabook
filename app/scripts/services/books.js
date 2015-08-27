@@ -62,6 +62,20 @@ angular.module('bookxchangeApp')
 
 				return deferred.promise;
 
+				//return $q(function(resolve, reject) {
+				//	var request = $http({
+				//		method : 'GET',
+				//		url    : 'https://www.googleapis.com/books/v1/volumes?q=' + data,
+				//		headers: {}
+				//	});
+				//	request
+				//		.success(function (result) {
+				//			resolve(result);
+				//		})
+				//		.error(function (error) {
+				//			reject(error);
+				//		});
+				//});
 			}
 
 

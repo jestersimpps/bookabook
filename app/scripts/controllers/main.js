@@ -12,7 +12,13 @@ angular.module('bookxchangeApp')
 
 		$rootScope.tabIndex = 0;
 		$scope.loading = true;
-		$scope.authenticated = true;
+		$scope.authenticated = false;
+
+
+		$scope.logIn = function () {
+			$scope.authenticated = true;
+		};
+
 
 		$scope.gridOptions = {
 			data                    : [],
@@ -64,42 +70,29 @@ angular.module('bookxchangeApp')
 			});
 
 
-		$scope.previewBook = function (keyword) {
+		$scope.showBook = function (keyword) {
+
 
 			books.getInfo(keyword).then(
 				function (data) {
 					//success
 
 					var index = 0;
-					var title = data.items[index].volumeInfo.title;
-					var subTitle = data.items[index].volumeInfo.subTitle;
-					var publishDate = data.items[index].volumeInfo.publishedDate;
-					var Author = (data.items[index].volumeInfo.authors) ? data.items[index].volumeInfo.authors.join(", ") : 'Unknown';
-					var description = data.items[index].volumeInfo.description;
-					var genre = (data.items[index].volumeInfo.categories) ? data.items[index].volumeInfo.categories.join(", ") : 'Unknown';
-					var image = data.items[index].volumeInfo.imageLinks.thumbnail;
-					var previewlink = data.items[index].volumeInfo.previewLink;
-					var pageCount = data.items[index].volumeInfo.pageCount;
-					var publisher = data.items[index].volumeInfo.publisher;
-					var language = data.items[index].volumeInfo.language;
-					var rating = data.items[index].volumeInfo.averageRating;
-					var isbn = (data.items[index].volumeInfo.industryIdentifiers) ? data.items[index].volumeInfo.industryIdentifiers[0].identifier : 'Unknown';
-
 
 					$scope.previewBook = {
-						title      : title,
-						subTitle   : subTitle,
-						author     : Author,
-						description: description,
-						genre      : genre,
-						image      : image,
-						previewlink: previewlink,
-						pageCount  : pageCount,
-						publisher  : publisher,
-						publishDate: publishDate,
-						language   : language,
-						rating     : rating,
-						isbn       : isbn
+						title      : data.items[index].volumeInfo.title,
+						subTitle   : data.items[index].volumeInfo.subTitle,
+						author     : (data.items[index].volumeInfo.authors) ? data.items[index].volumeInfo.authors.join(", ") : 'Unknown',
+						description: data.items[index].volumeInfo.description,
+						genre      : (data.items[index].volumeInfo.categories) ? data.items[index].volumeInfo.categories.join(", ") : 'Unknown',
+						image      : data.items[index].volumeInfo.imageLinks.thumbnail,
+						previewlink: data.items[index].volumeInfo.previewLink,
+						pageCount  : data.items[index].volumeInfo.pageCount,
+						publisher  : data.items[index].volumeInfo.publisher,
+						publishDate: data.items[index].volumeInfo.publishedDate,
+						language   : data.items[index].volumeInfo.language,
+						rating     : data.items[index].volumeInfo.averageRating,
+						isbn       : (data.items[index].volumeInfo.industryIdentifiers) ? data.items[index].volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
 					};
 
 					//logging
@@ -116,5 +109,4 @@ angular.module('bookxchangeApp')
 		}
 
 
-	})
-;
+	});
