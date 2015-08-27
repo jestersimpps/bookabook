@@ -1,0 +1,118 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 location">
+			<div class="form-group">
+				<label for="city"
+				       class="col-sm-2 control-label">City
+				</label>
+				<div class="col-sm-12 controls">
+					<select class="form-control">
+						<option>Pune</option>
+						<option>Mumbai</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9 searchbar">
+			<div class="form-group">
+				<label for="inputfield2"
+				       class="col-sm-2 control-label">Keyword
+				</label>
+				<div class="col-sm-12 controls">
+					<div class="input-group">
+						<input type="text"
+						       class="form-control"
+						       id="inputfield2"
+						       placeholder="Book title, Genre, Author name, ISBN, ...">
+						<span class="input-group-btn">
+							<button class="btn btn-primary"
+							        data-type="last"
+							        ng-click="previewBook(keyword)">Search
+							</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="grid"
+		     ui-grid="gridOptions"
+		     ui-grid-selection>
+		</div>
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade"
+     id="previewModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="previewModal">
+	<div class="modal-dialog"
+	     role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button"
+				        class="close"
+				        data-dismiss="modal"
+				        aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title"
+				    id="myModalLabel">{{previewBook.title}}
+					<span ng-show="previewBook.subtitle"> -</span>
+				                      {{previewBook.subtitle}}
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div class="col-sm-6 ">
+					<ul>
+						<li>Publisher: {{previewBook.publisher}}</li>
+						<li>Publish Date: {{previewBook.publishDate}}</li>
+						<li>Author(s): {{previewBook.author}}</li>
+						<li>Genre(s): {{previewBook.genre}}</li>
+						<li>Pages: {{previewBook.pageCount}}</li>
+						<li>Language: {{previewBook.language}}</li>
+						<li>Rating:
+							<rating ng-model="previewBook.rating"
+							        max="5"
+							        readonly="isReadonly"></rating>
+
+						</li>
+						<li>ISBN: {{previewBook.isbn}}</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-6 text-center">
+				<img ng-src="{{previewBook.image}}"
+				     class="img-responsive img-rounded"
+				     alt="Preview image">
+			</div>
+			<div class="col-sm-12">
+				<hr/>
+				<p>
+					{{previewBook.description}}
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button"
+				        class="btn btn-info"
+				        data-dismiss="modal">Borrow this book
+				</button>
+				<button type="button"
+				        class="btn btn-default"
+				        data-dismiss="modal">Close
+				</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
