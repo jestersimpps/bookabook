@@ -8,8 +8,9 @@
  * Controller of the bookxchangeApp
  */
 angular.module('bookxchangeApp')
-	.controller('MainCtrl', function ($scope, books) {
+	.controller('MainCtrl', function ($rootScope, $scope, books) {
 
+		$rootScope.tabIndex = 0;
 		$scope.loading = true;
 		$scope.authenticated = true;
 
@@ -99,7 +100,7 @@ angular.module('bookxchangeApp')
 						language   : language,
 						rating     : rating,
 						isbn       : isbn
-					}
+					};
 
 					//logging
 					console.log(data);

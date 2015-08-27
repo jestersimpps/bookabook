@@ -1,0 +1,78 @@
+<div class="navbar navbar-default bg-info"
+     role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+
+			<button type="button"
+			        class="navbar-toggle collapsed"
+			        data-toggle="collapse"
+			        data-target="#js-navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<a class="navbar-brand"
+			   href="#/">
+				<span style="color:white;">book
+					<span style="color:#F9BB2B;font-size:1.5em;">x</span>
+				                           change
+				</span>
+			</a>
+		</div>
+
+		<div class="collapse navbar-collapse"
+		     id="js-navbar-collapse">
+			<button type="button"
+			        class="btn btn-warning navbar-btn pull-right">Sign in
+			</button>
+			<ul class="nav navbar-nav">
+
+				<li class="active">
+					<a href="#/">Home</a>
+				</li>
+				<li>
+					<a ng-href="#/about">About</a>
+				</li>
+				<li>
+					<a ng-href="#/">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<ul class="nav nav-tabs">
+	<li role="presentation"
+	    ng-class="{'active': tabIndex == 0}">
+		<a href="#/search">Public search</a>
+	</li>
+	<li role="presentation"
+	    ng-class="{'active': tabIndex == 1}"
+	    ng-show="authenticated">
+		<a href="#/myBooks">My books</a>
+	</li>
+	<li role="presentation"
+	    ng-class="{'active': tabIndex == 2}"
+	    ng-show="authenticated">
+		<a href="#">Borrowed books</a>
+	</li>
+	<li role="presentation"
+	    ng-class="{'active': tabIndex == 3}"
+	    ng-show="authenticated">
+		<a href="#">Lent books</a>
+	</li>
+	<li role="presentation"
+	    ng-class="{'active': tabIndex == 4}"
+	    ng-show="authenticated">
+		<a href="#">Messages</a>
+	</li>
+	<li role="presentation"
+	    ng-class="{'active': tabIndex == 5}"
+	    ng-show="authenticated">
+		<a href="#">Settings</a>
+	</li>
+</ul>

@@ -28,13 +28,17 @@ angular
 	])
 	.config(function ($routeProvider) {
 		$routeProvider
-			.when('/', {
+			.when('/search', {
 				templateUrl: 'views/main.html',
 				controller : 'MainCtrl'
 			})
 			.when('/about', {
 				templateUrl: 'views/about.html',
 				controller : 'AboutCtrl'
+			})
+			.when('/myBooks', {
+				templateUrl: 'views/myBooks.html',
+				controller : 'myBooksCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'

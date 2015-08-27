@@ -1,15 +1,15 @@
 <div class="container-fluid">
 	<div class="row topbar">
-		<div class="col-sm-3 location">
+		<div class="col-sm-3 addbook">
 			<div class="form-group">
-				<label for="city"
-				       class="col-sm-2 control-label">City
+				<label class="col-sm-2 control-label">Actions
 				</label>
 				<div class="col-sm-12 controls">
-					<select class="form-control">
-						<option>Pune</option>
-						<option>Mumbai</option>
-					</select>
+					<button type="button"
+					        class="btn btn-info">
+						<i class="fa fa-plus"></i>
+						Add a book
+					</button>
 				</div>
 			</div>
 		</div>
@@ -27,7 +27,7 @@
 						<span class="input-group-btn">
 							<button class="btn btn-primary"
 							        data-type="last"
-							        ng-click="previewBook(keyword)">Search
+							        ng-click="previewBook(keyword)">Search your collection
 							</button>
 						</span>
 					</div>

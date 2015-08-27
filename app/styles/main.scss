@@ -12,8 +12,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   padding: 0;
+  margin-bottom: 200px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -27,7 +33,6 @@ body {
 /* Custom page header */
 .header {
 
-
   /* Make the masthead heading the same height as the navigation */
   h3 {
     margin-top: 0;
@@ -37,22 +42,37 @@ body {
   }
 }
 
-.spinner{
-  position: fixed;
-  top:20%;
-  left:48%;
-  z-index: 9999;
-}
-//.grid{
-//  height: 90% ;
-//}
-.row{
-  padding:10px 0 10px 0;
-}
-/* Custom page footer */
 .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
   padding-top: 19px;
   color: #777;
+}
+
+.spinner {
+  position: fixed;
+  top: 20%;
+  left: 48%;
+  z-index: 9999;
+}
+
+.ui-grid {
+  position: absolute;
+  height: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.topbar {
+  padding: 20px 0 20px 0;
+  background: #424A55;
+  label {
+    color: white;
+  }
 }
 
 .container-narrow > hr {
@@ -78,15 +98,19 @@ body {
     margin-top: 28px;
   }
 }
-.yes{
-  color:green;
+
+.yes {
+  color: green;
 }
-.no{
-  color:red;
+
+.no {
+  color: red;
 }
+
 .grid-align {
   text-align: center;
 }
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -108,7 +132,7 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
-  .navbar{
-    margin-bottom:0;
+  .navbar {
+    margin-bottom: 0;
   }
 }
