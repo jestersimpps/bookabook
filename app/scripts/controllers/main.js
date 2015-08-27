@@ -8,7 +8,7 @@
  * Controller of the bookxchangeApp
  */
 angular.module('bookxchangeApp')
-	.controller('MainCtrl', function ($rootScope, $scope, books) {
+	.controller('MainCtrl', function ($rootScope, $scope, $modal, books) {
 
 		$rootScope.tabIndex = 0;
 		$scope.loading = true;
@@ -72,6 +72,7 @@ angular.module('bookxchangeApp')
 
 		$scope.showBook = function (keyword) {
 
+			var $btn = $('#searchButton').button('loading');
 
 			books.getInfo(keyword).then(
 				function (data) {
@@ -101,6 +102,8 @@ angular.module('bookxchangeApp')
 
 
 					$('#previewModal').modal('show');
+					$btn.button('reset');
+
 				},
 				function (data) {
 					//fall

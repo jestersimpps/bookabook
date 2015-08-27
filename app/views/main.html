@@ -19,18 +19,23 @@
 				       class="col-sm-9 control-label">Search by keyword
 				</label>
 				<div class="col-sm-12 controls">
-					<div class="input-group">
-						<input type="text"
-						       class="form-control"
-						       id="inputfield2"
-						       placeholder="Book title, Genre, Author name, ISBN, ..."
-						       ng-model="keyword">
-						<span class="input-group-btn">
-							<button class="btn btn-primary"
-							        ng-click="showBook(keyword)">Search
-							</button>
-						</span>
-					</div>
+					<form ng-submit="showBook(keyword)">
+						<div class="input-group">
+
+							<input type="text"
+							       class="form-control"
+							       id="inputfield2"
+							       placeholder="Book title, Genre, Author name, ISBN, ..."
+							       ng-model="keyword">
+							<span class="input-group-btn">
+								<button id="searchButton"
+								        class="btn btn-primary"
+								        type="submit"
+								        data-loading-text="Loading...">Search
+								</button>
+							</span>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -38,6 +43,7 @@
 </div>
 
 <div class="col-sm-12">
+
 	<div class="grid"
 	     ui-grid="gridOptions"
 	     ui-grid-selection>
