@@ -23,7 +23,7 @@
 
 			</div>
 			<div class="modal-body">
-				<form ng-submit="searchNewBooks(keyword)">
+				<form ng-submit="searchNewBooks(newBookKeyword)">
 
 					<label for="inputfield2"
 					       class="col-sm-12 control-label">Enter a keyword to find a book you own
@@ -33,7 +33,7 @@
 						       class="form-control search-query"
 						       id="inputfield2"
 						       placeholder="ISBN, Book title, Author name, ..."
-						       ng-model="keyword">
+						       ng-model="newBookKeyword">
 						<span class="input-group-btn">
 							<button id="newBookSearchButton"
 							        class="btn btn-primary"

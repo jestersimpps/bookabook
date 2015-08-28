@@ -11,6 +11,7 @@ angular.module('bookxchangeApp')
 	.controller('myBooksCtrl', function ($rootScope, $scope, books) {
 
 		$rootScope.tabIndex = 1;
+		$scope.loading = true;
 
 
 		$scope.gridOptions = {
@@ -95,6 +96,12 @@ angular.module('bookxchangeApp')
 
 
 		};
+
+		$scope.closeNewBookModal = function () {
+			$scope.newBooks = null;
+			$scope.newBookKeyword = null;
+			$('#newBookModal').modal('hide');
+		}
 
 
 	});
