@@ -25,6 +25,24 @@ angular.module('bookxchangeApp')
 				return deferred.promise;
 			},
 
+			//get users books
+			my    : function (userID) {
+				var deferred = $q.defer();
+				var query = new Parse.Query("books");
+				query.find({
+					success: function (object) {
+						object = angular.toJson(object);
+						object = angular.fromJson(object);
+						deferred.resolve(object);
+					},
+					error  : function (error) {
+						alert("Error: " + error.code + " " + error.message);
+						deferred.reject(error);
+					}
+				});
+				return deferred.promise;
+			},
+
 			//save book
 			save   : function (data) {
 				var deferred = $q.defer();
@@ -62,20 +80,6 @@ angular.module('bookxchangeApp')
 
 				return deferred.promise;
 
-				//return $q(function(resolve, reject) {
-				//	var request = $http({
-				//		method : 'GET',
-				//		url    : 'https://www.googleapis.com/books/v1/volumes?q=' + data,
-				//		headers: {}
-				//	});
-				//	request
-				//		.success(function (result) {
-				//			resolve(result);
-				//		})
-				//		.error(function (error) {
-				//			reject(error);
-				//		});
-				//});
 			}
 
 
