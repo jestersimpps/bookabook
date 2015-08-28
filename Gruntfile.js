@@ -25,10 +25,10 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 
 		// Project settings
-		yeoman       : appConfig,
+		yeoman: appConfig,
 
 		// Watches files for changes and runs tasks based on the changed files
-		watch        : {
+		watch : {
 			bower     : {
 				files: ['bower.json'],
 				tasks: ['wiredep']
@@ -68,6 +68,28 @@ module.exports = function (grunt) {
 				]
 			}
 		},
+
+
+		aws_s3       : {
+			options: {
+				accessKeyId        : 'AKIAJ3GAMZAYFAYOS2JQ',
+				secretAccessKey    : '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',
+				region             : 'ap-southeast-1',
+				uploadConcurrency  : 5, // 5 simultaneous uploads
+				downloadConcurrency: 5 // 5 simultaneous downloads,
+			},
+			build  : {
+				options: {
+					bucket      : 'bookxchange.com',
+					differential: true, // Only uploads the files that have changed
+					gzipRename  : 'ext' // when uploading a gz file, keep the original extension
+				},
+				files  : [
+					{expand: true, cwd: 'dist', src: ['**'], dest: '/', action: 'upload'}
+				]
+			}
+		},
+
 
 		// The actual grunt server settings
 		connect      : {
@@ -390,7 +412,7 @@ module.exports = function (grunt) {
 
 		// Copies remaining files to places other tasks can use
 		copy      : {
-			dist       : {
+			dist  : {
 				files: [
 					{
 						expand: true,
@@ -417,25 +439,35 @@ module.exports = function (grunt) {
 						cwd   : '.',
 						src   : 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
 						dest  : '<%= yeoman.dist %>'
+					},
+					{
+						//for font-awesome
+						expand: true,
+						dot   : true,
+						cwd   : 'bower_components/font-awesome',
+						src   : ['fonts/*.*'],
+						dest  : '<%= yeoman.dist %>'
+					},
+					{
+						//for ui-grid
+						expand: true,
+						dot   : true,
+						cwd   : 'bower_components/angular-ui-grid',
+						src   : [
+							'{,*/}*.eot',
+							'{,*/}*.ttf',
+							'{,*/}*.woff',
+							'{,*/}*.svg'
+						],
+						dest  : '<%= yeoman.dist %>/styles'
 					}
 				]
 			},
-			styles     : {
+			styles: {
 				expand: true,
 				cwd   : '<%= yeoman.app %>/styles',
 				dest  : '.tmp/styles/',
 				src   : ['{,*/}*.css']
-			},
-			fonts: {
-				expand: true,
-				cwd   : '<%= yeoman.app %>/fonts',
-				dest  : '<%= yeoman.dist %>/styles/',
-				src   : [
-					'{,*/}*.eot',
-					'{,*/}*.ttf',
-					'{,*/}*.woff',
-					'{,*/}*.svg'
-				]
 			}
 		},
 
@@ -511,7 +543,7 @@ module.exports = function (grunt) {
 		'filerev',
 		'usemin',
 		'htmlmin',
-	    'copy:fonts'
+		'aws_s3'
 	]);
 
 	grunt.registerTask('default', [

@@ -26,7 +26,7 @@ angular.module('bookxchangeApp')
 			enableRowSelection       : true,
 			enableRowHeaderSelection : false,
 			multiSelect              : false,
-			enableHorizontalScrollbar: true,
+			enableHorizontalScrollbar: 2,
 			noUnselect               : true,
 			rowHeight                : 50,
 			rowTemplate              : "<div ng-dblclick=\"grid.appScope.showInfo(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>",
@@ -46,7 +46,7 @@ angular.module('bookxchangeApp')
 				{name: 'Publisher', field: 'publisher', visible: true},
 				{name: 'Date Published', field: 'publishDate', visible: true},
 				{name: 'Language', field: 'language', visible: true},
-				{name: 'Pages', field: 'pageCount', visible: true},
+				{name: 'Pages', field: 'pageCount', visible: true, enableFiltering: false,},
 				{
 					name           : 'Rating',
 					field          : 'googleRating',
@@ -72,13 +72,14 @@ angular.module('bookxchangeApp')
 					name           : 'Actions',
 					visible        : true,
 					enableFiltering: false,
-					cellTemplate   : '<div class="ui-grid-cell-contents"><button class="btn btn-primary" ng-click="grid.appScope.showInfo(row)">Open</button></div>'
+					width          : '150',
+					cellTemplate   : '<div class="ui-grid-cell-contents"><button class="btn btn-primary" ng-click="grid.appScope.showInfo(row)">Open</button><button style="margin-left: 5px;" class="btn btn-info" ng-click="grid.appScope.borrowBook(row)">Borrow</button></div>'
 				},
 			]
 		};
 
 		$scope.showInfo = function (book) {
-
+			$scope.loading = true;
 			books.getInfo(book.entity.googleID).then(
 				function (data) {
 					//success
@@ -103,6 +104,7 @@ angular.module('bookxchangeApp')
 
 					console.log(data);
 					$('#previewModal').modal('show');
+					$scope.loading = false;
 
 				},
 				function (data) {
