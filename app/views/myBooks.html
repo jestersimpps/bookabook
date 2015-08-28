@@ -41,10 +41,13 @@
 <div class="col-sm-12">
 	<div class="grid"
 	     ui-grid="gridOptions"
-	     ui-grid-selection>
+	     ui-grid-selection
+	     ui-grid-resize-columns
+					>
 	</div>
 	<div class="loadingGrid"
-	     ng-show="loading">
+	     ng-show="loading"
+	     ng-animate="'fade'">
 		<img src="images/Preloader_3.gif"
 		     alt=""/>
 	</div>

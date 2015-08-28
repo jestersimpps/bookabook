@@ -13,6 +13,11 @@ angular.module('bookxchangeApp')
 		$rootScope.tabIndex = 1;
 		$scope.loading = true;
 
+		function rowTemplate() {
+			return '<div ng-dblclick="grid.appScope.rowDblClick(row)" >' +
+				'  <div ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name" class="ui-grid-cell" ng-class="{ \'ui-grid-row-header-cell\': col.isRowHeader }"  ui-grid-cell></div>' +
+				'</div>';
+		}
 
 		$scope.gridOptions = {
 			data                    : [],
@@ -20,6 +25,8 @@ angular.module('bookxchangeApp')
 			enableRowSelection      : true,
 			enableRowHeaderSelection: false,
 			multiSelect             : false,
+			appScopeProvider        : $scope.myAppScopeProvider,
+			rowTemplate             : "<div ng-dblclick=\"grid.appScope.showInfo(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>",
 			rowHeight               : 50,
 			columnDefs              : [
 				{
@@ -49,6 +56,27 @@ angular.module('bookxchangeApp')
 		};
 
 
+		$scope.myAppScopeProvider = {
+
+			showInfo: function (row) {
+				var modalInstance = $modal.open({
+					controller : 'InfoController',
+					templateUrl: 'ngTemplate/infoPopup.html',
+					resolve    : {
+						selectedRow: function () {
+							return row.entity;
+						}
+					}
+				});
+
+				modalInstance.result.then(function (selectedItem) {
+					$log.log('modal selected Row: ' + selectedItem);
+				}, function () {
+					$log.info('Modal dismissed at: ' + new Date());
+				});
+			}
+		}
+
 		$scope.searchNewBooks = function (keyword) {
 			console.log('search');
 			var $btn = $('#newBookSearchButton').button('loading');
@@ -59,21 +87,6 @@ angular.module('bookxchangeApp')
 
 					$scope.newBooks = data.items;
 
-					//$scope.previewBook = {
-					//	title      : data.items[index].volumeInfo.title,
-					//	subTitle   : data.items[index].volumeInfo.subTitle,
-					//	author     : (data.items[index].volumeInfo.authors) ? data.items[index].volumeInfo.authors.join(", ") : 'Unknown',
-					//	description: data.items[index].volumeInfo.description,
-					//	genre      : (data.items[index].volumeInfo.categories) ? data.items[index].volumeInfo.categories.join(", ") : 'Unknown',
-					//	image      : data.items[index].volumeInfo.imageLinks.thumbnail,
-					//	previewlink: data.items[index].volumeInfo.previewLink,
-					//	pageCount  : data.items[index].volumeInfo.pageCount,
-					//	publisher  : data.items[index].volumeInfo.publisher,
-					//	publishDate: data.items[index].volumeInfo.publishedDate,
-					//	language   : data.items[index].volumeInfo.language,
-					//	rating     : data.items[index].volumeInfo.averageRating,
-					//	isbn       : (data.items[index].volumeInfo.industryIdentifiers) ? data.items[index].volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
-					//};
 
 					//logging
 					console.log(data);
@@ -103,6 +116,7 @@ angular.module('bookxchangeApp')
 
 			var newBook = {
 				//userID     : Parse.user.current(),
+				googleID    : book.id,
 				title       : book.volumeInfo.title,
 				subTitle    : book.volumeInfo.subTitle,
 				author      : (book.volumeInfo.authors) ? book.volumeInfo.authors.join(", ") : 'Unknown',

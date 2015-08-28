@@ -45,7 +45,8 @@
 				</form>
 				<hr/>
 				<div class="panel panel-default"
-				     ng-show="newBooks">
+				     ng-show="newBooks"
+				     ng-animate="'fade'">
 					<div class="panel-heading">Possible matches</div>
 					<ul class="media-list"
 					    style="max-height:400px;overflow-y: scroll;padding:5px;">
@@ -70,7 +71,7 @@
 									<rating ng-model="book.volumeInfo.averageRating"
 									        max="5"
 									        readonly="isReadonly"
-													class="pull-right"></rating>
+									        class="pull-right"></rating>
 								</h4>
 								<p>
 									<span style="color:#DC4750;"

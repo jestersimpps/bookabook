@@ -21,10 +21,14 @@ angular
 		'parse-angular.enhance',
 		'ui.bootstrap',
 		'ui.grid',
-		'ui.grid.cellNav',
+		'ui.grid.saveState',
 		'ui.grid.selection',
-		'ui.grid.edit',
-		'ui.grid.resizeColumns'
+		'ui.grid.cellNav',
+		'ui.grid.resizeColumns',
+		'ui.grid.moveColumns',
+		'ui.grid.pinning',
+		'ui.bootstrap',
+		'ui.grid.autoResize'
 	])
 	.config(function ($routeProvider) {
 		$routeProvider
@@ -56,8 +60,8 @@ angular
 			Parse.initialize('UeK8ftekh5VsU6MzF0aYYhsJzuEbSXqegVJSDnvD', '80gwsTJrWmvsUP9YM1sJ30e2yeBCdQF3UUP7ajcy');
 
 
-			$rootScope.User={
-				city:"Pune"
+			$rootScope.User = {
+				city: "Hadapsar Pune, Ravi Park F902"
 			};
 
 			$rootScope.authenticated = true;

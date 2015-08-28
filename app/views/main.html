@@ -1,22 +1,25 @@
 <div class="container-fluid">
 	<div class="row topbar">
-		<!--<div class="col-sm-3 location">-->
-			<!--<div class="form-group">-->
-				<!--<label for="city"-->
-				       <!--class="col-sm-2 control-label">City-->
-				<!--</label>-->
-				<!--<div class="col-sm-12 controls">-->
-					<!--<select class="form-control">-->
-						<!--<option>Pune</option>-->
-						<!--<option>Mumbai</option>-->
-					<!--</select>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</div>-->
-		<div class="col-sm-12 searchbar">
+		<div class="col-sm-3 location">
+			<div class="form-group">
+				<label for="city"
+				       class="col-sm-12 control-label">Radius (km)
+				</label>
+				<div class="col-sm-12 controls">
+					<select class="form-control" ng-model="searchRadius">
+						<option>1 km</option>
+						<option>5 km</option>
+						<option>10 km</option>
+						<option>20 km</option>
+						<option>50 km</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9 searchbar">
 			<div class="form-group">
 				<label for="inputfield2"
-				       class="col-sm-9 control-label">Search for a book in {{User.city}}
+				       class="col-sm-9 control-label">Search for books near {{User.city}}
 				</label>
 				<div class="col-sm-12 controls">
 					<form ng-submit="showBook(keyword)">
@@ -46,10 +49,12 @@
 
 	<div class="grid"
 	     ui-grid="gridOptions"
-	     ui-grid-selection>
+	     ui-grid-selection
+	     ui-grid-resize-columns >
 	</div>
 	<div class="loadingGrid"
-	     ng-show="loading">
+	     ng-show="loading"
+	     ng-animate="'fade'">
 		<img src="images/Preloader_3.gif"
 		     alt=""/>
 	</div>

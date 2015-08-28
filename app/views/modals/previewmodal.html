@@ -1,5 +1,3 @@
-
-
 <!-- Preview  Modal -->
 
 <div class="modal fade"
@@ -56,6 +54,14 @@
 
 			</div>
 			<div class="modal-footer">
+				<a ng-show="previewBook.previewlink"
+				   type="button"
+				   class="btn btn-primary"
+				   href="{{previewBook.previewlink}}"
+				   target="_blank">
+					<i class="fa fa-eye"></i>
+					Show preview on Google
+				</a>
 				<button type="button"
 				        class="btn btn-info"
 				        data-dismiss="modal">Borrow this book

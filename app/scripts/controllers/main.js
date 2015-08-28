@@ -21,13 +21,16 @@ angular.module('bookxchangeApp')
 
 
 		$scope.gridOptions = {
-			data                    : [],
-			enableFiltering         : true,
-			enableRowSelection      : true,
-			enableRowHeaderSelection: false,
-			multiSelect             : false,
-			rowHeight               : 50,
-			columnDefs              : [
+			data                     : [],
+			enableFiltering          : true,
+			enableRowSelection       : true,
+			enableRowHeaderSelection : false,
+			multiSelect              : false,
+			enableHorizontalScrollbar: true,
+			noUnselect               : true,
+			rowHeight                : 50,
+			rowTemplate              : "<div ng-dblclick=\"grid.appScope.showInfo(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>",
+			columnDefs               : [
 				{
 					name           : 'Cover',
 					field          : 'thumbnail',
@@ -46,10 +49,10 @@ angular.module('bookxchangeApp')
 				{name: 'Pages', field: 'pageCount', visible: true},
 				{
 					name           : 'Rating',
-					field          : 'rating',
+					field          : 'googleRating',
 					visible        : true,
 					enableFiltering: false,
-					cellTemplate   : '<rating  ng-model="grid.getCellValue(row, col)" max="5" readonly="isReadonly"></rating>'
+					cellTemplate   : '<div class="ui-grid-cell-contents"><rating ng-model="row.entity.googleRating"max="5"readonly="isReadonly"></rating></div>'
 				},
 				{
 					name           : 'Availability',
@@ -58,31 +61,25 @@ angular.module('bookxchangeApp')
 					cellClass      : 'grid-align',
 					enableFiltering: false,
 					cellTemplate   : '<span style="text-align:center;"class="yes" ng-show="grid.getCellValue(row, col) == true">Available</span><span class="no" ng-show="grid.getCellValue(row, col) == false">Lent out</span>  '
-				}
+				},
+				{
+					name           : 'User',
+					field          : 'userID',
+					visible        : true,
+					enableFiltering: true,
+				},
+				{
+					name           : 'Actions',
+					visible        : true,
+					enableFiltering: false,
+					cellTemplate   : '<div class="ui-grid-cell-contents"><button class="btn btn-primary" ng-click="grid.appScope.showInfo(row)">Open</button></div>'
+				},
 			]
 		};
 
-		books.all().then(
-			function (data) {
-				//success
+		$scope.showInfo = function (book) {
 
-				$scope.books = data;
-				console.log(JSON.stringify($scope.books));
-
-				$scope.gridOptions.data = $scope.books;
-				$scope.loading = false;
-			},
-			function (data) {
-				//fall
-				console.log(data);
-			});
-
-
-		$scope.showBook = function (keyword) {
-
-			var $btn = $('#searchButton').button('loading');
-
-			books.getInfo(keyword).then(
+			books.getInfo(book.entity.googleID).then(
 				function (data) {
 					//success
 
@@ -104,19 +101,36 @@ angular.module('bookxchangeApp')
 						isbn       : (data.items[index].volumeInfo.industryIdentifiers) ? data.items[index].volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
 					};
 
-					//logging
 					console.log(data);
-					console.log($scope.previewBook);
-
-
 					$('#previewModal').modal('show');
-					$btn.button('reset');
 
 				},
 				function (data) {
 					//fall
 					console.log(data);
 				});
+		};
+
+		books.all().then(
+			function (data) {
+				//success
+
+				$scope.books = data;
+
+				$scope.gridOptions.data = $scope.books;
+				$scope.loading = false;
+			},
+			function (data) {
+				//fall
+				console.log(data);
+			});
+
+
+		$scope.showBook = function (keyword) {
+
+			var $btn = $('#searchButton').button('loading');
+
+
 		}
 
 
