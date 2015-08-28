@@ -1,22 +1,22 @@
 <div class="container-fluid">
 	<div class="row topbar">
-		<div class="col-sm-3 location">
-			<div class="form-group">
-				<label for="city"
-				       class="col-sm-2 control-label">City
-				</label>
-				<div class="col-sm-12 controls">
-					<select class="form-control">
-						<option>Pune</option>
-						<option>Mumbai</option>
-					</select>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-9 searchbar">
+		<!--<div class="col-sm-3 location">-->
+			<!--<div class="form-group">-->
+				<!--<label for="city"-->
+				       <!--class="col-sm-2 control-label">City-->
+				<!--</label>-->
+				<!--<div class="col-sm-12 controls">-->
+					<!--<select class="form-control">-->
+						<!--<option>Pune</option>-->
+						<!--<option>Mumbai</option>-->
+					<!--</select>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+		<div class="col-sm-12 searchbar">
 			<div class="form-group">
 				<label for="inputfield2"
-				       class="col-sm-9 control-label">Search by keyword
+				       class="col-sm-9 control-label">Search for a book in {{User.city}}
 				</label>
 				<div class="col-sm-12 controls">
 					<form ng-submit="showBook(keyword)">

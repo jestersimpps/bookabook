@@ -38,7 +38,7 @@ angular.module('bookxchangeApp')
 				{name: 'Date Published', field: 'publishedDate', visible: true},
 				{name: 'ISBN', field: 'ISBN', visible: true},
 				{
-					name           : 'Availability',
+					name           : 'Status',
 					field          : 'Available',
 					visible        : true,
 					cellClass      : 'grid-align',
@@ -89,18 +89,49 @@ angular.module('bookxchangeApp')
 
 		};
 
-		$scope.addBook = function () {
-
-
+		$scope.showAddBookModal = function () {
 			$('#newBookModal').modal('show');
-
-
 		};
 
 		$scope.closeNewBookModal = function () {
 			$scope.newBooks = null;
 			$scope.newBookKeyword = null;
 			$('#newBookModal').modal('hide');
+		}
+
+		$scope.addToCollection = function (book) {
+
+			var newBook = {
+				//userID     : Parse.user.current(),
+				title       : book.volumeInfo.title,
+				subTitle    : book.volumeInfo.subTitle,
+				author      : (book.volumeInfo.authors) ? book.volumeInfo.authors.join(", ") : 'Unknown',
+				genre       : (book.volumeInfo.categories) ? book.volumeInfo.categories.join(", ") : 'Unknown',
+				thumbnail   : book.volumeInfo.imageLinks.thumbnail,
+				pageCount   : book.volumeInfo.pageCount,
+				publisher   : book.volumeInfo.publisher,
+				publishDate : book.volumeInfo.publishedDate,
+				language    : book.volumeInfo.language,
+				googleRating: book.volumeInfo.averageRating,
+				isbn        : (book.volumeInfo.industryIdentifiers) ? book.volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
+			};
+
+			books.saveNew(newBook).then(
+				function (data) {
+					//success
+
+					//logging
+					console.log(data);
+					$scope.newBooks = null;
+					$scope.newBookKeyword = null;
+					$('#newBookModal').modal('hide');
+
+				},
+				function (data) {
+					//fall
+					console.log(data);
+				});
+
 		}
 
 

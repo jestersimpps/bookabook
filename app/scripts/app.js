@@ -56,7 +56,9 @@ angular
 			Parse.initialize('UeK8ftekh5VsU6MzF0aYYhsJzuEbSXqegVJSDnvD', '80gwsTJrWmvsUP9YM1sJ30e2yeBCdQF3UUP7ajcy');
 
 
-
+			$rootScope.User={
+				city:"Pune"
+			};
 
 			$rootScope.authenticated = true;
 			if (!$rootScope.authenticated) {

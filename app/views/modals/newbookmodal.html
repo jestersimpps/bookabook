@@ -44,7 +44,6 @@
 					</div>
 				</form>
 				<hr/>
-
 				<div class="panel panel-default"
 				     ng-show="newBooks">
 					<div class="panel-heading">Possible matches</div>
@@ -68,6 +67,10 @@
 									<span style="color:#2DAFDD;"
 									      ng-if="book.volumeInfo.authors">by {{book.volumeInfo.authors.join(", ")}}
 									</span>
+									<rating ng-model="book.volumeInfo.averageRating"
+									        max="5"
+									        readonly="isReadonly"
+													class="pull-right"></rating>
 								</h4>
 								<p>
 									<span style="color:#DC4750;"
@@ -85,7 +88,7 @@
 								<br/>
 								<button type="button"
 								        class="btn btn-sm btn-info pull-right"
-								        ng-click="addToCollection()">
+								        ng-click="addToCollection(book)">
 									<i class="fa fa-plus"></i>
 									This is the book i own
 								</button>

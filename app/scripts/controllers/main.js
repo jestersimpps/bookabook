@@ -29,20 +29,28 @@ angular.module('bookxchangeApp')
 			rowHeight               : 50,
 			columnDefs              : [
 				{
-					name           : 'Image',
-					field          : 'Thumbnail',
+					name           : 'Cover',
+					field          : 'thumbnail',
 					visible        : true,
 					cellTemplate   : '<img style="height:50px;margin-left:10px;" ng-src="{{grid.getCellValue(row, col)}}" lazy-src>',
 					width          : '70',
 					enableFiltering: false,
 					enableSorting  : false
 				},
-				{name: 'Title', field: 'Title', visible: true},
-				{name: 'Genre', field: 'Genre', visible: true},
-				{name: 'Author', field: 'Author', visible: true},
-				{name: 'Publisher', field: 'Publisher', visible: true},
-				{name: 'Date Published', field: 'publishedDate', visible: true},
-				{name: 'ISBN', field: 'ISBN', visible: true},
+				{name: 'Title', field: 'title', visible: true},
+				{name: 'Genre', field: 'genre', visible: true},
+				{name: 'Author', field: 'author', visible: true},
+				{name: 'Publisher', field: 'publisher', visible: true},
+				{name: 'Date Published', field: 'publishDate', visible: true},
+				{name: 'Language', field: 'language', visible: true},
+				{name: 'Pages', field: 'pageCount', visible: true},
+				{
+					name           : 'Rating',
+					field          : 'rating',
+					visible        : true,
+					enableFiltering: false,
+					cellTemplate   : '<rating  ng-model="grid.getCellValue(row, col)" max="5" readonly="isReadonly"></rating>'
+				},
 				{
 					name           : 'Availability',
 					field          : 'Available',

@@ -26,7 +26,7 @@ angular.module('bookxchangeApp')
 			},
 
 			//get users books
-			my    : function (userID) {
+			my     : function (userID) {
 				var deferred = $q.defer();
 				var query = new Parse.Query("books");
 				query.find({
@@ -44,7 +44,7 @@ angular.module('bookxchangeApp')
 			},
 
 			//save book
-			save   : function (data) {
+			saveNew   : function (data) {
 				var deferred = $q.defer();
 				var pObject = Parse.Object.extend("books");
 				var po = new pObject();
@@ -54,7 +54,7 @@ angular.module('bookxchangeApp')
 					success: function (object) {
 						deferred.resolve(object);
 					},
-					error  : function (gameScore, error) {
+					error  : function (error) {
 						alert("Error: " + error.code + " " + error.message);
 						deferred.reject(error);
 					}
