@@ -5,41 +5,134 @@
      tabindex="-1"
      role="dialog"
      aria-labelledby="registerModal">
-	<div class="modal-dialog  modal-lg"
+	<div class="modal-dialog"
 	     role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button"
-				        class="close"
-				        data-dismiss="modal"
-				        aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4>
-					Register
-				</h4>
-			</div>
-			<div class="modal-body">
+			<form name="registerForm"
+			      ng-submit="registerUser(registerForm)"
+			      novalidate>
+				<div class="modal-header">
+					<button type="button"
+					        class="close"
+					        data-dismiss="modal"
+					        aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4>
+						Register
+					</h4>
+				</div>
+				<div class="modal-body">
 
-			</div>
-			<div class="modal-footer">
-				<button type="button"
-				        class="btn btn-primary"
-				        data-dismiss="modal">
-					<i class="fa fa-facebook"></i>
-					Register using Facebook
-				</button>
-				<button type="button"
-				        class="btn btn-info"
-				        data-dismiss="modal"
-								ng-click="registerUser()">Register
-				</button>
-				<button type="button"
-				        class="btn btn-danger"
-				        data-dismiss="modal">Close
-				</button>
+					<!-- NAME -->
+					<div class="form-group"
+					     ng-class="{ 'has-error' : registerForm.name.$invalid && (registerForm.name.$dirty || submitted)}">
+						<label>Name</label>
+						<input type="text"
+						       name="name"
+						       class="form-control"
+						       ng-model="newUser.name"
+						       placeholder="Your Name"
+						       ng-required="true">
+						<p ng-show="registerForm.name.$error.required && (registerForm.name.$dirty || submitted)"
+						   class="help-block">You name is required.</p>
+					</div>
 
-			</div>
+					<!-- USERNAME -->
+					<div class="form-group"
+					     ng-class="{ 'has-error' : registerForm.username.$invalid && (registerForm.username.$dirty || submitted)}">
+						<label>Username</label>
+						<input type="text"
+						       name="username"
+						       class="form-control"
+						       ng-model="newUser.username"
+						       placeholder="Your Username"
+						       ng-minlength="3"
+						       ng-maxlength="20"
+						       ng-required="true">
+						<p ng-show="registerForm.username.$error.required && (registerForm.username.$dirty || submitted)"
+						   class="help-block">You username is required.</p>
+
+						<p ng-show="registerForm.username.$error.minlength && (registerForm.username.$dirty || submitted)"
+						   class="help-block">Username is too short.</p>
+
+						<p ng-show="registerForm.username.$error.maxlength && (registerForm.username.$dirty || submitted)"
+						   class="help-block">Username is too long.</p>
+					</div>
+
+					<!-- PASSWORD -->
+					<div class="form-group"
+					     ng-class="{ 'has-error' : registerForm.password.$invalid && (registerForm.password.$dirty || submitted)}">
+						<label>Password</label>
+						<input type="Password"
+						       name="password"
+						       class="form-control"
+						       ng-model="newUser.password"
+						       placeholder="Your Password"
+						       ng-required="true">
+						<p ng-show="registerForm.password.$error.required && (registerForm.password.$dirty || submitted)"
+						   class="help-block">Your password is required.</p>
+					</div>
+
+					<!-- CONFIRM PASSWORD -->
+					<div class="form-group"
+					     ng-class="{ 'has-error' : registerForm.confirmPassword.$invalid && (registerForm.confirmPassword.$dirty || submitted)}">
+						<label>Confirm Password</label>
+						<input type="Password"
+						       name="confirmPassword"
+						       class="form-control"
+						       ng-model="newUser.confirmPassword"
+						       placeholder="Confirm Your Password"
+						       ng-compare="password"
+						       ng-required="true">
+						<p ng-show="registerForm.confirmPassword.$error.required && (registerForm.confirmPassword.$dirty || submitted)"
+						   class="help-block">Your confirm password is required.</p>
+
+						<p ng-show="registerForm.confirmPassword.$error.compare && (registerForm.confirmPassword.$dirty || submitted)"
+						   class="help-block">Your passwords don't match.</p>
+					</div>
+
+					<!-- EMAIL -->
+					<div class="form-group"
+					     ng-class="{ 'has-error' : registerForm.email.$invalid && (registerForm.email.$dirty || submitted)}">
+						<label>Email</label>
+						<input type="email"
+						       name="email"
+						       class="form-control"
+						       ng-model="newUser.email"
+						       placeholder="Your Email Address"
+						       ng-required="true">
+						<p ng-show="registerForm.email.$error.required && (registerForm.email.$dirty || submitted)"
+						   class="help-block">Email is required.</p>
+
+						<p ng-show="registerForm.email.$error.email && (registerForm.email.$dirty || submitted)"
+						   class="help-block">Enter a valid email.</p>
+					</div>
+
+					<div class="alert alert-danger"
+					     role="alert"
+					     ng-show="formAlert">{{formAlert}}
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button"
+					        class="btn btn-primary"
+					        data-dismiss="modal">
+						<i class="fa fa-facebook"></i>
+						Register using Facebook
+					</button>
+					<button type="submit"
+					        class="btn btn-info"
+					        ng-disabled="!registerForm.$valid">Register
+					</button>
+					<button type="button"
+					        class="btn btn-danger"
+					        data-dismiss="modal">Close
+					</button>
+
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

@@ -12,31 +12,43 @@ angular.module('bookxchangeApp')
 
 		$scope.register = function () {
 			console.log('register');
+			$scope.newUser = {};
 			$('#registerModal').modal('show');
-		}
+		};
 
-		$scope.registerUser = function(){
+		$scope.formAlert = null;
 
-			var user = new Parse.User();
-			user.set("username", "my name");
-			user.set("password", "my pass");
-			user.set("email", "email@example.com");
+		$scope.registerUser = function (form) {
 
-			// other fields can be set just like with Parse.Object
-			user.set("phone", "415-392-0202");
+			console.log(registerForm);
+			console.log(form);
+			if (form.$valid) {
 
-			user.signUp(null, {
-				success: function(user) {
-					$rootScope.user = user;
-					$('#registerModal').modal('hide');
+				var user = new Parse.User();
+				user.set("user", $scope.newUser.name);
+				user.set("username", $scope.newUser.username);
+				user.set("password", $scope.newUser.password);
+				user.set("email", $scope.newUser.email);
+
+				user.signUp(null, {
+					success: function (user) {
+						$rootScope.user = user;
+						$('#registerModal').modal('hide');
+
+					},
+					error  : function (user, error) {
+
+						$scope.formAlert = "Error: " + error.code + " " + error.message;
+
+					}
+				});
+
+			}
+			else {
+
+			}
 
 
-				},
-				error: function(user, error) {
-
-					alert("Error: " + error.code + " " + error.message);
-				}
-			});
 		}
 
 

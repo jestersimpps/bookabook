@@ -83,11 +83,12 @@ angular
 
 			Parse.initialize('UeK8ftekh5VsU6MzF0aYYhsJzuEbSXqegVJSDnvD', '80gwsTJrWmvsUP9YM1sJ30e2yeBCdQF3UUP7ajcy');
 
-			$rootScope.User = Parse.User.current();
-			console.log($rootScope.User);
 
-			if ($rootScope.User) {
+
+			if (Parse.User.current()) {
 				$rootScope.authenticated = true;
+				$rootScope.currentUser = Parse.User.current().attributes;
+				console.log($rootScope.currentUser);
 			} else {
 				$rootScope.authenticated = false;
 			}
