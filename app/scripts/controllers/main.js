@@ -87,19 +87,19 @@ angular.module('bookxchangeApp')
 					var index = 0;
 
 					$scope.previewBook = {
-						title      : data.items[index].volumeInfo.title,
-						subTitle   : data.items[index].volumeInfo.subTitle,
-						author     : (data.items[index].volumeInfo.authors) ? data.items[index].volumeInfo.authors.join(", ") : 'Unknown',
-						description: data.items[index].volumeInfo.description,
-						genre      : (data.items[index].volumeInfo.categories) ? data.items[index].volumeInfo.categories.join(", ") : 'Unknown',
-						image      : data.items[index].volumeInfo.imageLinks.thumbnail,
-						previewlink: data.items[index].volumeInfo.previewLink,
-						pageCount  : data.items[index].volumeInfo.pageCount,
-						publisher  : data.items[index].volumeInfo.publisher,
-						publishDate: data.items[index].volumeInfo.publishedDate,
-						language   : data.items[index].volumeInfo.language,
-						rating     : data.items[index].volumeInfo.averageRating,
-						isbn       : (data.items[index].volumeInfo.industryIdentifiers) ? data.items[index].volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
+						title       : data.items[index].volumeInfo.title,
+						subTitle    : data.items[index].volumeInfo.subTitle,
+						author      : (data.items[index].volumeInfo.authors) ? data.items[index].volumeInfo.authors.join(", ") : 'Unknown',
+						description : data.items[index].volumeInfo.description,
+						genre       : (data.items[index].volumeInfo.categories) ? data.items[index].volumeInfo.categories.join(", ") : 'Unknown',
+						thumbnail   : data.items[index].volumeInfo.imageLinks.thumbnail,
+						previewlink : data.items[index].volumeInfo.previewLink,
+						pageCount   : data.items[index].volumeInfo.pageCount,
+						publisher   : data.items[index].volumeInfo.publisher,
+						publishDate : data.items[index].volumeInfo.publishedDate,
+						language    : data.items[index].volumeInfo.language,
+						googleRating: data.items[index].volumeInfo.averageRating,
+						isbn        : (data.items[index].volumeInfo.industryIdentifiers) ? data.items[index].volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
 					};
 
 					console.log(data);

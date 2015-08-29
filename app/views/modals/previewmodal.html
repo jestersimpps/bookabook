@@ -5,7 +5,7 @@
      tabindex="-1"
      role="dialog"
      aria-labelledby="previewModal">
-	<div class="modal-dialog"
+	<div class="modal-dialog  modal-lg"
 	     role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -15,43 +15,51 @@
 				        aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title"
-				    id="myModalLabel">{{previewBook.title}}
+				<h4>{{previewBook.title}}
 					<span ng-show="previewBook.subtitle"> -</span>
-				                      {{previewBook.subtitle}}
-				</h4>
+				    {{previewBook.subTitle}}
 
+				</h4>
 			</div>
 			<div class="modal-body">
-				<div class="col-sm-6 ">
-					<ul>
-						<li>Publisher: {{previewBook.publisher}}</li>
-						<li>Publish Date: {{previewBook.publishDate}}</li>
-						<li>Author(s): {{previewBook.author}}</li>
-						<li>Genre(s): {{previewBook.genre}}</li>
-						<li>Pages: {{previewBook.pageCount}}</li>
-						<li>Language: {{previewBook.language}}</li>
-						<li>Rating:
-							<rating ng-model="previewBook.rating"
-							        max="5"
-							        readonly="isReadonly"></rating>
+				<ul class="media-list"
+				    style="max-height:400px;overflow-y: scroll;padding:5px;">
 
-						</li>
-						<li>ISBN: {{previewBook.isbn}}</li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-sm-6 text-center">
-				<img ng-src="{{previewBook.image}}"
-				     class="img-responsive img-rounded"
-				     alt="Preview image">
-			</div>
-			<div class="col-sm-12">
-				<hr/>
-				<p>
-					{{previewBook.description}}
-				</p>
+					<li class="media">
 
+						<a class="pull-left"
+						   href="{{previewBook.previewlink}}">
+							<img class="media-object img-rounded"
+							     ng-src="{{previewBook.thumbnail}}">
+						</a>
+
+						<div class="media-body">
+							<h4 style="color:#2DAFDD;"
+							    class="media-heading"
+							    ng-if="previewBook.author">by {{previewBook.author}}
+								<rating ng-model="previewBook.googleRating"
+								        max="5"
+								        class="pull-right"
+								        readonly="isReadonly"></rating>
+							</h4>
+							<p>
+								<span style="color:#DC4750;"
+								      class="pull-right"
+								      ng-if="previewBook.isbn">ISBN: {{previewBook.isbn}}
+								</span>
+							</p>
+							<p ng-if="previewBook.publisher">Published by {{previewBook.publisher}}
+								<span ng-show="previewBook.publishDate">,</span>
+							                                 {{previewBook.publishDate}}
+							</p>
+
+							<p>{{previewBook.description}}
+							</p>
+						</div>
+
+					</li>
+					<hr/>
+				</ul>
 			</div>
 			<div class="modal-footer">
 				<a ng-show="previewBook.previewlink"
