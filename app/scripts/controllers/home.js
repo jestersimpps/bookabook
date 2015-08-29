@@ -10,7 +10,7 @@
 angular.module('bookxchangeApp')
 	.controller('homeCtrl', function ($rootScope, $scope, $modal, books) {
 
-		$rootScope.tabIndex = 0;
+		$rootScope.tabIndex = 11;
 		$scope.loading = true;
 
 

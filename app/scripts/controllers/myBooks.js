@@ -4,7 +4,7 @@
 angular.module('bookxchangeApp')
 	.controller('myBooksCtrl', function ($rootScope, $scope, books) {
 
-		$rootScope.tabIndex = 1;
+		$rootScope.tabIndex = 22;
 		$scope.loading = true;
 
 		function rowTemplate() {

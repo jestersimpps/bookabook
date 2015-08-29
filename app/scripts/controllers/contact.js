@@ -8,8 +8,8 @@
  * Controller of the bookxchangeApp
  */
 angular.module('bookxchangeApp')
-  .controller('aboutCtrl', function ($rootScope,$scope) {
+	.controller('contactCtrl', function ($rootScope,$scope) {
 
-		$rootScope.tabIndex = 12;
+		$rootScope.tabIndex = 13;
 
-  });
+	});

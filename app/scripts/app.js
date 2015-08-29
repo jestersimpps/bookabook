@@ -39,6 +39,9 @@ angular
 			.when('/about', {
 				templateUrl: 'views/about.html',
 				controller : 'aboutCtrl'
+			}).when('/contact', {
+				templateUrl: 'views/contact.html',
+				controller : 'contactCtrl'
 			})
 			.when('/myBooks', {
 				templateUrl: 'views/myBooks.html',
@@ -82,7 +85,6 @@ angular
 		function ($rootScope, $location, $route, $http, $injector) {
 
 			Parse.initialize('UeK8ftekh5VsU6MzF0aYYhsJzuEbSXqegVJSDnvD', '80gwsTJrWmvsUP9YM1sJ30e2yeBCdQF3UUP7ajcy');
-
 
 
 			if (Parse.User.current()) {

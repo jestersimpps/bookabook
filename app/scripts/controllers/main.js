@@ -8,7 +8,7 @@
  * Controller of the bookxchangeApp
  */
 angular.module('bookxchangeApp')
-	.controller('mainCtrl', function ($rootScope, $scope) {
+	.controller('mainCtrl', function ($rootScope, $scope, $location) {
 
 		$scope.register = function () {
 			console.log('register');
@@ -34,6 +34,7 @@ angular.module('bookxchangeApp')
 					success: function (user) {
 						$rootScope.user = user;
 						$('#registerModal').modal('hide');
+						$location.path('myProfile');
 
 					},
 					error  : function (user, error) {
