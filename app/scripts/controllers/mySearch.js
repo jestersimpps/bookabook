@@ -5,7 +5,7 @@ angular.module('bookxchangeApp')
 	.controller('mySearchCtrl', function ($rootScope, $scope, $modal, books) {
 
 
-		$rootScope.tabIndex = 0;
+		$rootScope.tabIndex = 21;
 		$scope.loading = true;
 
 
