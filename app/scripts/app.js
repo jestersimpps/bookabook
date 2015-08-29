@@ -32,17 +32,41 @@ angular
 	])
 	.config(function ($routeProvider) {
 		$routeProvider
-			.when('/search', {
-				templateUrl: 'views/main.html',
-				controller : 'MainCtrl'
+			.when('/', {
+				templateUrl: 'views/home.html',
+				controller : 'homeCtrl'
 			})
 			.when('/about', {
 				templateUrl: 'views/about.html',
-				controller : 'AboutCtrl'
+				controller : 'aboutCtrl'
 			})
 			.when('/myBooks', {
 				templateUrl: 'views/myBooks.html',
 				controller : 'myBooksCtrl'
+			})
+			.when('/mySearch', {
+				templateUrl: 'views/mySearch.html',
+				controller : 'mySearchCtrl'
+			})
+			.when('/myBorrowedBooks', {
+				templateUrl: 'views/myBorrowedBooks.html',
+				controller : 'myBorrowedBooksCtrl'
+			})
+			.when('/myLentBooks', {
+				templateUrl: 'views/myLentBooks.html',
+				controller : 'myLentBooksCtrl'
+			})
+			.when('/myMessages', {
+				templateUrl: 'views/myMessages.html',
+				controller : 'myMessagesCtrl'
+			})
+			.when('/myProfile', {
+				templateUrl: 'views/myProfile.html',
+				controller : 'myProfileCtrl'
+			})
+			.when('/mySettings', {
+				templateUrl: 'views/mySettings.html',
+				controller : 'mySettingsCtrl'
 			})
 			.otherwise({
 				redirectTo: '/'
@@ -55,18 +79,17 @@ angular
 		'$injector',
 		'users',
 		'books',
-		function ($rootScope, $location, $route, $http, $injector, users) {
+		function ($rootScope, $location, $route, $http, $injector) {
 
 			Parse.initialize('UeK8ftekh5VsU6MzF0aYYhsJzuEbSXqegVJSDnvD', '80gwsTJrWmvsUP9YM1sJ30e2yeBCdQF3UUP7ajcy');
 
+			$rootScope.User = Parse.User.current();
+			console.log($rootScope.User);
 
-			$rootScope.User = {
-				city: "Hadapsar Pune, Ravi Park F902"
-			};
-
-			$rootScope.authenticated = true;
-			if (!$rootScope.authenticated) {
-				$location.path('/login');
+			if ($rootScope.User) {
+				$rootScope.authenticated = true;
+			} else {
+				$rootScope.authenticated = false;
 			}
 
 

@@ -34,57 +34,58 @@
 			<div ng-hide="authenticated">
 				<button type="button"
 				        class="btn btn-warning navbar-btn pull-right"
-								ng-click="logIn()">Sign in
+				        ng-click="logIn()">Sign in
 				</button>
 				<button type="button"
 				        class="btn btn-normal navbar-btn pull-right"
-				        style="margin-right:5px;">Register
+				        style="margin-right:5px;"
+				        ng-click="register()">Register
 				</button>
 			</div>
 			<ul class="nav navbar-nav">
 
-				<li class="active">
+				<li ng-class="{'active': tabIndex == 11}">
 					<a href="#/">Home</a>
 				</li>
-				<li>
+				<li ng-class="{'active': tabIndex == 12}">
 					<a ng-href="#/about">About</a>
 				</li>
-				<li>
-					<a ng-href="#/">Contact</a>
+				<li ng-class="{'active': tabIndex == 13}">
+					<a ng-href="#/contact">Contact</a>
 				</li>
 			</ul>
 		</div>
 	</div>
 </div>
 
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs"
+    ng-show="authenticated">
 	<li role="presentation"
-	    ng-class="{'active': tabIndex == 0}">
-		<a href="#/search">Search</a>
+	    ng-class="{'active': tabIndex == 21}">
+		<a href="#/mySearch">Search</a>
 	</li>
 	<li role="presentation"
-	    ng-class="{'active': tabIndex == 1}"
-	    ng-show="authenticated">
+	    ng-class="{'active': tabIndex == 22}">
 		<a href="#/myBooks">My books</a>
 	</li>
 	<li role="presentation"
-	    ng-class="{'active': tabIndex == 2}"
-	    ng-show="authenticated">
-		<a href="#">Borrowed books</a>
+	    ng-class="{'active': tabIndex == 23}">
+		<a href="#/myBorrowedBooks">Borrowed books</a>
 	</li>
 	<li role="presentation"
-	    ng-class="{'active': tabIndex == 3}"
-	    ng-show="authenticated">
-		<a href="#">Lent books</a>
+	    ng-class="{'active': tabIndex == 24}">
+		<a href="#/myLentBooks">Lent books</a>
 	</li>
 	<li role="presentation"
-	    ng-class="{'active': tabIndex == 4}"
-	    ng-show="authenticated">
-		<a href="#">Messages</a>
+	    ng-class="{'active': tabIndex == 25}">
+		<a href="#/myMessages">Messages</a>
 	</li>
 	<li role="presentation"
-	    ng-class="{'active': tabIndex == 5}"
-	    ng-show="authenticated">
-		<a href="#">Settings</a>
+	    ng-class="{'active': tabIndex == 26}">
+		<a href="#/myProfile">My Profile</a>
+	</li>
+	<li role="presentation"
+	    ng-class="{'active': tabIndex == 27}">
+		<a href="#/mySettings">Settings</a>
 	</li>
 </ul>

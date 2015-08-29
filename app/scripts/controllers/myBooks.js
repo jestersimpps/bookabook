@@ -1,12 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name bookxchangeApp.controller:myBooksCtrl
- * @description
- * # myBooksCtrl
- * Controller of the bookxchangeApp
- */
+
 angular.module('bookxchangeApp')
 	.controller('myBooksCtrl', function ($rootScope, $scope, books) {
 

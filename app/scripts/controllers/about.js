@@ -8,6 +8,6 @@
  * Controller of the bookxchangeApp
  */
 angular.module('bookxchangeApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('aboutCtrl', function ($scope) {
 
   });
