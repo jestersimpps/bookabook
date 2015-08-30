@@ -11,6 +11,7 @@ angular.module('bookxchangeApp')
 			all    : function () {
 				var deferred = $q.defer();
 				var query = new Parse.Query("books");
+				query.limit(100);
 				query.find({
 					success: function (object) {
 						object = angular.toJson(object);

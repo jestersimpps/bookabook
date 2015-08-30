@@ -49,19 +49,23 @@ angular.module('bookxchangeApp')
 			]
 		};
 
-		books.my(Parse.User.current()).then(
-			function (data) {
-				//success
+		getMyBooks()
+		 function getMyBooks(){
+			books.my(Parse.User.current()).then(
+				function (data) {
+					//success
 
-				$scope.books = data;
+					$scope.books = data;
 
-				$scope.gridOptions.data = $scope.books;
-				$rootScope.loading = false;
-			},
-			function (data) {
-				//fall
-				console.log(data);
-			});
+					$scope.gridOptions.data = $scope.books;
+					$rootScope.loading = false;
+				},
+				function (data) {
+					//fall
+					console.log(data);
+				});
+
+		};
 
 
 		$scope.myAppScopeProvider = {
@@ -148,6 +152,7 @@ angular.module('bookxchangeApp')
 					$scope.newBooks = null;
 					$scope.newBookKeyword = null;
 					$('#newBookModal').modal('hide');
+					getMyBooks();
 
 				},
 				function (data) {
