@@ -5,7 +5,7 @@ angular.module('bookxchangeApp')
 	.controller('myBooksCtrl', function ($rootScope, $scope, books) {
 
 		$rootScope.tabIndex = 22;
-		$scope.loading = true;
+		$rootScope.loading = true;
 
 		function rowTemplate() {
 			return '<div ng-dblclick="grid.appScope.rowDblClick(row)" >' +
@@ -14,40 +14,54 @@ angular.module('bookxchangeApp')
 		}
 
 		$scope.gridOptions = {
-			data                    : [],
-			enableFiltering         : true,
-			enableRowSelection      : true,
-			enableRowHeaderSelection: false,
-			multiSelect             : false,
-			appScopeProvider        : $scope.myAppScopeProvider,
-			rowTemplate             : "<div ng-dblclick=\"grid.appScope.showInfo(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>",
-			rowHeight               : 50,
-			columnDefs              : [
+			data                     : [],
+			enableFiltering          : true,
+			enableRowSelection       : true,
+			enableRowHeaderSelection : false,
+			multiSelect              : false,
+			enableHorizontalScrollbar: 2,
+			noUnselect               : true,
+			rowHeight                : 50,
+			rowTemplate              : "<div ng-dblclick=\"grid.appScope.showInfo(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>",
+			columnDefs               : [
 				{
-					name           : 'Image',
-					field          : 'Thumbnail',
+					name           : 'Cover',
+					field          : 'thumbnail',
 					visible        : true,
 					cellTemplate   : '<img style="height:50px;margin-left:10px;" ng-src="{{grid.getCellValue(row, col)}}" lazy-src>',
 					width          : '70',
 					enableFiltering: false,
 					enableSorting  : false
 				},
-				{name: 'Title', field: 'Title', visible: true},
-				{name: 'Genre', field: 'Genre', visible: true},
-				{name: 'Author', field: 'Author', visible: true},
-				{name: 'Publisher', field: 'Publisher', visible: true},
-				{name: 'Date Published', field: 'publishedDate', visible: true},
-				{name: 'ISBN', field: 'ISBN', visible: true},
+				{name: 'Title', field: 'title', visible: true},
+				{name: 'Author', field: 'author', visible: true, width: '150'},
+				{name: 'Genre', field: 'genre', visible: true, width: '150'},
+				{name: 'Publisher', field: 'publisher', visible: true, width: '150'},
+				{name: 'Language', field: 'language', visible: true, width: '100'},
 				{
-					name           : 'Status',
-					field          : 'Available',
+					name           : 'Rating',
+					field          : 'googleRating',
 					visible        : true,
-					cellClass      : 'grid-align',
 					enableFiltering: false,
-					cellTemplate   : '<span style="text-align:center;"class="yes" ng-show="grid.getCellValue(row, col) == true">Available</span><span class="no" ng-show="grid.getCellValue(row, col) == false">Lent out</span>  '
+					cellTemplate   : '<div class="ui-grid-cell-contents"><rating ng-model="row.entity.googleRating"max="5"readonly="isReadonly"></rating></div>',
+					width          : '80'
 				}
 			]
 		};
+
+		books.my(Parse.User.current()).then(
+			function (data) {
+				//success
+
+				$scope.books = data;
+
+				$scope.gridOptions.data = $scope.books;
+				$rootScope.loading = false;
+			},
+			function (data) {
+				//fall
+				console.log(data);
+			});
 
 
 		$scope.myAppScopeProvider = {
@@ -69,7 +83,7 @@ angular.module('bookxchangeApp')
 					$log.info('Modal dismissed at: ' + new Date());
 				});
 			}
-		}
+		};
 
 		$scope.searchNewBooks = function (keyword) {
 			console.log('search');

@@ -29,6 +29,7 @@ angular.module('bookxchangeApp')
 			my     : function (userID) {
 				var deferred = $q.defer();
 				var query = new Parse.Query("books");
+				query.equalTo("userID", userID);
 				query.find({
 					success: function (object) {
 						object = angular.toJson(object);

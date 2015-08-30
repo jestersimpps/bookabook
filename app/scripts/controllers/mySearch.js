@@ -6,7 +6,7 @@ angular.module('bookxchangeApp')
 
 
 		$rootScope.tabIndex = 21;
-		$scope.loading = true;
+		$rootScope.loading = true;
 
 
 		$scope.logIn = function () {
@@ -75,38 +75,6 @@ angular.module('bookxchangeApp')
 		};
 
 
-		$scope.showInfo = function (book) {
-			$scope.loading = true;
-			books.getBookInfo(book.entity.googleID).then(
-				function (data) {
-					//success
-
-					$scope.previewBook = {
-						title       : data.volumeInfo.title,
-						subTitle    : data.volumeInfo.subTitle,
-						author      : (data.volumeInfo.authors) ? data.volumeInfo.authors.join(", ") : 'Unknown',
-						description : data.volumeInfo.description,
-						genre       : (data.volumeInfo.categories) ? data.volumeInfo.categories.join(", ") : 'Unknown',
-						thumbnail   : data.volumeInfo.imageLinks.thumbnail,
-						previewlink : data.volumeInfo.previewLink,
-						pageCount   : data.volumeInfo.pageCount,
-						publisher   : data.volumeInfo.publisher,
-						publishDate : data.volumeInfo.publishedDate,
-						language    : data.volumeInfo.language,
-						googleRating: data.volumeInfo.averageRating,
-						isbn        : (data.volumeInfo.industryIdentifiers) ? data.volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
-					};
-
-					console.log(data);
-					$('#previewModal').modal('show');
-					$scope.loading = false;
-
-				},
-				function (data) {
-					//fall
-					console.log(data);
-				});
-		};
 
 		books.all().then(
 			function (data) {
@@ -115,7 +83,7 @@ angular.module('bookxchangeApp')
 				$scope.books = data;
 
 				$scope.gridOptions.data = $scope.books;
-				$scope.loading = false;
+				$rootScope.loading = false;
 			},
 			function (data) {
 				//fall

@@ -8,7 +8,7 @@
  * Controller of the bookxchangeApp
  */
 angular.module('bookxchangeApp')
-	.controller('mainCtrl', function ($rootScope, $scope, $location) {
+	.controller('mainCtrl', function ($rootScope, $scope, $location, books) {
 
 		$scope.register = function () {
 			$scope.formAlert = null;
@@ -118,7 +118,42 @@ angular.module('bookxchangeApp')
 					$scope.formAlert = "User cancelled the Facebook login or did not fully authorize.";
 				}
 			});
-		}
+		};
+
+
+
+		$scope.showInfo = function (book) {
+			$rootScope.loading = true;
+			books.getBookInfo(book.entity.googleID).then(
+				function (data) {
+					//success
+
+					$scope.previewBook = {
+						title       : data.volumeInfo.title,
+						subTitle    : data.volumeInfo.subTitle,
+						author      : (data.volumeInfo.authors) ? data.volumeInfo.authors.join(", ") : 'Unknown',
+						description : data.volumeInfo.description,
+						genre       : (data.volumeInfo.categories) ? data.volumeInfo.categories.join(", ") : 'Unknown',
+						thumbnail   : data.volumeInfo.imageLinks.thumbnail,
+						previewlink : data.volumeInfo.previewLink,
+						pageCount   : data.volumeInfo.pageCount,
+						publisher   : data.volumeInfo.publisher,
+						publishDate : data.volumeInfo.publishedDate,
+						language    : data.volumeInfo.language,
+						googleRating: data.volumeInfo.averageRating,
+						isbn        : (data.volumeInfo.industryIdentifiers) ? data.volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
+					};
+
+					console.log(data);
+					$('#previewModal').modal('show');
+					$rootScope.loading = false;
+
+				},
+				function (data) {
+					//fall
+					console.log(data);
+				});
+		};
 
 
 	});
