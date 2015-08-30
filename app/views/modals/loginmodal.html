@@ -5,40 +5,82 @@
      tabindex="-1"
      role="dialog"
      aria-labelledby="loginModal">
-	<div class="modal-dialog  modal-lg"
+	<div class="modal-dialog "
 	     role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button"
-				        class="close"
-				        data-dismiss="modal"
-				        aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4>
-					Register
-				</h4>
-			</div>
-			<div class="modal-body">
+			<form name="loginForm"
+			      ng-submit="logInUser(loginForm)"
+			      novalidate>
+				<div class="modal-header">
+					<button type="button"
+					        class="close"
+					        data-dismiss="modal"
+					        aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4>
+						Log in
+					</h4>
+				</div>
+				<div class="modal-body">
+					
+					<!-- USERNAME -->
+					<div class="form-group"
+					     ng-class="{ 'has-error' : loginForm.username.$invalid && (loginForm.username.$dirty || submitted)}">
+						<label>Username</label>
+						<input type="text"
+						       name="username"
+						       class="form-control"
+						       ng-model="existingUser.username"
+						       placeholder="Your Username"
 
-			</div>
-			<div class="modal-footer">
-				<button type="button"
-				        class="btn btn-primary"
-				        data-dismiss="modal">
-					<i class="fa fa-facebook"></i>
-					Register using Facebook
-				</button>
-				<button type="button"
-				        class="btn btn-info"
-				        data-dismiss="modal">Login
-				</button>
-				<button type="button"
-				        class="btn btn-danger"
-				        data-dismiss="modal">Close
-				</button>
+						       ng-required="true">
+						<p ng-show="loginForm.username.$error.required && (loginForm.username.$dirty || submitted)"
+						   class="help-block">You username is required.</p>
 
-			</div>
+					</div>
+
+					<!-- PASSWORD -->
+					<div class="form-group"
+					     ng-class="{ 'has-error' : loginForm.password.$invalid && (loginForm.password.$dirty || submitted)}">
+						<label>Password</label>
+						<input type="Password"
+						       name="password"
+						       class="form-control"
+						       ng-model="existingUser.password"
+						       placeholder="Your Password"
+						       ng-required="true">
+						<p ng-show="loginForm.password.$error.required && (loginForm.password.$dirty || submitted)"
+						   class="help-block">Your password is required.</p>
+					</div>
+
+
+
+					<div class="alert alert-danger"
+					     role="alert"
+					     ng-show="formAlert">{{formAlert}}
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button"
+					        class="btn btn-primary"
+					        data-dismiss="modal"
+									ng-click="facebookLogin()">
+						<i class="fa fa-facebook"></i>
+						Log in using Facebook
+					</button>
+					<button type="submit"
+					        class="btn btn-info"
+					        ng-disabled="!loginForm.$valid">Log in
+					</button>
+					<button type="button"
+					        class="btn btn-danger"
+					        data-dismiss="modal">Close
+					</button>
+
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

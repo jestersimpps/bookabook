@@ -80,6 +80,26 @@ angular.module('bookxchangeApp')
 
 				return deferred.promise;
 
+			},
+
+			//get one book info
+			getBookInfo: function (data) {
+				var deferred = $q.defer();
+				var request = $http({
+					method : 'GET',
+					url    : 'https://www.googleapis.com/books/v1/volumes/' + data,
+					headers: {}
+				});
+				request
+					.success(function (result) {
+						deferred.resolve(result);
+					})
+					.error(function (error) {
+						deferred.reject(error);
+					});
+
+				return deferred.promise;
+
 			}
 
 

@@ -9,5 +9,8 @@ angular.module('bookxchangeApp')
 
 			//get all users
 
+
+			//get one user
+
 		};
 	});

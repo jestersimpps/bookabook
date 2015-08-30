@@ -19,7 +19,7 @@
 		<div class="col-sm-9 searchbar">
 			<div class="form-group">
 				<label for="inputfield2"
-				       class="col-sm-9 control-label">Search for books near {{User.city}}
+				       class="col-sm-9 control-label">Search for books near you
 				</label>
 				<div class="col-sm-12 controls">
 					<form ng-submit="showBook(keyword)">
@@ -35,7 +35,7 @@
 								        class="btn btn-primary"
 								        type="submit"
 								        data-loading-text="Loading...">Search
-								</button>
+								</button >
 							</span>
 						</div>
 					</form>
@@ -51,7 +51,8 @@
 	     ui-grid="gridOptions"
 	     ui-grid-selection
 	     ui-grid-resize-columns
-	     ui-grid-paging>
+	     ui-grid-paging
+	     ui-grid-auto-resize>
 	</div>
 	<div class="loadingGrid"
 	     ng-show="loading"

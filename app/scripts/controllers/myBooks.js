@@ -109,7 +109,8 @@ angular.module('bookxchangeApp')
 		$scope.addToCollection = function (book) {
 
 			var newBook = {
-				//userID     : Parse.user.current(),
+				userID      : Parse.User.current(),
+				userName    : Parse.User.current().attributes.username,
 				googleID    : book.id,
 				title       : book.volumeInfo.title,
 				subTitle    : book.volumeInfo.subTitle,

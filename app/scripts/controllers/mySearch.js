@@ -35,16 +35,17 @@ angular.module('bookxchangeApp')
 					enableSorting  : false
 				},
 				{name: 'Title', field: 'title', visible: true},
-				{name: 'Genre', field: 'genre', visible: true},
+				{name: 'Genre', field: 'genre', visible: true, width: '150'},
 				{name: 'Author', field: 'author', visible: true},
 				{name: 'Publisher', field: 'publisher', visible: true},
-				{name: 'Language', field: 'language', visible: true},
+				{name: 'Language', field: 'language', visible: true, width: '100'},
 				{
 					name           : 'Rating',
 					field          : 'googleRating',
 					visible        : true,
 					enableFiltering: false,
-					cellTemplate   : '<div class="ui-grid-cell-contents"><rating ng-model="row.entity.googleRating"max="5"readonly="isReadonly"></rating></div>'
+					cellTemplate   : '<div class="ui-grid-cell-contents"><rating ng-model="row.entity.googleRating"max="5"readonly="isReadonly"></rating></div>',
+					width          : '80'
 				},
 				{
 					name           : 'Availability',
@@ -52,46 +53,48 @@ angular.module('bookxchangeApp')
 					visible        : true,
 					cellClass      : 'grid-align',
 					enableFiltering: false,
-					cellTemplate   : '<span style="text-align:center;"class="yes" ng-show="grid.getCellValue(row, col) == true">Available</span><span class="no" ng-show="grid.getCellValue(row, col) == false">Lent out</span>  '
+					cellTemplate   : '<span style="text-align:center;"class="yes" ng-show="grid.getCellValue(row, col) == true">Available</span><span class="no" ng-show="grid.getCellValue(row, col) == false">Lent out</span>  ',
+					width        : '100'
 				},
 				{
 					name           : 'User',
-					field          : 'userID',
+					field          : 'userName',
 					visible        : true,
-					enableFiltering: true
+					enableFiltering: true,
+					cellTemplate   : '<span class="grid-align"><a href="#/">{{grid.getCellValue(row, col)}}</a></span>',
+					width          : '110'
 				},
 				{
 					name           : 'Actions',
 					visible        : true,
 					enableFiltering: false,
-					width          : '150',
-					cellTemplate   : '<div class="ui-grid-cell-contents"><button class="btn btn-primary" ng-click="grid.appScope.showInfo(row)">Open</button><button style="margin-left: 5px;" class="btn btn-info" ng-click="grid.appScope.borrowBook(row)">Borrow</button></div>'
+					width          : '135',
+					cellTemplate   : '<div class="ui-grid-cell-contents"><button class="btn btn-primary" ng-click="grid.appScope.showInfo(row)">Info</button><button style="margin-left: 5px;" class="btn btn-info" ng-click="grid.appScope.borrowBook(row)">Borrow</button></div>'
 				},
 			]
 		};
 
+
 		$scope.showInfo = function (book) {
 			$scope.loading = true;
-			books.getInfo(book.entity.googleID).then(
+			books.getBookInfo(book.entity.googleID).then(
 				function (data) {
 					//success
 
-					var index = 0;
-
 					$scope.previewBook = {
-						title       : data.items[index].volumeInfo.title,
-						subTitle    : data.items[index].volumeInfo.subTitle,
-						author      : (data.items[index].volumeInfo.authors) ? data.items[index].volumeInfo.authors.join(", ") : 'Unknown',
-						description : data.items[index].volumeInfo.description,
-						genre       : (data.items[index].volumeInfo.categories) ? data.items[index].volumeInfo.categories.join(", ") : 'Unknown',
-						thumbnail   : data.items[index].volumeInfo.imageLinks.thumbnail,
-						previewlink : data.items[index].volumeInfo.previewLink,
-						pageCount   : data.items[index].volumeInfo.pageCount,
-						publisher   : data.items[index].volumeInfo.publisher,
-						publishDate : data.items[index].volumeInfo.publishedDate,
-						language    : data.items[index].volumeInfo.language,
-						googleRating: data.items[index].volumeInfo.averageRating,
-						isbn        : (data.items[index].volumeInfo.industryIdentifiers) ? data.items[index].volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
+						title       : data.volumeInfo.title,
+						subTitle    : data.volumeInfo.subTitle,
+						author      : (data.volumeInfo.authors) ? data.volumeInfo.authors.join(", ") : 'Unknown',
+						description : data.volumeInfo.description,
+						genre       : (data.volumeInfo.categories) ? data.volumeInfo.categories.join(", ") : 'Unknown',
+						thumbnail   : data.volumeInfo.imageLinks.thumbnail,
+						previewlink : data.volumeInfo.previewLink,
+						pageCount   : data.volumeInfo.pageCount,
+						publisher   : data.volumeInfo.publisher,
+						publishDate : data.volumeInfo.publishedDate,
+						language    : data.volumeInfo.language,
+						googleRating: data.volumeInfo.averageRating,
+						isbn        : (data.volumeInfo.industryIdentifiers) ? data.volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
 					};
 
 					console.log(data);
@@ -126,8 +129,6 @@ angular.module('bookxchangeApp')
 
 
 		};
-
-
 
 
 	});

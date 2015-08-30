@@ -16,22 +16,22 @@
 			<a class="navbar-brand"
 			   href="#/">
 				<span style="color:white;">book
-					<span style="color:#F9BB2B;font-size:1.5em;">x</span>
-				                           change
+					<span style="color:#F9BB2B;font-size:1.5em;">A</span>
+				                           book
 				</span>
 			</a>
 		</div>
 
 		<div class="collapse navbar-collapse"
 		     id="js-navbar-collapse">
-			<div ng-show="authenticated">
+			<div ng-show="currentUser">
 				<p class="navbar-text navbar-right">Signed in as
 					<a href="#/myProfile"
-					   class="navbar-link">{{currentUser.username}}
+					   class="navbar-link">{{currentUser.screenName}}
 					</a>
 				</p>
 			</div>
-			<div ng-hide="authenticated">
+			<div ng-hide="currentUser">
 				<button type="button"
 				        class="btn btn-warning navbar-btn pull-right"
 				        ng-click="logIn()">Sign in
@@ -59,7 +59,7 @@
 </div>
 
 <ul class="nav nav-tabs"
-    ng-show="authenticated">
+    ng-show="currentUser">
 	<li role="presentation"
 	    ng-class="{'active': tabIndex == 21}">
 		<a href="#/mySearch">Search</a>
