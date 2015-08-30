@@ -34,10 +34,10 @@ angular.module('bookxchangeApp')
 					enableFiltering: false,
 					enableSorting  : false
 				},
-				{name: 'Title', field: 'title', visible: true},
+				{name: 'Title', field: 'title', visible: true,width:'200'},
+				{name: 'Author', field: 'author', visible: true, width: '150'},
 				{name: 'Genre', field: 'genre', visible: true, width: '150'},
-				{name: 'Author', field: 'author', visible: true},
-				{name: 'Publisher', field: 'publisher', visible: true},
+				{name: 'Publisher', field: 'publisher', visible: true,width:'150'},
 				{name: 'Language', field: 'language', visible: true, width: '100'},
 				{
 					name           : 'Rating',

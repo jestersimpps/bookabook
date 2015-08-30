@@ -53,15 +53,16 @@
 							                                 {{previewBook.publishDate}}
 							</p>
 
-							<p>{{previewBook.description}}
+							<p ng-bind-html="previewBook.description">
 							</p>
 						</div>
 
 					</li>
-					<hr/>
+
 				</ul>
 			</div>
 			<div class="modal-footer">
+				<hr/>
 				<a ng-show="previewBook.previewlink"
 				   type="button"
 				   class="btn btn-primary"

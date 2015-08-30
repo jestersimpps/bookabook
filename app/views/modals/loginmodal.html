@@ -26,31 +26,31 @@
 					
 					<!-- USERNAME -->
 					<div class="form-group"
-					     ng-class="{ 'has-error' : loginForm.username.$invalid && (loginForm.username.$dirty || submitted)}">
+					     ng-class="{ 'has-error' : loginForm.lgoinusername.$invalid && (loginForm.lgoinusername.$dirty || submitted)}">
 						<label>Username</label>
 						<input type="text"
-						       name="username"
+						       name="lgoinusername"
 						       class="form-control"
 						       ng-model="existingUser.username"
 						       placeholder="Your Username"
 
 						       ng-required="true">
-						<p ng-show="loginForm.username.$error.required && (loginForm.username.$dirty || submitted)"
+						<p ng-show="loginForm.lgoinusername.$error.required && (loginForm.lgoinusername.$dirty || submitted)"
 						   class="help-block">You username is required.</p>
 
 					</div>
 
 					<!-- PASSWORD -->
 					<div class="form-group"
-					     ng-class="{ 'has-error' : loginForm.password.$invalid && (loginForm.password.$dirty || submitted)}">
+					     ng-class="{ 'has-error' : loginForm.loginpassword.$invalid && (loginForm.loginpassword.$dirty || submitted)}">
 						<label>Password</label>
 						<input type="Password"
-						       name="password"
+						       name="loginpassword"
 						       class="form-control"
 						       ng-model="existingUser.password"
 						       placeholder="Your Password"
 						       ng-required="true">
-						<p ng-show="loginForm.password.$error.required && (loginForm.password.$dirty || submitted)"
+						<p ng-show="loginForm.loginpassword.$error.required && (loginForm.loginpassword.$dirty || submitted)"
 						   class="help-block">Your password is required.</p>
 					</div>
 
