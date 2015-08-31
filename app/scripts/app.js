@@ -67,10 +67,6 @@ angular
 				templateUrl: 'views/myProfile.html',
 				controller : 'myProfileCtrl'
 			})
-			.when('/mySettings', {
-				templateUrl: 'views/mySettings.html',
-				controller : 'mySettingsCtrl'
-			})
 			.otherwise({
 				redirectTo: '/'
 			});
@@ -115,8 +111,15 @@ angular
 				console.log($rootScope.currentUser);
 			} else {
 				$rootScope.currentUser = null;
+				$location.path('/');
 			}
 
+
+			new WOW({mobile: false}).init();
+			$rootScope.$on('$routeChangeStart', function (next, current) {
+				//when the view changes sync wow
+				new WOW({mobile: false}).sync();
+			});
 
 		}
 

@@ -14,6 +14,8 @@ angular.module('bookxchangeApp')
 		$scope.loading = true;
 
 
+
+
 		$scope.logIn = function () {
 			$rootScope.authenticated = true;
 		};

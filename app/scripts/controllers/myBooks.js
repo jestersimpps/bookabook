@@ -33,11 +33,20 @@ angular.module('bookxchangeApp')
 					enableFiltering: false,
 					enableSorting  : false
 				},
-				{name: 'Title', field: 'title', visible: true, minwidth: '200'},
+				{name: 'Title', field: 'title', visible: true, minWidth: '200'},
 				{name: 'Author', field: 'author', visible: true, width: '150'},
 				{name: 'Genre', field: 'genre', visible: true, width: '150'},
 				{name: 'Publisher', field: 'publisher', visible: true, width: '150'},
 				{name: 'Language', field: 'language', visible: true, width: '100'},
+				{
+					name           : 'Status',
+					field          : 'status',
+					visible        : true,
+					cellClass      : 'grid-align',
+					enableFiltering: false,
+					cellTemplate   : '<span style="text-align:center;"class="yes" ng-show="grid.getCellValue(row, col) == true">Available</span><span class="no" ng-show="grid.getCellValue(row, col) == false">Lent out</span>  ',
+					width        : '100'
+				},
 				{
 					name           : 'Rating',
 					field          : 'googleRating',

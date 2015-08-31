@@ -7,6 +7,10 @@ $fa-font-path: "../fonts";
 @import "Bootflat/bootflat/scss/bootflat.scss";
 // endbower
 
+@import "variables";
+@import "even";
+@import "odd";
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -44,6 +48,7 @@ body {
 .navbar {
   margin-bottom: 0;
 }
+
 
 .footer {
   position: absolute;
@@ -177,5 +182,8 @@ body {
   }
   .navbar {
     margin-bottom: 0;
+  }
+  .container{
+    max-width: 1170px;
   }
 }

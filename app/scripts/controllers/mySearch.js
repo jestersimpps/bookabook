@@ -34,7 +34,7 @@ angular.module('bookxchangeApp')
 					enableFiltering: false,
 					enableSorting  : false
 				},
-				{name: 'Title', field: 'title', visible: true,minwidth:'200'},
+				{name: 'Title', field: 'title', visible: true,minWidth:'200'},
 				{name: 'Author', field: 'author', visible: true, width: '150'},
 				{name: 'Genre', field: 'genre', visible: true, width: '150'},
 				{name: 'Publisher', field: 'publisher', visible: true,width:'150'},
@@ -48,8 +48,8 @@ angular.module('bookxchangeApp')
 					width          : '80'
 				},
 				{
-					name           : 'Availability',
-					field          : 'Available',
+					name           : 'Status',
+					field          : 'status',
 					visible        : true,
 					cellClass      : 'grid-align',
 					enableFiltering: false,

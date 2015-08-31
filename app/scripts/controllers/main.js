@@ -96,10 +96,21 @@ angular.module('bookxchangeApp')
 						$rootScope.currentUser = user.attributes;
 						//fetch the facebook name of the user
 						FB.api('/me', function (response) {
-							Parse.User.current().set("screenName",response.name);
+							console.log(response)
+							Parse.User.current().set("screenName", response.name);
 							Parse.User.current().save();
 						});
+						//FB.api(
+						//	"/" + Parse.User.current().userName + "/picture",
+						//	function (response) {
+						//		console.log(response);
+						//		if (response && !response.error) {
+						//			Parse.User.current().set("thumbnail", response.data.url);
+						//		}
+						//	}
+						//);
 						$('#registerModal').modal('hide');
+						;
 						$location.path('myProfile');
 					} else {
 						//user existed
@@ -119,7 +130,6 @@ angular.module('bookxchangeApp')
 				}
 			});
 		};
-
 
 
 		$scope.showInfo = function (book) {
@@ -154,9 +164,6 @@ angular.module('bookxchangeApp')
 					console.log(data);
 				});
 		};
-
-
-
 
 
 	});

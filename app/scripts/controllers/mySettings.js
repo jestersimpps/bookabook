@@ -11,5 +11,11 @@ angular.module('bookxchangeApp')
 			Parse.User.logOut();
 			$rootScope.currentUser = null;
 			$location.path('home');
-		}
+		};
+
+
+		$scope.profileTabIndex = 2;
+
+
+
 	});
