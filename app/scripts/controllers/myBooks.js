@@ -173,8 +173,8 @@ angular.module('bookxchangeApp')
 						},
 						error  : function (user, error) {
 
-							$scope.formAlert = error.message;
-
+							//fall
+							console.log(data);
 						}
 					});
 

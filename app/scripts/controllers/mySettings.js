@@ -59,6 +59,7 @@ angular.module('bookxchangeApp')
 
 			Parse.User.current().save(null, {
 				success: function (user) {
+					$rootScope.currentUser = user;
 					$btn.button('reset')
 				},
 				error  : function (user, error) {
