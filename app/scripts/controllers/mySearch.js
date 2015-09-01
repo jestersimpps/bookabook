@@ -97,6 +97,12 @@ angular.module('bookxchangeApp')
 		};
 
 
+		function setHeight() {
+			//$scope.height = (($scope.gridOptions.data.length * 50) + 50);
+			$scope.height = window.innerHeight -190;
+		}
+
+
 		books.all().then(
 			function (data) {
 				//success
@@ -105,6 +111,7 @@ angular.module('bookxchangeApp')
 
 				$scope.gridOptions.data = $scope.books;
 				$rootScope.loading = false;
+				setHeight();
 			},
 			function (data) {
 				//fall
