@@ -8,6 +8,19 @@ angular.module('bookxchangeApp')
 		$rootScope.tabIndex = 21;
 		$rootScope.loading = true;
 
+		$scope.searchRadiusOptions = {
+			options : [
+				{id: '1 km', value: 1000},
+				{id: '5 km', value: 5000},
+				{id: '10 km', value: 10000},
+				{id: '20 km', value: 20000},
+				{id: '30 km', value: 30000},
+				{id: '50 km', value: 50000},
+				{id: '100 km', value: 100000}
+			],
+			selected: {id: '10 km', value: 10000}
+		};
+
 
 		$scope.logIn = function () {
 			$rootScope.authenticated = true;

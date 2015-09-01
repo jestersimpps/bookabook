@@ -2,17 +2,15 @@
 	<div class="row topbar">
 		<div class="col-sm-3 location">
 			<div class="form-group">
-				<label for="city"
+				<label for="searchradius"
 				       class="col-sm-12 control-label">Radius (km)
 				</label>
 				<div class="col-sm-12 controls">
-					<select class="form-control" ng-model="searchRadius">
-						<option>1 km</option>
-						<option>5 km</option>
-						<option>10 km</option>
-						<option>20 km</option>
-						<option>50 km</option>
-					</select>
+					<select class="form-control"
+					        name="searchradius"
+					        id="searchradius"
+					        ng-options="option.id for option in searchRadiusOptions.options track by option.value"
+					        ng-model="searchRadiusOptions.selected"></select>
 				</div>
 			</div>
 		</div>
@@ -35,7 +33,7 @@
 								        class="btn btn-primary"
 								        type="submit"
 								        data-loading-text="Loading...">Search
-								</button >
+								</button>
 							</span>
 						</div>
 					</form>
