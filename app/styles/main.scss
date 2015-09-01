@@ -137,6 +137,10 @@ body {
   animation: spin 1000ms infinite linear;
 }
 
+
+.angular-google-map-container { height: 400px; }
+
+
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);

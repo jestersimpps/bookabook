@@ -30,7 +30,7 @@ angular.module('bookxchangeApp')
 				Parse.User.logIn($scope.existingUser.username, $scope.existingUser.password, {
 					success: function (user) {
 						$scope.formAlert = null;
-						$rootScope.currentUser = user.attributes;
+						$rootScope.currentUser = user;
 						$('#loginModal').modal('hide');
 						$location.path('mySearch');
 
@@ -55,16 +55,22 @@ angular.module('bookxchangeApp')
 			if (form.$valid) {
 
 				var user = new Parse.User();
-				user.set("user", $scope.newUser.name);
 				user.set("username", $scope.newUser.username);
 				user.set("screenName", $scope.newUser.username);
 				user.set("password", $scope.newUser.password);
 				user.set("email", $scope.newUser.email);
 
+				user.set("totalBooks", 0);
+				user.set("totalBorrowed", 0);
+				user.set("totalLent", 0);
+				user.set("friends", []);
+				user.set("followers", []);
+
+
 				user.signUp(null, {
 					success: function (user) {
 						$scope.formAlert = null;
-						$rootScope.currentUser = user.attributes;
+						$rootScope.currentUser = user;
 						$('#registerModal').modal('hide');
 						$location.path('myProfile');
 
@@ -93,11 +99,17 @@ angular.module('bookxchangeApp')
 						//new user
 
 						$scope.formAlert = null;
-						$rootScope.currentUser = user.attributes;
+						$rootScope.currentUser = user;
 						//fetch the facebook name of the user
 						FB.api('/me', function (response) {
 							console.log(response)
 							Parse.User.current().set("screenName", response.name);
+							Parse.User.current().set("totalBooks", 0);
+							Parse.User.current().set("totalBorrowed", 0);
+							Parse.User.current().set("totalLent", 0);
+							Parse.User.current().set("friends", []);
+							Parse.User.current().set("followers", []);
+
 							Parse.User.current().save();
 						});
 						//FB.api(
@@ -116,7 +128,7 @@ angular.module('bookxchangeApp')
 						//user existed
 
 						$scope.formAlert = null;
-						$rootScope.currentUser = user.attributes;
+						$rootScope.currentUser = user;
 						$('#registerModal').modal('hide');
 						$location.path('myProfile');
 					}
@@ -129,6 +141,13 @@ angular.module('bookxchangeApp')
 					$scope.formAlert = "User cancelled the Facebook login or did not fully authorize.";
 				}
 			});
+		};
+
+		$scope.logOut = function () {
+			console.log('logout');
+			Parse.User.logOut();
+			$rootScope.currentUser = null;
+			$location.path('home');
 		};
 
 

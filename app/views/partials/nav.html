@@ -27,7 +27,7 @@
 			<div ng-show="currentUser">
 				<p class="navbar-text navbar-right">Signed in as
 					<a href="#/myProfile"
-					   class="navbar-link">{{currentUser.screenName}}
+					   class="navbar-link">{{currentUser.attributes.screenName}}
 					</a>
 				</p>
 			</div>
@@ -70,11 +70,11 @@
 	</li>
 	<li role="presentation"
 	    ng-class="{'active': tabIndex == 23}">
-		<a href="#/myBorrowedBooks">Borrowed books</a>
+		<a href="#/myBorrowedBooks">My Borrowed books</a>
 	</li>
 	<li role="presentation"
 	    ng-class="{'active': tabIndex == 24}">
-		<a href="#/myLentBooks">Lent books</a>
+		<a href="#/myLentBooks">My Lent books</a>
 	</li>
 	<li role="presentation"
 	    ng-class="{'active': tabIndex == 26}">

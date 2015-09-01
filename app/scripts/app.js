@@ -28,7 +28,8 @@ angular
 		'ui.grid.moveColumns',
 		'ui.grid.pinning',
 		'ui.bootstrap',
-		'ui.grid.autoResize'
+		'ui.grid.autoResize',
+		'uiGmapgoogle-maps'
 	])
 	.config(function ($routeProvider) {
 		$routeProvider
@@ -107,7 +108,7 @@ angular
 
 			if (Parse.User.current()) {
 
-				$rootScope.currentUser = Parse.User.current().attributes;
+				$rootScope.currentUser = Parse.User.current();
 				console.log($rootScope.currentUser);
 			} else {
 				$rootScope.currentUser = null;

@@ -24,19 +24,6 @@
 				</div>
 				<div class="modal-body">
 
-					<!-- NAME -->
-					<div class="form-group"
-					     ng-class="{ 'has-error' : registerForm.name.$invalid && (registerForm.name.$dirty || submitted)}">
-						<label>Name</label>
-						<input type="text"
-						       name="name"
-						       class="form-control"
-						       ng-model="newUser.name"
-						       placeholder="Your Name"
-						       ng-required="true">
-						<p ng-show="registerForm.name.$error.required && (registerForm.name.$dirty || submitted)"
-						   class="help-block">You name is required.</p>
-					</div>
 
 					<!-- USERNAME -->
 					<div class="form-group"
