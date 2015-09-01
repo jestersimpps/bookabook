@@ -77,7 +77,7 @@ angular.module('bookxchangeApp')
 					},
 					error  : function (user, error) {
 
-						$scope.formAlert = "Error: " + error.code + " " + error.message;
+						$scope.formAlert = error.message;
 
 					}
 				});

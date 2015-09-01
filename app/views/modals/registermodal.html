@@ -19,7 +19,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4>
-						Hey Booklover, register here and experience the awesomeness of Book-A-Book
+						Registration
 					</h4>
 				</div>
 				<div class="modal-body">
@@ -46,6 +46,24 @@
 						<p ng-show="registerForm.username.$error.maxlength && (registerForm.username.$dirty || submitted)"
 						   class="help-block">Username is too long.</p>
 					</div>
+
+					<!-- EMAIL -->
+					<div class="form-group"
+					     ng-class="{ 'has-error' : registerForm.email.$invalid && (registerForm.email.$dirty || submitted)}">
+						<label>Email</label>
+						<input type="email"
+						       name="email"
+						       class="form-control"
+						       ng-model="newUser.email"
+						       placeholder="Your Email Address"
+						       ng-required="true">
+						<p ng-show="registerForm.email.$error.required && (registerForm.email.$dirty || submitted)"
+						   class="help-block">Email is required.</p>
+
+						<p ng-show="registerForm.email.$error.email && (registerForm.email.$dirty || submitted)"
+						   class="help-block">Enter a valid email.</p>
+					</div>
+
 
 					<!-- PASSWORD -->
 					<div class="form-group"
@@ -79,22 +97,6 @@
 						   class="help-block">Your passwords don't match.</p>
 					</div>
 
-					<!-- EMAIL -->
-					<div class="form-group"
-					     ng-class="{ 'has-error' : registerForm.email.$invalid && (registerForm.email.$dirty || submitted)}">
-						<label>Email</label>
-						<input type="email"
-						       name="email"
-						       class="form-control"
-						       ng-model="newUser.email"
-						       placeholder="Your Email Address"
-						       ng-required="true">
-						<p ng-show="registerForm.email.$error.required && (registerForm.email.$dirty || submitted)"
-						   class="help-block">Email is required.</p>
-
-						<p ng-show="registerForm.email.$error.email && (registerForm.email.$dirty || submitted)"
-						   class="help-block">Enter a valid email.</p>
-					</div>
 
 					<div class="alert alert-danger"
 					     role="alert"

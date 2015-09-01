@@ -58,7 +58,7 @@ angular.module('bookxchangeApp')
 			]
 		};
 
-		getMyBooks()
+		getMyBooks();
 		function getMyBooks() {
 			books.my(Parse.User.current()).then(
 				function (data) {
@@ -74,7 +74,7 @@ angular.module('bookxchangeApp')
 					console.log(data);
 				});
 
-		};
+		}
 
 
 		$scope.myAppScopeProvider = {

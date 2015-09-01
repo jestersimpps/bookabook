@@ -2,19 +2,22 @@
 <div class="container"
      ng-controller="myProfileCtrl">
 	<div class="row">
-		<div class="col-sm-10"><h1>{{ currentUser.attributes.screenName }}</h1></div>
+		<div class="col-sm-10"><h1>{{ currentUser.attributes.screenName }}</h1>
+			<button class="btn btn-danger"
+			        type="reset"
+			        ng-click="logOut()">
+				<i class="fa fa-sign-out"></i> Sign out
+			</button></div>
 		<div class="col-sm-2">
+			<br/>
+			<br/>
 			<a href="/users"
 			   class="pull-right">
 				<img title="profile image"
 				     class="img-circle img-responsive"
 				     src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100">
 			</a>
-			<button class="btn btn-danger pull-right"
-			        type="reset"
-			        ng-click="logOut()">
-				Sign out
-			</button>
+
 		</div>
 	</div>
 	<div class="row">

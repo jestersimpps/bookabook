@@ -70,7 +70,7 @@ angular.module('bookxchangeApp')
 					enableFiltering: false,
 					width          : '135',
 					cellTemplate   : '<div class="ui-grid-cell-contents"><button class="btn btn-primary" ng-click="grid.appScope.showInfo(row)">Info</button><button style="margin-left: 5px;" class="btn btn-info" ng-click="grid.appScope.borrowBook(row)">Borrow</button></div>'
-				},
+				}
 			]
 		};
 

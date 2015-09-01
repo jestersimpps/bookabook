@@ -76,7 +76,8 @@
 								<p>
 									<span style="color:#DC4750;"
 									      class="pull-right"
-									      ng-if="book.volumeInfo.industryIdentifiers">ISBN: {{book.volumeInfo.industryIdentifiers[0].identifier}}
+									      ng-if="book.volumeInfo.industryIdentifiers">ISBN:
+									                                                  {{book.volumeInfo.industryIdentifiers[0].identifier}}
 									</span>
 								</p>
 								<p ng-if="book.volumeInfo.publisher">Published by {{book.volumeInfo.publisher}}
@@ -91,7 +92,7 @@
 								        class="btn btn-sm btn-info pull-right"
 								        ng-click="addToCollection(book)">
 									<i class="fa fa-plus"></i>
-									This is the book i own
+									This is the book I own
 								</button>
 								<a ng-show="book.volumeInfo.previewLink"
 								   type="button"
