@@ -67,7 +67,7 @@ angular.module('bookxchangeApp')
 					cellClass      : 'grid-align',
 					enableFiltering: false,
 					cellTemplate   : '<span class="grid-align"><a href="#/">{{grid.getCellValue(row, col)}}</a></span>',
-					width          : '100'
+					width          : '300'
 				},
 				{
 					name           : 'Status',

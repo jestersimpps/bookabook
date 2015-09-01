@@ -160,10 +160,24 @@ angular.module('bookxchangeApp')
 
 					//logging
 					console.log(data);
-					$scope.newBooks = null;
-					$scope.newBookKeyword = null;
-					$('#newBookModal').modal('hide');
-					getMyBooks();
+					// recalculate number of user books
+					Parse.User.current().set("totalBooks", $rootScope.currentUser.attributes.totalBooks + 1);
+					Parse.User.current().save(null, {
+						success: function (user) {
+							$rootScope.currentUser = user;
+							$scope.newBooks = null;
+							$scope.newBookKeyword = null;
+							$('#newBookModal').modal('hide');
+							getMyBooks();
+
+						},
+						error  : function (user, error) {
+
+							$scope.formAlert = error.message;
+
+						}
+					});
+
 
 				},
 				function (data) {
