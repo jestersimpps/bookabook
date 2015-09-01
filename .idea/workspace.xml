@@ -27,11 +27,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.48187634">
       <split-first>
         <leaf>
-          <file leaf-file-name="myProfile.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="myProfile.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/views/myProfile.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.625" vertical-offset="5286" max-vertical-offset="6480">
-                  <caret line="355" column="0" selection-start-line="355" selection-start-column="0" selection-end-line="355" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.9131944" vertical-offset="5166" max-vertical-offset="6540">
+                  <caret line="397" column="20" selection-start-line="397" selection-start-column="20" selection-end-line="397" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -89,11 +89,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="newbookmodal.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="newbookmodal.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/modals/newbookmodal.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4201389" vertical-offset="1182" max-vertical-offset="2115">
-                  <caret line="103" column="40" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
+                <state vertical-scroll-proportion="-28.5" vertical-offset="1206" max-vertical-offset="2115">
+                  <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -203,8 +203,8 @@
           <file leaf-file-name="mySettings.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mySettings.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6925676" vertical-offset="345" max-vertical-offset="1275">
-                  <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+                <state vertical-scroll-proportion="0.7601351" vertical-offset="420" max-vertical-offset="1335">
+                  <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -292,12 +292,12 @@
         <option value="$PROJECT_DIR$/app/views/modals/registermodal.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/app/views/myBooks.html" />
-        <option value="$PROJECT_DIR$/app/views/modals/newbookmodal.html" />
-        <option value="$PROJECT_DIR$/app/views/myProfile.html" />
         <option value="$PROJECT_DIR$/app/views/mySearch.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/mySearch.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/myBooks.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/mySettings.js" />
+        <option value="$PROJECT_DIR$/app/views/modals/newbookmodal.html" />
+        <option value="$PROJECT_DIR$/app/views/myProfile.html" />
       </list>
     </option>
   </component>
@@ -1006,14 +1006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/myProfile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.625" vertical-offset="5286" max-vertical-offset="6480">
-          <caret line="355" column="0" selection-start-line="355" selection-start-column="0" selection-end-line="355" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/modals/registermodal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="2070">
@@ -1042,14 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.75" vertical-offset="36" max-vertical-offset="930">
           <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/modals/newbookmodal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4201389" vertical-offset="1182" max-vertical-offset="2115">
-          <caret line="103" column="40" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -1095,8 +1079,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mySettings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6925676" vertical-offset="345" max-vertical-offset="1275">
-          <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.7601351" vertical-offset="420" max-vertical-offset="1335">
+          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/modals/newbookmodal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.5" vertical-offset="1206" max-vertical-offset="2115">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/myProfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9131944" vertical-offset="5166" max-vertical-offset="6540">
+          <caret line="397" column="20" selection-start-line="397" selection-start-column="20" selection-end-line="397" selection-end-column="20" />
           <folding />
         </state>
       </provider>
