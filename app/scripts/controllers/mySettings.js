@@ -21,7 +21,8 @@ angular.module('bookxchangeApp')
 					//success
 					console.log(data);
 					$rootScope.currentUser.attributes.address = data.formatted_address;
-					$rootScope.currentUser.attributes.location = data.geometry.location;
+					var point = new Parse.GeoPoint(data.geometry.location.lat, data.geometry.location.lng);
+					$rootScope.currentUser.attributes.location = point;
 					var marker = {
 						id    : data.formatted_address,
 						coords: {
@@ -65,7 +66,12 @@ angular.module('bookxchangeApp')
 					console.log(error);
 				}
 			});
+		}
 
+		$scope.resetForm = function () {
+
+			//TODO
+			//	get current user data
 
 		}
 

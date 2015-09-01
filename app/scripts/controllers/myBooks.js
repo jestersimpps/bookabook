@@ -38,6 +38,7 @@ angular.module('bookxchangeApp')
 				{name: 'Genre', field: 'genre', visible: true, width: '150'},
 				{name: 'Publisher', field: 'publisher', visible: true, width: '150'},
 				{name: 'Language', field: 'language', visible: true, width: '100'},
+
 				{
 					name           : 'Status',
 					field          : 'status',
@@ -45,7 +46,7 @@ angular.module('bookxchangeApp')
 					cellClass      : 'grid-align',
 					enableFiltering: false,
 					cellTemplate   : '<span style="text-align:center;"class="yes" ng-show="grid.getCellValue(row, col) == true">Available</span><span class="no" ng-show="grid.getCellValue(row, col) == false">Lent out</span>  ',
-					width        : '100'
+					width          : '100'
 				},
 				{
 					name           : 'Rating',
@@ -138,6 +139,7 @@ angular.module('bookxchangeApp')
 			var newBook = {
 				userID      : Parse.User.current(),
 				userName    : Parse.User.current().attributes.username,
+				location    : Parse.User.current().attributes.location,
 				googleID    : book.id,
 				title       : book.volumeInfo.title,
 				subTitle    : book.volumeInfo.subTitle,

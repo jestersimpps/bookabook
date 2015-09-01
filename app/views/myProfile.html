@@ -6,8 +6,10 @@
 			<button class="btn btn-danger"
 			        type="reset"
 			        ng-click="logOut()">
-				<i class="fa fa-sign-out"></i> Sign out
-			</button></div>
+				<i class="fa fa-sign-out"></i>
+				Sign out
+			</button>
+		</div>
 		<div class="col-sm-2">
 			<br/>
 			<br/>
@@ -257,6 +259,7 @@
 										<input type="email"
 										       class="form-control"
 										       name="email"
+										       id="email"
 										       ng-model="currentUser.attributes.email"
 										       placeholder="Your Email Address"
 										       title="enter your email.">
@@ -360,6 +363,7 @@
 
 										<div class="input-group">
 											<input type="text"
+											       id="address"
 											       class="form-control"
 											       placeholder="Full address (housenumber, street, locality, city, state, country)"
 											       ng-model="currentUser.attributes.address">
@@ -403,8 +407,8 @@
 										</button>
 										<button class="btn btn-danger"
 										        id="resetButton"
-										        type="reset"
-										        data-loading-text="Resetting...">
+										        data-loading-text="Resetting..."
+										        ng-click="resetForm()">
 											<i class="glyphicon glyphicon-repeat"></i>
 											Reset
 										</button>
