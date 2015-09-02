@@ -58,16 +58,15 @@ angular.module('bookxchangeApp')
 					visible        : true,
 					enableFiltering: false,
 					cellTemplate   : '<div class="ui-grid-cell-contents"><rating ng-model="row.entity.googleRating"max="5"readonly="isReadonly"></rating></div>',
-					width          : '80'
+					width          : '100'
 				},
 				{
 					name           : 'Distance',
-					field          : 'location',
 					visible        : true,
 					cellClass      : 'grid-align',
 					enableFiltering: false,
-					cellTemplate   : '<span class="grid-align"><a href="#/">{{grid.getCellValue(row, col)}}</a></span>',
-					width          : '300'
+					cellTemplate   : '<div class="ui-grid-cell-contents"><span class="grid-align"><a href="#/">{{grid.appScope.calculateDistance(row)}} km</a></span></div>',
+					width          : '100'
 				},
 				{
 					name           : 'Status',
@@ -83,8 +82,13 @@ angular.module('bookxchangeApp')
 					field          : 'userName',
 					visible        : true,
 					enableFiltering: true,
-					cellTemplate   : '<span class="grid-align"><a href="#/">{{grid.getCellValue(row, col)}}</a></span>',
+					cellTemplate   : '<span class="grid-align"><a href="#/" ng-click="grid.appScope.showUser(row)">{{grid.getCellValue(row, col)}}</a></span>',
 					width          : '110'
+				},
+				{
+					name   : 'UserID',
+					field  : 'userID',
+					visible: false
 				},
 				{
 					name           : 'Actions',
@@ -99,7 +103,7 @@ angular.module('bookxchangeApp')
 
 		function setHeight() {
 			//$scope.height = (($scope.gridOptions.data.length * 50) + 50);
-			$scope.height = window.innerHeight -190;
+			$scope.height = window.innerHeight - 190;
 		}
 
 
@@ -126,5 +130,35 @@ angular.module('bookxchangeApp')
 
 		};
 
+		$scope.calculateDistance = function (row) {
+
+			var bookLat = row.entity.location.latitude;
+			var bookLng = row.entity.location.longitude;
+			var userLat = $rootScope.currentUser.attributes.location.latitude;
+			var userLng = $rootScope.currentUser.attributes.location.longitude
+
+			return getDistanceFromLatLonInKm(userLat, userLng, bookLat, bookLng);
+
+		};
+
+		function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+			var R = 6371; // Radius of the earth in km
+			var dLat = deg2rad(lat2 - lat1);  // deg2rad below
+			var dLon = deg2rad(lon2 - lon1);
+			var a =
+				Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+				Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+				Math.sin(dLon / 2) * Math.sin(dLon / 2);
+			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+			var d = R * c; // Distance in km
+			return Math.round(d);
+		}
+
+		function deg2rad(deg) {
+			return deg * (Math.PI / 180)
+		}
+
 
 	});
+
+

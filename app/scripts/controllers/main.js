@@ -8,7 +8,7 @@
  * Controller of the bookxchangeApp
  */
 angular.module('bookxchangeApp')
-	.controller('mainCtrl', function ($rootScope, $scope, $location, books) {
+	.controller('mainCtrl', function ($rootScope, $scope, $location, books, users) {
 
 		$scope.register = function () {
 			$scope.formAlert = null;
@@ -151,9 +151,9 @@ angular.module('bookxchangeApp')
 		};
 
 
-		$scope.showInfo = function (book) {
+		$scope.showInfo = function (row) {
 			$rootScope.loading = true;
-			books.getBookInfo(book.entity.googleID).then(
+			books.getBookInfo(row.entity.googleID).then(
 				function (data) {
 					//success
 
@@ -175,6 +175,24 @@ angular.module('bookxchangeApp')
 
 					console.log(data);
 					$('#previewModal').modal('show');
+					$rootScope.loading = false;
+
+				},
+				function (data) {
+					//fall
+					console.log(data);
+				});
+		};
+
+		$scope.showUser = function (row) {
+			$rootScope.loading = true;
+			users.getUserInfo(row.entity.userID.objectId).then(
+				function (data) {
+					//success
+
+					console.log(data);
+
+					//$('#previewModal').modal('show');
 					$rootScope.loading = false;
 
 				},
