@@ -24,7 +24,7 @@
     <favorites_list name="bookxchange" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44083154">
+    <splitter split-orientation="horizontal" split-proportion="0.46215352">
       <split-first>
         <leaf>
           <file leaf-file-name="profilemodal.html" pinned="false" current-in-tab="false">
@@ -66,8 +66,8 @@
           <file leaf-file-name="myBooks.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/views/myBooks.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.2094522" vertical-offset="0" max-vertical-offset="931">
-                  <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+                <state vertical-scroll-proportion="0.8378088" vertical-offset="0" max-vertical-offset="931">
+                  <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -87,16 +87,16 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="mySearch.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="mySearch.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mySearch.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1533" max-vertical-offset="2475">
-                  <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
+                <state vertical-scroll-proportion="0.3343949" vertical-offset="0" max-vertical-offset="2445">
+                  <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
                   <folding>
-                    <marker date="1441196879000" expanded="true" signature="1342:1371" placeholder="..." />
-                    <marker date="1441196879000" expanded="true" signature="2779:2797" placeholder="..." />
-                    <marker date="1441196879000" expanded="true" signature="3221:3233" placeholder="..." />
-                    <marker date="1441196879000" expanded="true" signature="3725:3742" placeholder="..." />
+                    <marker date="1441217885000" expanded="true" signature="1387:1416" placeholder="..." />
+                    <marker date="1441217885000" expanded="true" signature="2824:2842" placeholder="..." />
+                    <marker date="1441217885000" expanded="true" signature="3266:3278" placeholder="..." />
+                    <marker date="1441217885000" expanded="true" signature="3770:3787" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -106,7 +106,7 @@
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3180">
-                  <caret line="201" column="48" selection-start-line="201" selection-start-column="48" selection-end-line="201" selection-end-column="48" />
+                  <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -122,14 +122,14 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="myBooks.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="myBooks.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/myBooks.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5254777" vertical-offset="0" max-vertical-offset="2475">
-                  <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2445">
+                  <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
                   <folding>
-                    <marker date="1441210867000" expanded="true" signature="1248:1277" placeholder="..." />
-                    <marker date="1441210867000" expanded="true" signature="1973:1991" placeholder="..." />
+                    <marker date="1441217873000" expanded="true" signature="1292:1321" placeholder="..." />
+                    <marker date="1441217873000" expanded="true" signature="2017:2035" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -195,10 +195,10 @@
         <option value="$PROJECT_DIR$/app/views/modals/profilemodal.html" />
         <option value="$PROJECT_DIR$/app/views/myProfile.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/mySearch.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/books.js" />
         <option value="$PROJECT_DIR$/app/views/myBooks.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/myBooks.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/mySearch.js" />
       </list>
     </option>
   </component>
@@ -919,14 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/myProfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/myProfile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.375" vertical-offset="0" max-vertical-offset="6630">
@@ -935,39 +927,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mySearch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1533" max-vertical-offset="2475">
-          <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
-          <folding>
-            <marker date="1441196879000" expanded="true" signature="1342:1371" placeholder="..." />
-            <marker date="1441196879000" expanded="true" signature="2779:2797" placeholder="..." />
-            <marker date="1441196879000" expanded="true" signature="3221:3233" placeholder="..." />
-            <marker date="1441196879000" expanded="true" signature="3725:3742" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/mySearch.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.254902" vertical-offset="41" max-vertical-offset="945">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1759" max-vertical-offset="3180">
-          <caret line="201" column="48" selection-start-line="201" selection-start-column="48" selection-end-line="201" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/books.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="559" max-vertical-offset="1725">
-          <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -996,19 +959,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/myBooks.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2094522" vertical-offset="0" max-vertical-offset="931">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.8378088" vertical-offset="0" max-vertical-offset="931">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/myProfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/books.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="559" max-vertical-offset="1725">
+          <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3180">
+          <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/myBooks.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5254777" vertical-offset="0" max-vertical-offset="2475">
-          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2445">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
           <folding>
-            <marker date="1441210867000" expanded="true" signature="1248:1277" placeholder="..." />
-            <marker date="1441210867000" expanded="true" signature="1973:1991" placeholder="..." />
+            <marker date="1441217873000" expanded="true" signature="1292:1321" placeholder="..." />
+            <marker date="1441217873000" expanded="true" signature="2017:2035" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mySearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3343949" vertical-offset="0" max-vertical-offset="2445">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding>
+            <marker date="1441217885000" expanded="true" signature="1387:1416" placeholder="..." />
+            <marker date="1441217885000" expanded="true" signature="2824:2842" placeholder="..." />
+            <marker date="1441217885000" expanded="true" signature="3266:3278" placeholder="..." />
+            <marker date="1441217885000" expanded="true" signature="3770:3787" placeholder="..." />
           </folding>
         </state>
       </provider>

@@ -6,6 +6,7 @@ angular.module('bookxchangeApp')
 
 		$rootScope.tabIndex = 22;
 		$rootScope.loading = true;
+		$scope.height = window.innerHeight - 190;
 
 		function rowTemplate() {
 			return '<div ng-dblclick="grid.appScope.rowDblClick(row)" >' +
@@ -59,10 +60,8 @@ angular.module('bookxchangeApp')
 			]
 		};
 
-		function setHeight() {
-			//$scope.height = (($scope.gridOptions.data.length * 50) + 50);
-			$scope.height = window.innerHeight - 190;
-		}
+
+
 
 
 		getMyBooks();
@@ -73,14 +72,13 @@ angular.module('bookxchangeApp')
 					$scope.books = data;
 					$scope.gridOptions.data = $scope.books;
 					$rootScope.loading = false;
-					setHeight();
+
 				},
 				function (data) {
 					//fail
 					console.log(data);
 				});
 		}
-
 
 
 		$scope.searchNewBooks = function (keyword) {

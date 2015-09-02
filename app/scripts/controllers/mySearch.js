@@ -7,6 +7,8 @@ angular.module('bookxchangeApp')
 
 		$rootScope.tabIndex = 21;
 		$rootScope.loading = true;
+		$scope.height = window.innerHeight - 190;
+
 
 		$scope.searchRadiusOptions = {
 			options : [
@@ -101,10 +103,6 @@ angular.module('bookxchangeApp')
 		};
 
 
-		function setHeight() {
-			//$scope.height = (($scope.gridOptions.data.length * 50) + 50);
-			$scope.height = window.innerHeight - 190;
-		}
 
 
 		books.all().then(
@@ -115,7 +113,7 @@ angular.module('bookxchangeApp')
 
 				$scope.gridOptions.data = $scope.books;
 				$rootScope.loading = false;
-				setHeight();
+
 			},
 			function (data) {
 				//fall
