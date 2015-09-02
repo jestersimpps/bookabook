@@ -8,6 +8,7 @@ $fa-font-path: "../fonts";
 // endbower
 
 @import "variables";
+@import "spinner";
 @import "even";
 @import "odd";
 
@@ -59,12 +60,6 @@ body {
   color: #777;
 }
 
-.spinner {
-  position: fixed;
-  top: 20%;
-  left: 48%;
-  z-index: 9999;
-}
 
 .ui-grid {
   position: absolute;
