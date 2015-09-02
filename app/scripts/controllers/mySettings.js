@@ -71,7 +71,7 @@ angular.module('bookxchangeApp')
 					console.log(error);
 				}
 			});
-		}
+		};
 
 		$scope.resetForm = function () {
 

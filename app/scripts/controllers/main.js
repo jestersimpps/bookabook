@@ -8,7 +8,7 @@
  * Controller of the bookxchangeApp
  */
 angular.module('bookxchangeApp')
-	.controller('mainCtrl', function ($rootScope, $scope, $location, books, users) {
+	.controller('mainCtrl', function ($rootScope, $scope, $location, $window, books, users) {
 
 		$scope.register = function () {
 			$scope.formAlert = null;
@@ -33,17 +33,14 @@ angular.module('bookxchangeApp')
 						$rootScope.currentUser = user;
 						$('#loginModal').modal('hide');
 						$location.path('mySearch');
-
 					},
 					error  : function (user, error) {
-
 						$scope.formAlert = "Error: " + error.code + " " + error.message;
-
 					}
 				});
 			}
 			else {
-
+				console.log('invalid form');
 			}
 		};
 
@@ -65,7 +62,7 @@ angular.module('bookxchangeApp')
 				user.set("totalLent", 0);
 				user.set("friends", []);
 				user.set("followers", []);
-
+				user.set("following", []);
 
 				user.signUp(null, {
 					success: function (user) {
@@ -73,21 +70,16 @@ angular.module('bookxchangeApp')
 						$rootScope.currentUser = user;
 						$('#registerModal').modal('hide');
 						$location.path('myProfile');
-
 					},
 					error  : function (user, error) {
-
 						$scope.formAlert = error.message;
-
 					}
 				});
 
 			}
 			else {
-
+				console.log('invalid form');
 			}
-
-
 		};
 
 
@@ -97,7 +89,6 @@ angular.module('bookxchangeApp')
 				success: function (user) {
 					if (!user.existed()) {
 						//new user
-
 						$scope.formAlert = null;
 						$rootScope.currentUser = user;
 						//fetch the facebook name of the user
@@ -109,6 +100,7 @@ angular.module('bookxchangeApp')
 							Parse.User.current().set("totalLent", 0);
 							Parse.User.current().set("friends", []);
 							Parse.User.current().set("followers", []);
+							Parse.User.current().set("following", []);
 
 							Parse.User.current().save();
 						});
@@ -156,7 +148,6 @@ angular.module('bookxchangeApp')
 			books.getBookInfo(row.entity.googleID).then(
 				function (data) {
 					//success
-
 					$scope.previewBook = {
 						title       : data.volumeInfo.title,
 						subTitle    : data.volumeInfo.subTitle,
@@ -179,7 +170,7 @@ angular.module('bookxchangeApp')
 
 				},
 				function (data) {
-					//fall
+					//fail
 					console.log(data);
 				});
 		};
@@ -189,18 +180,27 @@ angular.module('bookxchangeApp')
 			users.getUserInfo(row.entity.userID.objectId).then(
 				function (data) {
 					//success
-
+					$scope.userProfile = data;
 					console.log(data);
 
-					//$('#previewModal').modal('show');
+					$('#profileModal').modal('show');
 					$rootScope.loading = false;
 
 				},
 				function (data) {
-					//fall
+					//fail
 					console.log(data);
 				});
 		};
 
+
+		$scope.showRoute = function (row) {
+			console.log('opening route');
+			$window.open('http://www.google.com/maps/dir/' +
+			$rootScope.currentUser.attributes.location.latitude + ',' +
+			$rootScope.currentUser.attributes.location.longitude + '/' +
+			row.entity.location.latitude + ',' +
+			row.entity.location.longitude);
+		};
 
 	});

@@ -7,8 +7,8 @@ angular.module('bookxchangeApp')
 
 		return {
 
-			//get all book
-			all    : function () {
+			//get all books near
+			all    : function (radius) {
 				var deferred = $q.defer();
 				var query = new Parse.Query("books");
 				query.limit(100);
@@ -64,12 +64,12 @@ angular.module('bookxchangeApp')
 				return deferred.promise;
 			},
 
-			//get book info
-			getInfo: function (data) {
+			//get matching books
+			getMatching: function (keyword) {
 				var deferred = $q.defer();
 				var request = $http({
 					method : 'GET',
-					url    : 'https://www.googleapis.com/books/v1/volumes?q=' + data,
+					url    : 'https://www.googleapis.com/books/v1/volumes?q=' + keyword,
 					headers: {}
 				});
 				request
@@ -84,12 +84,12 @@ angular.module('bookxchangeApp')
 
 			},
 
-			//get one book info
-			getBookInfo: function (data) {
+			//get info on one book
+			getBookInfo: function (googleID) {
 				var deferred = $q.defer();
 				var request = $http({
 					method : 'GET',
-					url    : 'https://www.googleapis.com/books/v1/volumes/' + data,
+					url    : 'https://www.googleapis.com/books/v1/volumes/' + googleID,
 					headers: {}
 				});
 				request

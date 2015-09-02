@@ -19,7 +19,7 @@ angular.module('bookxchangeApp')
 					success: function (object) {
 						object = angular.toJson(object);
 						object = angular.fromJson(object);
-						deferred.resolve(object);
+						deferred.resolve(object[0]);
 					},
 					error  : function (error) {
 						alert("Error: " + error.code + " " + error.message);

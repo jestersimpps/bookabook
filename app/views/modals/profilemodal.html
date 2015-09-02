@@ -1,11 +1,10 @@
-
 <!-- Profile Modal -->
 
 <div class="modal fade"
-     id="previewModal"
+     id="profileModal"
      tabindex="-1"
      role="dialog"
-     aria-labelledby="previewModal">
+     aria-labelledby="profileModal">
 	<div class="modal-dialog  modal-lg"
 	     role="document">
 		<div class="modal-content">
@@ -16,45 +15,40 @@
 				        aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4>{{previewBook.title}}
-					<span ng-show="previewBook.subtitle"> -</span>
-				    {{previewBook.subTitle}}
-
+				<h4>{{userProfile.screenName}}
+					<span class="pull-right"> Joined: {{ userProfile.createdAt | date: 'mediumDate'}}</span>
 				</h4>
 			</div>
 			<div class="modal-body">
 				<ul class="media-list"
-				    style="max-height:400px;overflow-y: scroll;padding:5px;">
+				    style="max-height:400px;overflow-y: auto;padding:5px;">
 
 					<li class="media">
 
 						<a class="pull-left"
-						   href="{{previewBook.previewlink}}">
+						   href="{{userProfile.thumbnail.url}}">
 							<img class="media-object img-rounded"
-							     ng-src="{{previewBook.thumbnail}}">
+							     style="width: 150px;"
+							     ng-src="{{userProfile.thumbnail.url}}">
 						</a>
 
 						<div class="media-body">
-							<h4 style="color:#2DAFDD;"
-							    class="media-heading"
-							    ng-if="previewBook.author">by {{previewBook.author}}
-								<rating ng-model="previewBook.googleRating"
-								        max="5"
-								        class="pull-right"
-								        readonly="isReadonly"></rating>
-							</h4>
-							<p>
-								<span style="color:#DC4750;"
-								      class="pull-right"
-								      ng-if="previewBook.isbn">ISBN: {{previewBook.isbn}}
+							<h4 style="color:#2DAFDD"
+							    class="media-heading">
+								Collection: {{ userProfile.totalBooks }} books
+								<span style="color:green;"
+								      class="pull-right">
+									Total lent: {{ userProfile.totalLent }}
 								</span>
-							</p>
-							<p ng-if="previewBook.publisher">Published by {{previewBook.publisher}}
-								<span ng-show="previewBook.publishDate">,</span>
-							                                 {{previewBook.publishDate}}
-							</p>
-
-							<p ng-bind-html="previewBook.description">
+								<br/>
+								<span style="color:red;"
+								      class="pull-right">
+									Total borrowed: {{ userProfile.totalBorrowed }}
+								</span>
+							</h4>
+							<hr/>
+							<p>
+								{{ userProfile.about }}
 							</p>
 						</div>
 
@@ -64,17 +58,22 @@
 			</div>
 			<div class="modal-footer">
 				<hr/>
-				<a ng-show="previewBook.previewlink"
-				   type="button"
-				   class="btn btn-primary"
-				   href="{{previewBook.previewlink}}"
-				   target="_blank">
-					<i class="fa fa-eye"></i>
-					Show preview on Google
-				</a>
 				<button type="button"
-				        class="btn btn-info"
-				        data-dismiss="modal">Borrow this book
+				        class="btn btn-success"
+				        data-dismiss="modal">
+					<i class="fa fa-eye"></i>
+					View books
+				</button>
+				<button type="button"
+				        class="btn btn-primary"
+				        data-dismiss="modal">
+					<i class="fa fa-user"></i>
+					Request add friend
+				</button>
+				<button type="button"
+				        class="btn btn-info">
+					<i class="fa fa-bolt"></i>
+					Follow this user
 				</button>
 				<button type="button"
 				        class="btn btn-danger"

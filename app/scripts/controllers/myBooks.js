@@ -70,68 +70,37 @@ angular.module('bookxchangeApp')
 			books.my(Parse.User.current()).then(
 				function (data) {
 					//success
-
 					$scope.books = data;
-
 					$scope.gridOptions.data = $scope.books;
 					$rootScope.loading = false;
 					setHeight();
 				},
 				function (data) {
-					//fall
+					//fail
 					console.log(data);
 				});
-
 		}
 
 
-		$scope.myAppScopeProvider = {
-
-			showInfo: function (row) {
-				var modalInstance = $modal.open({
-					controller : 'InfoController',
-					templateUrl: 'ngTemplate/infoPopup.html',
-					resolve    : {
-						selectedRow: function () {
-							return row.entity;
-						}
-					}
-				});
-
-				modalInstance.result.then(function (selectedItem) {
-					$log.log('modal selected Row: ' + selectedItem);
-				}, function () {
-					$log.info('Modal dismissed at: ' + new Date());
-				});
-			}
-		};
 
 		$scope.searchNewBooks = function (keyword) {
 			console.log('search');
 			var $btn = $('#newBookSearchButton').button('loading');
-
-			books.getInfo(keyword).then(
+			books.getMatching(keyword).then(
 				function (data) {
 					//success
-
 					$scope.newBooks = data.items;
-
-
 					//logging
 					console.log(data);
-
 					$btn.button('reset');
-
 				},
 				function (data) {
-					//fall
+					//fail
 					console.log(data);
 				});
-
-
 		};
 
-		$scope.showAddBookModal = function () {
+		$scope.showNewBookModal = function () {
 			$('#newBookModal').modal('show');
 		};
 
@@ -139,7 +108,7 @@ angular.module('bookxchangeApp')
 			$scope.newBooks = null;
 			$scope.newBookKeyword = null;
 			$('#newBookModal').modal('hide');
-		}
+		};
 
 		$scope.addToCollection = function (book) {
 
@@ -164,9 +133,6 @@ angular.module('bookxchangeApp')
 			books.saveNew(newBook).then(
 				function (data) {
 					//success
-
-					//logging
-					console.log(data);
 					// recalculate number of user books
 					Parse.User.current().set("totalBooks", $rootScope.currentUser.attributes.totalBooks + 1);
 					Parse.User.current().save(null, {
@@ -176,22 +142,17 @@ angular.module('bookxchangeApp')
 							$scope.newBookKeyword = null;
 							$('#newBookModal').modal('hide');
 							getMyBooks();
-
 						},
 						error  : function (user, error) {
-
 							//fall
 							console.log(data);
 						}
 					});
-
-
 				},
 				function (data) {
 					//fall
 					console.log(data);
 				});
-
 		}
 
 

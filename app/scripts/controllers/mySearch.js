@@ -35,7 +35,7 @@ angular.module('bookxchangeApp')
 			multiSelect              : false,
 			enableHorizontalScrollbar: 2,
 			noUnselect               : true,
-			rowHeight                : 50,
+			rowHeight                : 40,
 			rowTemplate              : "<div ng-dblclick=\"grid.appScope.showInfo(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>",
 			columnDefs               : [
 				{
@@ -65,7 +65,7 @@ angular.module('bookxchangeApp')
 					visible        : true,
 					cellClass      : 'grid-align',
 					enableFiltering: false,
-					cellTemplate   : '<div class="ui-grid-cell-contents"><span class="grid-align"><a href="#/">{{grid.appScope.calculateDistance(row)}} km</a></span></div>',
+					cellTemplate   : '<div class="ui-grid-cell-contents"><span class="grid-align"><button class="btn btn-default btn-sm" ng-click="grid.appScope.showRoute(row)">{{grid.appScope.calculateDistance(row)}} km</button></span></div>',
 					width          : '100'
 				},
 				{
@@ -82,8 +82,8 @@ angular.module('bookxchangeApp')
 					field          : 'userName',
 					visible        : true,
 					enableFiltering: true,
-					cellTemplate   : '<span class="grid-align"><a href="#/" ng-click="grid.appScope.showUser(row)">{{grid.getCellValue(row, col)}}</a></span>',
-					width          : '110'
+					cellTemplate   : '<div class="ui-grid-cell-contents"><button class="btn btn-default btn-sm" style="width:120px;" ng-click="grid.appScope.showUser(row)">{{grid.getCellValue(row, col)}}</button></div>',
+					width          : '130'
 				},
 				{
 					name   : 'UserID',
@@ -91,11 +91,11 @@ angular.module('bookxchangeApp')
 					visible: false
 				},
 				{
-					name           : 'Actions',
+					name           : 'Book',
 					visible        : true,
 					enableFiltering: false,
-					width          : '135',
-					cellTemplate   : '<div class="ui-grid-cell-contents"><button class="btn btn-primary" ng-click="grid.appScope.showInfo(row)">Info</button><button style="margin-left: 5px;" class="btn btn-info" ng-click="grid.appScope.borrowBook(row)">Borrow</button></div>'
+					width          : '120',
+					cellTemplate   : '<div class="ui-grid-cell-contents"><button class="btn btn-primary btn-sm" ng-click="grid.appScope.showInfo(row)">Info</button><button style="margin-left: 5px;" class="btn btn-info btn-sm" ng-click="grid.appScope.borrowBook(row)">Borrow</button></div>'
 				}
 			]
 		};
@@ -124,10 +124,9 @@ angular.module('bookxchangeApp')
 
 
 		$scope.showBook = function (keyword) {
-
 			var $btn = $('#searchButton').button('loading');
-
-
+			//todo
+			//	parse query
 		};
 
 		$scope.calculateDistance = function (row) {
@@ -143,19 +142,15 @@ angular.module('bookxchangeApp')
 
 		function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 			var R = 6371; // Radius of the earth in km
-			var dLat = deg2rad(lat2 - lat1);  // deg2rad below
-			var dLon = deg2rad(lon2 - lon1);
+			var dLat = (lat2 - lat1) * (Math.PI / 180);  // deg2rad
+			var dLon = (lon2 - lon1) * (Math.PI / 180);
 			var a =
 				Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-				Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+				Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
 				Math.sin(dLon / 2) * Math.sin(dLon / 2);
 			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 			var d = R * c; // Distance in km
 			return Math.round(d);
-		}
-
-		function deg2rad(deg) {
-			return deg * (Math.PI / 180)
 		}
 
 
