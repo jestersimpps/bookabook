@@ -4,7 +4,7 @@ angular.module('bookxchangeApp').
 			require: 'ngModel',
 			link   : function (scope, currentEl, attrs, ctrl) {
 				var comparefield = document.getElementsByName(attrs.ngCompare)[0]; //getting first element
-				compareEl = angular.element(comparefield);
+				var compareEl = angular.element(comparefield);
 
 				//current field key up
 				currentEl.on('keyup', function () {
