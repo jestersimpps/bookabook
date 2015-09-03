@@ -66,7 +66,8 @@ angular.module('bookxchangeApp')
 			Parse.User.current().save(null, {
 				success: function (user) {
 
-					//change the location of the user library
+					//change the location of the user library if location has changed
+					//todo: only if location has changed
 					books.changeLibrary(Parse.User.current().get("location"));
 					$rootScope.currentUser = users.getCurrent();
 					$btn.button('reset')
