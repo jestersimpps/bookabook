@@ -35,7 +35,13 @@
 						<div class="media-body">
 							<h4 style="color:#2DAFDD"
 							    class="media-heading">
-								Collection: {{ userProfile.totalBooks }} books
+								<button type="button"
+								        class="btn btn-success"
+								        data-dismiss="modal">
+									Sharing {{ userProfile.totalBooks }} books of
+									{{ userProfile.totalBooks }} collected.
+								</button>
+
 								<span style="color:green;"
 								      class="pull-right">
 									Total lent: {{ userProfile.totalLent }}
@@ -58,12 +64,6 @@
 			</div>
 			<div class="modal-footer">
 				<hr/>
-				<button type="button"
-				        class="btn btn-success"
-				        data-dismiss="modal">
-					<i class="fa fa-eye"></i>
-					View books
-				</button>
 				<button type="button"
 				        class="btn btn-primary"
 				        data-dismiss="modal">

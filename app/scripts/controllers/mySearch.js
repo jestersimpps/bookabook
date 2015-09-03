@@ -67,7 +67,7 @@ angular.module('bookxchangeApp')
 					visible        : true,
 					cellClass      : 'grid-align',
 					enableFiltering: false,
-					cellTemplate   : '<div class="ui-grid-cell-contents"><span class="grid-align"><button class="btn btn-default btn-sm" ng-click="grid.appScope.showRoute(row)">{{grid.appScope.calculateDistance(row)}} km</button></span></div>',
+					cellTemplate   : '<div class="ui-grid-cell-contents"><span class="grid-align"><button ng-show="grid.appScope.showAddress(row)" class="btn btn-default btn-sm" ng-click="grid.appScope.showRoute(row)">{{grid.appScope.calculateDistance(row)}} km</button></span><span ng-hide="grid.appScope.showAddress(row)" class="grid-align">{{grid.appScope.calculateDistance(row)}} km</span></span></div>',
 					width          : '100'
 				},
 				{
@@ -108,10 +108,8 @@ angular.module('bookxchangeApp')
 		books.all().then(
 			function (data) {
 				//success
-
-				$scope.books = data;
-
-				$scope.gridOptions.data = $scope.books;
+				console.log(data);
+				$scope.gridOptions.data = data;
 				$rootScope.loading = false;
 
 			},

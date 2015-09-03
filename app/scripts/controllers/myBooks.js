@@ -112,8 +112,6 @@ angular.module('bookxchangeApp')
 
 			var newBook = {
 				userID      : Parse.User.current(),
-				userName    : Parse.User.current().attributes.username,
-				location    : Parse.User.current().attributes.location,
 				googleID    : book.id,
 				title       : book.volumeInfo.title,
 				subTitle    : book.volumeInfo.subTitle,

@@ -63,6 +63,7 @@ angular.module('bookxchangeApp')
 				user.set("friends", []);
 				user.set("followers", []);
 				user.set("following", []);
+				user.set("showAddress", true);
 
 				user.signUp(null, {
 					success: function (user) {
@@ -93,14 +94,16 @@ angular.module('bookxchangeApp')
 						$rootScope.currentUser = user;
 						//fetch the facebook name of the user
 						FB.api('/me', function (response) {
-							console.log(response)
+							console.log(response);
 							Parse.User.current().set("screenName", response.name);
+
 							Parse.User.current().set("totalBooks", 0);
 							Parse.User.current().set("totalBorrowed", 0);
 							Parse.User.current().set("totalLent", 0);
 							Parse.User.current().set("friends", []);
 							Parse.User.current().set("followers", []);
 							Parse.User.current().set("following", []);
+							Parse.User.current().set("showAddress", true);
 
 							Parse.User.current().save();
 						});
@@ -148,26 +151,10 @@ angular.module('bookxchangeApp')
 			books.getBookInfo(row.entity.googleID).then(
 				function (data) {
 					//success
-					$scope.previewBook = {
-						title       : data.volumeInfo.title,
-						subTitle    : data.volumeInfo.subTitle,
-						author      : (data.volumeInfo.authors) ? data.volumeInfo.authors.join(", ") : 'Unknown',
-						description : data.volumeInfo.description,
-						genre       : (data.volumeInfo.categories) ? data.volumeInfo.categories.join(", ") : 'Unknown',
-						thumbnail   : data.volumeInfo.imageLinks.thumbnail,
-						previewlink : data.volumeInfo.previewLink,
-						pageCount   : data.volumeInfo.pageCount,
-						publisher   : data.volumeInfo.publisher,
-						publishDate : data.volumeInfo.publishedDate,
-						language    : data.volumeInfo.language,
-						googleRating: data.volumeInfo.averageRating,
-						isbn        : (data.volumeInfo.industryIdentifiers) ? data.volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
-					};
-
+					$scope.previewBook = data;
 					console.log(data);
 					$('#previewModal').modal('show');
 					$rootScope.loading = false;
-
 				},
 				function (data) {
 					//fail
@@ -177,7 +164,7 @@ angular.module('bookxchangeApp')
 
 		$scope.showUser = function (row) {
 			$rootScope.loading = true;
-			users.getUserInfo(row.entity.userID.objectId).then(
+			users.getUserInfo(row.entity.userID).then(
 				function (data) {
 					//success
 					$scope.userProfile = data;
@@ -202,5 +189,9 @@ angular.module('bookxchangeApp')
 			row.entity.location.latitude + ',' +
 			row.entity.location.longitude);
 		};
+
+		$scope.showAddress = function (row) {
+			return true;
+		}
 
 	});
