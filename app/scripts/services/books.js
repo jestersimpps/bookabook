@@ -41,7 +41,8 @@ angular.module('bookxchangeApp')
 								var bookLat = row.get('userID').get('location').latitude;
 								var bookLng = row.get('userID').get('location').longitude;
 								//only fetch books that have a location
-								if (row.get('location')) {
+								console.log(row.get('location'));
+								if (!row.get('location').error) {
 									data.push({
 										title       : row.get('title'),
 										author      : row.get('author'),
@@ -74,6 +75,7 @@ angular.module('bookxchangeApp')
 					}
 				);
 				return deferred.promise;
+
 
 			},
 
