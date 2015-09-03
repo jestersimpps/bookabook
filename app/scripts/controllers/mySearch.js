@@ -12,15 +12,15 @@ angular.module('bookxchangeApp')
 
 		$scope.searchRadiusOptions = {
 			options : [
-				{id: '1 km', value: 1000},
-				{id: '5 km', value: 5000},
-				{id: '10 km', value: 10000},
-				{id: '20 km', value: 20000},
-				{id: '30 km', value: 30000},
-				{id: '50 km', value: 50000},
-				{id: '100 km', value: 100000}
+				{id: '1 km', value: 1},
+				{id: '5 km', value: 5},
+				{id: '10 km', value: 10},
+				{id: '20 km', value: 20},
+				{id: '30 km', value: 30},
+				{id: '50 km', value: 50},
+				{id: '100 km', value: 100}
 			],
-			selected: {id: '10 km', value: 10000}
+			selected: {id: '10 km', value: 10}
 		};
 
 
@@ -104,19 +104,21 @@ angular.module('bookxchangeApp')
 			]
 		};
 
+		searchBooks();
+		function searchBooks() {
+			books.all($scope.searchRadiusOptions.selected.value).then(
+				function (data) {
+					//success
+					console.log(data);
+					$scope.gridOptions.data = data;
+					$rootScope.loading = false;
 
-		books.all(100).then(
-			function (data) {
-				//success
-				console.log(data);
-				$scope.gridOptions.data = data;
-				$rootScope.loading = false;
-
-			},
-			function (data) {
-				//fall
-				console.log(data);
-			});
+				},
+				function (data) {
+					//fall
+					console.log(data);
+				});
+		}
 
 
 		$scope.showBook = function (keyword) {
