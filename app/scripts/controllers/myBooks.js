@@ -61,9 +61,6 @@ angular.module('bookxchangeApp')
 		};
 
 
-
-
-
 		getMyBooks();
 		function getMyBooks() {
 			books.my(Parse.User.current()).then(
@@ -113,6 +110,7 @@ angular.module('bookxchangeApp')
 			var newBook = {
 				userID      : Parse.User.current(),
 				googleID    : book.id,
+				location    : Parse.User.current().location,
 				title       : book.volumeInfo.title,
 				subTitle    : book.volumeInfo.subTitle,
 				author      : (book.volumeInfo.authors) ? book.volumeInfo.authors.join(", ") : 'Unknown',
