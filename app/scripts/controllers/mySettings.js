@@ -59,18 +59,16 @@ angular.module('bookxchangeApp')
 			Parse.User.current().set("showAddress", $rootScope.currentUser.showAddress);
 
 
-
 			//TODO
 			//		add social fields
 
 
 			Parse.User.current().save(null, {
 				success: function (user) {
-					$rootScope.currentUser = user;
 
 					//change the location of the user library
 					books.changeLibrary(Parse.User.current().get("location"));
-
+					$rootScope.currentUser = users.getCurrent();
 					$btn.button('reset')
 				},
 				error  : function (user, error) {

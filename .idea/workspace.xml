@@ -103,21 +103,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="registration.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="registration.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/scripts/directives/registration.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.25945947" vertical-offset="0" max-vertical-offset="925">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
                   <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="603" max-vertical-offset="3000">
-                  <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
@@ -136,11 +126,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="mySettings.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="mySettings.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mySettings.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1440">
-                  <caret line="71" column="60" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="76" />
+                <state vertical-scroll-proportion="0.62702703" vertical-offset="470" max-vertical-offset="1410">
+                  <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="830" max-vertical-offset="1950">
+                  <caret line="107" column="41" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="59" />
                   <folding />
                 </state>
               </provider>
@@ -196,13 +196,13 @@
         <option value="$PROJECT_DIR$/app/views/modals/profilemodal.html" />
         <option value="$PROJECT_DIR$/app/views/modals/previewmodal.html" />
         <option value="$PROJECT_DIR$/app/scripts/services/users.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/mySettings.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/mySearch.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/myBooks.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/books.js" />
         <option value="$PROJECT_DIR$/app/scripts/directives/registration.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/mySettings.js" />
       </list>
     </option>
   </component>
@@ -951,26 +951,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="830" max-vertical-offset="1950">
-          <caret line="107" column="41" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="603" max-vertical-offset="3000">
           <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mySettings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1440">
-          <caret line="71" column="60" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="76" />
           <folding />
         </state>
       </provider>
@@ -996,8 +980,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/directives/registration.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25945947" vertical-offset="0" max-vertical-offset="925">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="830" max-vertical-offset="1950">
+          <caret line="107" column="41" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mySettings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62702703" vertical-offset="470" max-vertical-offset="1410">
+          <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
           <folding />
         </state>
       </provider>
