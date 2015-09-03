@@ -30,7 +30,7 @@ angular.module('bookxchangeApp')
 				Parse.User.logIn($scope.existingUser.username, $scope.existingUser.password, {
 					success: function (user) {
 						$scope.formAlert = null;
-						$rootScope.currentUser = user;
+						$rootScope.currentUser = users.getCurrent();
 						$('#loginModal').modal('hide');
 						$location.path('mySearch');
 					},
@@ -68,7 +68,7 @@ angular.module('bookxchangeApp')
 				user.signUp(null, {
 					success: function (user) {
 						$scope.formAlert = null;
-						$rootScope.currentUser = user;
+						$rootScope.currentUser = users.getCurrent();
 						$('#registerModal').modal('hide');
 						$location.path('myProfile');
 					},
@@ -91,7 +91,7 @@ angular.module('bookxchangeApp')
 					if (!user.existed()) {
 						//new user
 						$scope.formAlert = null;
-						$rootScope.currentUser = user;
+						$rootScope.currentUser = users.getCurrent();;
 						//fetch the facebook name of the user
 						FB.api('/me', function (response) {
 							console.log(response);
@@ -123,7 +123,7 @@ angular.module('bookxchangeApp')
 						//user existed
 
 						$scope.formAlert = null;
-						$rootScope.currentUser = user;
+						$rootScope.currentUser = users.getCurrent();
 						$('#registerModal').modal('hide');
 						$location.path('myProfile');
 					}
