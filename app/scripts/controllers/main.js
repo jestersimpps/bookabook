@@ -184,8 +184,8 @@ angular.module('bookxchangeApp')
 		$scope.showRoute = function (row) {
 			console.log('opening route');
 			$window.open('http://www.google.com/maps/dir/' +
-			$rootScope.currentUser.attributes.location.latitude + ',' +
-			$rootScope.currentUser.attributes.location.longitude + '/' +
+			$rootScope.currentUser.location.latitude + ',' +
+			$rootScope.currentUser.location.longitude + '/' +
 			row.entity.location.latitude + ',' +
 			row.entity.location.longitude);
 		};

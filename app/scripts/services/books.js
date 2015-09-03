@@ -14,7 +14,6 @@ angular.module('bookxchangeApp')
 				query.limit(100);
 				query.find({
 					success: function (object) {
-						console.log(object);
 						var data = [];
 						angular.forEach(object, function (row) {
 							data.push({

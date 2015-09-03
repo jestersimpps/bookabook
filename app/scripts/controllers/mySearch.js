@@ -129,8 +129,8 @@ angular.module('bookxchangeApp')
 
 			var bookLat = row.entity.location.latitude;
 			var bookLng = row.entity.location.longitude;
-			var userLat = $rootScope.currentUser.attributes.location.latitude;
-			var userLng = $rootScope.currentUser.attributes.location.longitude
+			var userLat = $rootScope.currentUser.location.latitude;
+			var userLng = $rootScope.currentUser.location.longitude
 
 			return getDistanceFromLatLonInKm(userLat, userLng, bookLat, bookLng);
 

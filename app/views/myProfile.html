@@ -2,7 +2,7 @@
 <div class="container"
      ng-controller="myProfileCtrl">
 	<div class="row">
-		<div class="col-sm-10"><h1>{{ currentUser.attributes.screenName }}</h1>
+		<div class="col-sm-10"><h1>{{ currentUser.screenName }}</h1>
 			<button class="btn btn-danger"
 			        type="reset"
 			        ng-click="logOut()">
@@ -49,7 +49,7 @@
 							<span class="pull-left">
 								<strong>Real name</strong>
 							</span>
-							{{ currentUser.attributes.firstName }} {{ currentUser.attributes.lastName }}
+							{{ currentUser.firstName }} {{ currentUser.lastName }}
 						</li>
 
 					</ul>
@@ -67,37 +67,37 @@
 							<span class="pull-left">
 								<strong>Total books</strong>
 							</span>
-							{{ currentUser.attributes.totalBooks }}
+							{{ currentUser.totalBooks }}
 						</li>
 						<li class="list-group-item text-right">
 							<span class="pull-left">
 								<strong>Borrowed books</strong>
 							</span>
-							{{ currentUser.attributes.totalBorrowed }}
+							{{ currentUser.totalBorrowed }}
 						</li>
 						<li class="list-group-item text-right">
 							<span class="pull-left">
 								<strong>Lent books</strong>
 							</span>
-							{{ currentUser.attributes.totalLent }}
+							{{ currentUser.totalLent }}
 						</li>
 						<li class="list-group-item text-right">
 							<span class="pull-left">
 								<strong>Friends</strong>
 							</span>
-							{{ currentUser.attributes.friends.length }}
+							{{ currentUser.friends.length }}
 						</li>
 						<li class="list-group-item text-right">
 							<span class="pull-left">
 								<strong>Following</strong>
 							</span>
-							{{ currentUser.attributes.following.length }}
+							{{ currentUser.following.length }}
 						</li>
 						<li class="list-group-item text-right">
 							<span class="pull-left">
 								<strong>Followers</strong>
 							</span>
-							{{ currentUser.attributes.followers.length }}
+							{{ currentUser.followers.length }}
 						</li>
 					</ul>
 				</div>
@@ -208,7 +208,7 @@
 										       class="form-control"
 										       name="first_name"
 										       id="first_name"
-										       ng-model="currentUser.attributes.firstName"
+										       ng-model="currentUser.firstName"
 										       placeholder="first name"
 										       title="enter your first name if any.">
 									</div>
@@ -222,7 +222,7 @@
 										       class="form-control"
 										       name="last_name"
 										       id="last_name"
-										       ng-model="currentUser.attributes.lastName"
+										       ng-model="currentUser.lastName"
 										       placeholder="last name"
 										       title="enter your last name if any.">
 									</div>
@@ -238,7 +238,7 @@
 										       name="phone"
 										       id="phone"
 										       placeholder="enter phone"
-										       ng-model="currentUser.attributes.phone"
+										       ng-model="currentUser.phone"
 										       title="enter your phone number if any.">
 									</div>
 								</div>
@@ -250,7 +250,7 @@
 										       class="form-control"
 										       name="mobile"
 										       id="mobile"
-										       ng-model="currentUser.attributes.mobile"
+										       ng-model="currentUser.mobile"
 										       placeholder="enter mobile number"
 										       title="enter your mobile number if any.">
 									</div>
@@ -266,7 +266,7 @@
 										       class="form-control"
 										       name="email"
 										       id="email"
-										       ng-model="currentUser.attributes.email"
+										       ng-model="currentUser.email"
 										       placeholder="Your Email Address"
 										       title="enter your email.">
 									</div>
@@ -293,7 +293,7 @@
 										       name="facebook"
 										       id="facebook"
 										       placeholder="facebook profile"
-										       ng-model="currentUser.attributes.facebook"
+										       ng-model="currentUser.facebook"
 										       title="enter your phone number if any.">
 									</div>
 								</div>
@@ -310,7 +310,7 @@
 										       class="form-control"
 										       name="twitter"
 										       id="twitter"
-										       ng-model="currentUser.attributes.twitter"
+										       ng-model="currentUser.twitter"
 										       placeholder="enter mobile number"
 										       title="enter your mobile number if any.">
 									</div>
@@ -332,7 +332,7 @@
 										       name="pinterest"
 										       id="pinterest"
 										       placeholder="pinterest profile"
-										       ng-model="currentUser.attributes.facebook"
+										       ng-model="currentUser.pinterest"
 										       title="enter your phone number if any.">
 									</div>
 								</div>
@@ -349,7 +349,7 @@
 										       class="form-control"
 										       name="googleplus"
 										       id="googleplus"
-										       ng-model="currentUser.attributes.googleplus"
+										       ng-model="currentUser.googleplus"
 										       placeholder="google plus profile"
 										       title="enter your mobile number if any.">
 									</div>
@@ -372,7 +372,7 @@
 											       id="address"
 											       class="form-control"
 											       placeholder="Full address (housenumber, street, locality, city, state, country)"
-											       ng-model="currentUser.attributes.address">
+											       ng-model="currentUser.address">
 											<span class="input-group-btn">
 												<button class="btn btn-info"
 												        type="button"
@@ -388,7 +388,7 @@
 										<label class="checkbox-inline">
 											<input type="checkbox"
 											       value=""
-											       ng-model="currentUser.attributes.showAddress">
+											       ng-model="currentUser.showAddress">
 											Enable route directions in public searches
 										</label>
 									</div>

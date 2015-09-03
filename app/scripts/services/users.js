@@ -7,7 +7,35 @@ angular.module('bookxchangeApp')
 
 		return {
 
-			//get all users
+
+			//get current user
+			getCurrent    : function () {
+				var currentUser = Parse.User.current();
+				var user = {
+					firstName: currentUser.get('firstName'),
+					lastName: currentUser.get('lastName'),
+					screenName:currentUser.get('screenName'),
+					about:currentUser.get('about'),
+					phone: currentUser.get('phone'),
+					mobile: currentUser.get('mobile'),
+					address: currentUser.get('address'),
+					location: currentUser.get('location'),
+					showAddress: currentUser.get('showAddress'),
+					totalBooks: currentUser.get('totalBooks'),
+					totalBorrowed: currentUser.get('totalBorrowed'),
+					totalLent: currentUser.get('totalLent'),
+					friends:currentUser.get('friends'),
+					followers:currentUser.get('followers'),
+					following:currentUser.get('following'),
+					facebook:currentUser.get('facebook'),
+					googleplus:currentUser.get('googleplus'),
+					twitter:currentUser.get('twitter'),
+					pinterest:currentUser.get('pinterest'),
+					createdAt:currentUser.createdAt,
+					updatedAt:currentUser.updatedAt
+				};
+				return user;
+			},
 
 
 			//get one user

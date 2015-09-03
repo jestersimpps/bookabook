@@ -101,12 +101,12 @@ angular
 		'$injector',
 		'users',
 		'books',
-		function ($rootScope, $location, $route, $http, $injector) {
+		function ($rootScope, $location, $route, $http, $injector, users) {
 
 
 			if (Parse.User.current()) {
 
-				$rootScope.currentUser = Parse.User.current();
+				$rootScope.currentUser = users.getCurrent();
 				console.log($rootScope.currentUser);
 			} else {
 				$rootScope.currentUser = null;

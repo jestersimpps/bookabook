@@ -16,13 +16,13 @@ angular.module('bookxchangeApp')
 		$scope.refreshMap = function getAddressCoordinates() {
 			var $btn = $('#mapButton').button('loading');
 			$scope.showMap = false;
-			users.getCoordinates($rootScope.currentUser.attributes.address).then(
+			users.getCoordinates($rootScope.currentUser.address).then(
 				function (data) {
 					//success
 					console.log(data);
-					$rootScope.currentUser.attributes.address = data.formatted_address;
+					$rootScope.currentUser.address = data.formatted_address;
 					var point = new Parse.GeoPoint(data.geometry.location.lat, data.geometry.location.lng);
-					$rootScope.currentUser.attributes.location = point;
+					$rootScope.currentUser.location = point;
 					var marker = {
 						id    : data.formatted_address,
 						coords: {
@@ -50,13 +50,13 @@ angular.module('bookxchangeApp')
 
 			var $btn = $('#saveButton').button('loading');
 
-			Parse.User.current().set("firstName", $rootScope.currentUser.attributes.firstName);
-			Parse.User.current().set("lastName", $rootScope.currentUser.attributes.lastName);
-			Parse.User.current().set("phone", $rootScope.currentUser.attributes.phone);
-			Parse.User.current().set("mobile", $rootScope.currentUser.attributes.mobile);
-			Parse.User.current().set("address", $rootScope.currentUser.attributes.address);
-			Parse.User.current().set("location", $rootScope.currentUser.attributes.location);
-			Parse.User.current().set("showAddress", $rootScope.currentUser.attributes.showAddress);
+			Parse.User.current().set("firstName", $rootScope.currentUser.firstName);
+			Parse.User.current().set("lastName", $rootScope.currentUser.lastName);
+			Parse.User.current().set("phone", $rootScope.currentUser.phone);
+			Parse.User.current().set("mobile", $rootScope.currentUser.mobile);
+			Parse.User.current().set("address", $rootScope.currentUser.address);
+			Parse.User.current().set("location", $rootScope.currentUser.location);
+			Parse.User.current().set("showAddress", $rootScope.currentUser.showAddress);
 
 			//TODO
 			//		add social fields
