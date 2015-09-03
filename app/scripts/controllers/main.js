@@ -190,8 +190,5 @@ angular.module('bookxchangeApp')
 			row.entity.location.longitude);
 		};
 
-		$scope.showAddress = function (row) {
-			return true;
-		}
 
 	});

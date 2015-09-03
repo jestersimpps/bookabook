@@ -33,6 +33,7 @@ angular.module('bookxchangeApp')
 								thumbnail   : row.get('thumbnail'),
 								location    : row.get('userID').get('location'),
 								userName    : row.get('userID').get('screenName'),
+								showAddress : row.get('userID').get('showAddress'),
 								userID      : row.get('userID').id
 							});
 						});

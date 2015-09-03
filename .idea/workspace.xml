@@ -82,23 +82,23 @@
           <file leaf-file-name="mySearch.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mySearch.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1366" max-vertical-offset="2415">
-                  <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="111" selection-end-column="47" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="736" max-vertical-offset="2415">
+                  <caret line="69" column="306" selection-start-line="69" selection-start-column="306" selection-end-line="69" selection-end-column="306" />
                   <folding>
-                    <marker date="1441265134000" expanded="true" signature="1387:1416" placeholder="..." />
-                    <marker date="1441265134000" expanded="true" signature="2988:3006" placeholder="..." />
-                    <marker date="1441265134000" expanded="true" signature="3430:3442" placeholder="..." />
-                    <marker date="1441265134000" expanded="true" signature="3934:3951" placeholder="..." />
+                    <marker date="1441267223000" expanded="true" signature="1387:1416" placeholder="..." />
+                    <marker date="1441267223000" expanded="true" signature="2972:2990" placeholder="..." />
+                    <marker date="1441267223000" expanded="true" signature="3414:3426" placeholder="..." />
+                    <marker date="1441267223000" expanded="true" signature="3918:3935" placeholder="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="books.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="books.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/scripts/services/books.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1580" max-vertical-offset="2505">
-                  <caret line="132" column="48" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="48" />
+                <state vertical-scroll-proportion="0.5675676" vertical-offset="0" max-vertical-offset="2520">
+                  <caret line="35" column="80" selection-start-line="35" selection-start-column="80" selection-end-line="35" selection-end-column="80" />
                   <folding />
                 </state>
               </provider>
@@ -117,11 +117,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5135135" vertical-offset="1805" max-vertical-offset="3045">
-                  <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="1415" max-vertical-offset="3000">
+                  <caret line="179" column="19" selection-start-line="179" selection-start-column="19" selection-end-line="179" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -190,10 +190,10 @@
         <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/app/index.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/mySearch.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/myBooks.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/books.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/mySearch.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/books.js" />
       </list>
     </option>
   </component>
@@ -966,14 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/books.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1580" max-vertical-offset="2505">
-          <caret line="132" column="48" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/myBooks.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1230" max-vertical-offset="2415">
@@ -987,21 +979,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mySearch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1155" max-vertical-offset="2415">
-          <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="111" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="736" max-vertical-offset="2415">
+          <caret line="69" column="306" selection-start-line="69" selection-start-column="306" selection-end-line="69" selection-end-column="306" />
           <folding>
-            <marker date="1441265134000" expanded="true" signature="1387:1416" placeholder="..." />
-            <marker date="1441265134000" expanded="true" signature="2988:3006" placeholder="..." />
-            <marker date="1441265134000" expanded="true" signature="3430:3442" placeholder="..." />
-            <marker date="1441265134000" expanded="true" signature="3934:3951" placeholder="..." />
+            <marker date="1441267223000" expanded="true" signature="1387:1416" placeholder="..." />
+            <marker date="1441267223000" expanded="true" signature="2972:2990" placeholder="..." />
+            <marker date="1441267223000" expanded="true" signature="3414:3426" placeholder="..." />
+            <marker date="1441267223000" expanded="true" signature="3918:3935" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5135135" vertical-offset="1805" max-vertical-offset="3045">
-          <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1415" max-vertical-offset="3000">
+          <caret line="179" column="19" selection-start-line="179" selection-start-column="19" selection-end-line="179" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/books.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5675676" vertical-offset="0" max-vertical-offset="2520">
+          <caret line="35" column="80" selection-start-line="35" selection-start-column="80" selection-end-line="35" selection-end-column="80" />
           <folding />
         </state>
       </provider>
