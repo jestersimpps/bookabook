@@ -9,41 +9,65 @@ angular.module('bookxchangeApp')
 
 			//get all books including users near
 			all        : function (radius) {
+
+				var userLat = $rootScope.currentUser.location.latitude;
+				var userLng = $rootScope.currentUser.location.longitude;
+
+				function getDistanceFromLatLonInKm(lat, lon) {
+					var R = 6371; // Radius of the earth in km
+					var dLat = (lat - userLat) * (Math.PI / 180);  // deg2rad
+					var dLon = (lon - userLng) * (Math.PI / 180);
+					var a =
+						Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+						Math.cos(userLat * (Math.PI / 180)) * Math.cos(lat * (Math.PI / 180)) *
+						Math.sin(dLon / 2) * Math.sin(dLon / 2);
+					var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+					var d = R * c; // Distance in km
+					return Math.round(d);
+				}
+
 				var deferred = $q.defer();
-				var query = new Parse.Query("books").include("userID");
+				var query = new Parse.Query("books");
+				query.include("userID");
 				query.limit(100);
 				query.find({
-					success: function (object) {
-						var data = [];
-						angular.forEach(object, function (row) {
-							data.push({
-								title       : row.get('title'),
-								author      : row.get('author'),
-								genre       : row.get('genre'),
-								googleID    : row.get('googleID'),
-								googleRating: row.get('googleRating'),
-								isbn        : row.get('isbn'),
-								language    : row.get('language'),
-								pageCount   : row.get('pageCount'),
-								publishDate : row.get('publishDate'),
-								publisher   : row.get('publisher'),
-								status      : row.get('status'),
-								subTitle    : row.get('subTitle'),
-								thumbnail   : row.get('thumbnail'),
-								location    : row.get('userID').get('location'),
-								userName    : row.get('userID').get('screenName'),
-								showAddress : row.get('userID').get('showAddress'),
-								userID      : row.get('userID').id
-							});
-						});
+						success: function (object) {
+							var data = [];
+							angular.forEach(object, function (row) {
 
-						deferred.resolve(data);
-					},
-					error  : function (error) {
-						alert("Error: " + error.code + " " + error.message);
-						deferred.reject(error);
+								var bookLat = row.get('userID').get('location').latitude;
+								var bookLng = row.get('userID').get('location').longitude;
+
+								data.push({
+									title       : row.get('title'),
+									author      : row.get('author'),
+									genre       : row.get('genre'),
+									googleID    : row.get('googleID'),
+									googleRating: row.get('googleRating'),
+									isbn        : row.get('isbn'),
+									language    : row.get('language'),
+									pageCount   : row.get('pageCount'),
+									publishDate : row.get('publishDate'),
+									publisher   : row.get('publisher'),
+									status      : row.get('status'),
+									subTitle    : row.get('subTitle'),
+									thumbnail   : row.get('thumbnail'),
+									location    : row.get('userID').get('location'),
+									distance    : getDistanceFromLatLonInKm(bookLat, bookLng),
+									userName    : row.get('userID').get('screenName'),
+									showAddress : row.get('userID').get('showAddress'),
+									userID      : row.get('userID').id
+								});
+							});
+
+							deferred.resolve(data);
+						},
+						error  : function (error) {
+							alert("Error: " + error.code + " " + error.message);
+							deferred.reject(error);
+						}
 					}
-				});
+				);
 				return deferred.promise;
 			},
 
@@ -80,9 +104,10 @@ angular.module('bookxchangeApp')
 					}
 				});
 				return deferred.promise;
-			},
+			}
+			,
 
-			//save book
+//save book
 			saveNew    : function (data) {
 				var deferred = $q.defer();
 				var pObject = Parse.Object.extend("books");
@@ -99,9 +124,10 @@ angular.module('bookxchangeApp')
 					}
 				});
 				return deferred.promise;
-			},
+			}
+			,
 
-			//get matching books
+//get matching books
 			getMatching: function (keyword) {
 				var deferred = $q.defer();
 				var request = $http({
@@ -119,9 +145,10 @@ angular.module('bookxchangeApp')
 
 				return deferred.promise;
 
-			},
+			}
+			,
 
-			//get info on one book
+//get info on one book
 			getBookInfo: function (googleID) {
 				var deferred = $q.defer();
 				var request = $http({
@@ -144,7 +171,8 @@ angular.module('bookxchangeApp')
 							publishDate : result.volumeInfo.publishedDate,
 							language    : result.volumeInfo.language,
 							googleRating: result.volumeInfo.averageRating,
-							isbn        : (result.volumeInfo.industryIdentifiers) ? result.volumeInfo.industryIdentifiers[0].identifier : 'Unknown'
+							isbn10      : (result.volumeInfo.industryIdentifiers) ? result.volumeInfo.industryIdentifiers[0].identifier : 'Unknown',
+							isbn13      : (result.volumeInfo.industryIdentifiers) ? result.volumeInfo.industryIdentifiers[1].identifier : 'Unknown'
 						};
 						deferred.resolve(data);
 					})
@@ -157,5 +185,7 @@ angular.module('bookxchangeApp')
 			}
 
 
-		};
-	});
+		}
+			;
+	})
+;

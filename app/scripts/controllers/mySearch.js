@@ -32,6 +32,7 @@ angular.module('bookxchangeApp')
 		$scope.gridOptions = {
 			data                     : [],
 			enableFiltering          : true,
+			enableSorting            : true,
 			enableRowSelection       : true,
 			enableRowHeaderSelection : false,
 			multiSelect              : false,
@@ -64,10 +65,11 @@ angular.module('bookxchangeApp')
 				},
 				{
 					name           : 'Distance',
+					field          : 'distance',
 					visible        : true,
 					cellClass      : 'grid-align',
 					enableFiltering: false,
-					cellTemplate   : '<div class="ui-grid-cell-contents"><span class="grid-align"><button ng-show="row.entity.showAddress" class="btn btn-default btn-sm" ng-click="grid.appScope.showRoute(row)">{{grid.appScope.calculateDistance(row)}} km</button></span><span ng-hide="row.entity.showAddress" class="grid-align">{{grid.appScope.calculateDistance(row)}} km</span></span></div>',
+					cellTemplate   : '<div class="ui-grid-cell-contents"><span class="grid-align"><button ng-show="row.entity.showAddress" class="btn btn-default btn-sm" ng-click="grid.appScope.showRoute(row)">{{grid.getCellValue(row, col)}} km</button></span><span ng-hide="row.entity.showAddress" class="grid-align">{{grid.getCellValue(row, col)}} km</span></span></div>',
 					width          : '100'
 				},
 				{
@@ -103,8 +105,6 @@ angular.module('bookxchangeApp')
 		};
 
 
-
-
 		books.all().then(
 			function (data) {
 				//success
@@ -124,30 +124,6 @@ angular.module('bookxchangeApp')
 			//todo
 			//	parse query
 		};
-
-		$scope.calculateDistance = function (row) {
-
-			var bookLat = row.entity.location.latitude;
-			var bookLng = row.entity.location.longitude;
-			var userLat = $rootScope.currentUser.location.latitude;
-			var userLng = $rootScope.currentUser.location.longitude
-
-			return getDistanceFromLatLonInKm(userLat, userLng, bookLat, bookLng);
-
-		};
-
-		function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-			var R = 6371; // Radius of the earth in km
-			var dLat = (lat2 - lat1) * (Math.PI / 180);  // deg2rad
-			var dLon = (lon2 - lon1) * (Math.PI / 180);
-			var a =
-				Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-				Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
-				Math.sin(dLon / 2) * Math.sin(dLon / 2);
-			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-			var d = R * c; // Distance in km
-			return Math.round(d);
-		}
 
 
 	});

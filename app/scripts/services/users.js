@@ -23,6 +23,7 @@ angular.module('bookxchangeApp')
 					showAddress: currentUser.get('showAddress'),
 					totalBooks: currentUser.get('totalBooks'),
 					totalBorrowed: currentUser.get('totalBorrowed'),
+					totalReturned: currentUser.get('totalReturned'),
 					totalLent: currentUser.get('totalLent'),
 					friends:currentUser.get('friends'),
 					followers:currentUser.get('followers'),

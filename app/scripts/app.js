@@ -105,7 +105,6 @@ angular
 
 
 			if (Parse.User.current()) {
-
 				$rootScope.currentUser = users.getCurrent();
 				console.log($rootScope.currentUser);
 			} else {

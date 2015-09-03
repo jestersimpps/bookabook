@@ -23,7 +23,7 @@
 			</div>
 			<div class="modal-body">
 				<ul class="media-list"
-				    style="max-height:400px;overflow-y: auto;padding:5px;">
+				    style="padding:5px;">
 
 					<li class="media">
 
@@ -45,14 +45,19 @@
 							<p>
 								<span style="color:#DC4750;"
 								      class="pull-right"
-								      ng-if="previewBook.isbn">ISBN: {{previewBook.isbn}}
+								      ng-if="previewBook.isbn10">ISBN: {{previewBook.isbn10}}
+								</span>
+								<br/>
+								<span style="color:#DC4750;"
+								      class="pull-right"
+								      ng-if="previewBook.isbn13">ISBN13: {{previewBook.isbn13}}
 								</span>
 							</p>
 							<p ng-if="previewBook.publisher">Published by {{previewBook.publisher}}
 								<span ng-show="previewBook.publishDate">,</span>
 							                                 {{previewBook.publishDate}}
 							</p>
-
+							<br/>
 							<p ng-bind-html="previewBook.description">
 							</p>
 						</div>
