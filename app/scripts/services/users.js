@@ -15,6 +15,7 @@ angular.module('bookxchangeApp')
 					firstName: currentUser.get('firstName'),
 					lastName: currentUser.get('lastName'),
 					screenName:currentUser.get('screenName'),
+					email:currentUser.get('email'),
 					about:currentUser.get('about'),
 					phone: currentUser.get('phone'),
 					mobile: currentUser.get('mobile'),

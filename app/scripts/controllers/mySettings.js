@@ -2,7 +2,7 @@
 
 
 angular.module('bookxchangeApp')
-	.controller('mySettingsCtrl', function ($rootScope, $location, $scope, users) {
+	.controller('mySettingsCtrl', function ($rootScope, $location, $scope, users, books) {
 
 		$scope.userSettings = {};
 		$scope.userAddress = {};
@@ -58,6 +58,8 @@ angular.module('bookxchangeApp')
 			Parse.User.current().set("location", $rootScope.currentUser.location);
 			Parse.User.current().set("showAddress", $rootScope.currentUser.showAddress);
 
+
+
 			//TODO
 			//		add social fields
 
@@ -65,6 +67,10 @@ angular.module('bookxchangeApp')
 			Parse.User.current().save(null, {
 				success: function (user) {
 					$rootScope.currentUser = user;
+
+					//change the location of the user library
+					books.changeLibrary(Parse.User.current().get("location"));
+
 					$btn.button('reset')
 				},
 				error  : function (user, error) {

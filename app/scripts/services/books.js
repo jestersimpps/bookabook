@@ -8,10 +8,9 @@ angular.module('bookxchangeApp')
 		return {
 
 			//get all books including users near
-			all        : function (radius) {
-
-				var userLat = $rootScope.currentUser.location.latitude;
-				var userLng = $rootScope.currentUser.location.longitude;
+			all          : function (radius) {
+				var userLat = $rootScope.currentUser ? $rootScope.currentUser.location.latitude : 1;
+				var userLng = $rootScope.currentUser ? $rootScope.currentUser.location.longitude : 1;
 
 				function getDistanceFromLatLonInKm(lat, lon) {
 					var R = 6371; // Radius of the earth in km
@@ -28,7 +27,11 @@ angular.module('bookxchangeApp')
 
 				var deferred = $q.defer();
 				var query = new Parse.Query("books");
+				//inner join the user class
 				query.include("userID");
+				//use the current user's location as the center
+				query.withinKilometers("location", Parse.User.current().get("location"), radius);
+				//limit the query to 100 books
 				query.limit(100);
 				query.find({
 						success: function (object) {
@@ -37,27 +40,29 @@ angular.module('bookxchangeApp')
 
 								var bookLat = row.get('userID').get('location').latitude;
 								var bookLng = row.get('userID').get('location').longitude;
-
-								data.push({
-									title       : row.get('title'),
-									author      : row.get('author'),
-									genre       : row.get('genre'),
-									googleID    : row.get('googleID'),
-									googleRating: row.get('googleRating'),
-									isbn        : row.get('isbn'),
-									language    : row.get('language'),
-									pageCount   : row.get('pageCount'),
-									publishDate : row.get('publishDate'),
-									publisher   : row.get('publisher'),
-									status      : row.get('status'),
-									subTitle    : row.get('subTitle'),
-									thumbnail   : row.get('thumbnail'),
-									location    : row.get('userID').get('location'),
-									distance    : getDistanceFromLatLonInKm(bookLat, bookLng),
-									userName    : row.get('userID').get('screenName'),
-									showAddress : row.get('userID').get('showAddress'),
-									userID      : row.get('userID').id
-								});
+								//only fetch books that have a location
+								if (row.get('location')) {
+									data.push({
+										title       : row.get('title'),
+										author      : row.get('author'),
+										genre       : row.get('genre'),
+										googleID    : row.get('googleID'),
+										googleRating: row.get('googleRating'),
+										isbn        : row.get('isbn'),
+										language    : row.get('language'),
+										pageCount   : row.get('pageCount'),
+										publishDate : row.get('publishDate'),
+										publisher   : row.get('publisher'),
+										status      : row.get('status'),
+										subTitle    : row.get('subTitle'),
+										thumbnail   : row.get('thumbnail'),
+										location    : row.get('location'),
+										distance    : getDistanceFromLatLonInKm(bookLat, bookLng),
+										userName    : row.get('userID').get('screenName'),
+										showAddress : row.get('userID').get('showAddress'),
+										userID      : row.get('userID').id
+									});
+								}
 							});
 
 							deferred.resolve(data);
@@ -69,10 +74,34 @@ angular.module('bookxchangeApp')
 					}
 				);
 				return deferred.promise;
+
+			},
+
+			//change library location
+			changeLibrary: function (newLocation) {
+				var deferred = $q.defer();
+				var query = new Parse.Query("books");
+				query.equalTo("userID", Parse.User.current());
+				query.find({
+					success: function (object) {
+						angular.forEach(object, function (row) {
+							console.log(row);
+							console.log(newLocation);
+							row.set("location", newLocation);
+							row.save();
+						});
+						deferred.resolve('done');
+					},
+					error  : function (error) {
+						alert("Error: " + error.code + " " + error.message);
+						deferred.reject(error);
+					}
+				});
+				return deferred.promise;
 			},
 
 			//get users books
-			my         : function (userID) {
+			my           : function (userID) {
 				var deferred = $q.defer();
 				var query = new Parse.Query("books");
 				query.equalTo("userID", userID);
@@ -104,11 +133,10 @@ angular.module('bookxchangeApp')
 					}
 				});
 				return deferred.promise;
-			}
-			,
+			},
 
-//save book
-			saveNew    : function (data) {
+			//save book
+			saveNew      : function (data) {
 				var deferred = $q.defer();
 				var pObject = Parse.Object.extend("books");
 				var po = new pObject();
@@ -124,11 +152,10 @@ angular.module('bookxchangeApp')
 					}
 				});
 				return deferred.promise;
-			}
-			,
+			},
 
-//get matching books
-			getMatching: function (keyword) {
+			//get matching books
+			getMatching  : function (keyword) {
 				var deferred = $q.defer();
 				var request = $http({
 					method : 'GET',
@@ -145,11 +172,10 @@ angular.module('bookxchangeApp')
 
 				return deferred.promise;
 
-			}
-			,
+			},
 
 //get info on one book
-			getBookInfo: function (googleID) {
+			getBookInfo  : function (googleID) {
 				var deferred = $q.defer();
 				var request = $http({
 					method : 'GET',
@@ -185,7 +211,5 @@ angular.module('bookxchangeApp')
 			}
 
 
-		}
-			;
-	})
-;
+		};
+	});

@@ -105,7 +105,7 @@ angular.module('bookxchangeApp')
 		};
 
 
-		books.all().then(
+		books.all(100).then(
 			function (data) {
 				//success
 				console.log(data);
