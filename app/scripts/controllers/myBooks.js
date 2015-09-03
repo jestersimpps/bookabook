@@ -130,7 +130,7 @@ angular.module('bookxchangeApp')
 				function (data) {
 					//success
 					// recalculate number of user books
-					Parse.User.current().set("totalBooks", $rootScope.currentUser.attributes.totalBooks + 1);
+					Parse.User.current().set("totalBooks", $rootScope.currentUser.totalBooks + 1);
 					Parse.User.current().save(null, {
 						success: function (user) {
 							$rootScope.currentUser = user;

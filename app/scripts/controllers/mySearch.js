@@ -53,7 +53,6 @@ angular.module('bookxchangeApp')
 				{name: 'Title', field: 'title', visible: true, minWidth: '200'},
 				{name: 'Author', field: 'author', visible: true, width: '150'},
 				{name: 'Genre', field: 'genre', visible: true, width: '150'},
-				{name: 'Publisher', field: 'publisher', visible: true, width: '150'},
 				{name: 'Language', field: 'language', visible: true, width: '100'},
 				{
 					name           : 'Rating',
@@ -115,7 +114,7 @@ angular.module('bookxchangeApp')
 
 				},
 				function (data) {
-					//fall
+					//fail
 					console.log(data);
 				});
 		}
