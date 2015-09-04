@@ -120,7 +120,7 @@ angular.module('bookxchangeApp')
 		}
 
 
-		$scope.showBook = function (keyword) {
+		$scope.search = function (keyword) {
 			var $btn = $('#searchButton').button('loading');
 			//todo
 			//	parse query

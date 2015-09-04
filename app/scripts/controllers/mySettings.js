@@ -1,89 +1,81 @@
 'use strict';
 
-
 angular.module('bookxchangeApp')
-	.controller('mySettingsCtrl', function ($rootScope, $location, $scope, users, books) {
+    .controller('mySettingsCtrl', function ($rootScope, $location, $scope, users, books) {
 
-		$scope.userSettings = {};
-		$scope.userAddress = {};
+        $scope.userSettings = {};
+        $scope.userAddress = {};
 
+        $scope.map = {center: {latitude: 45, longitude: -73}, zoom: 8};
 
-		$scope.profileTabIndex = 2;
+        $scope.refreshMap = function getAddressCoordinates() {
+            var $btn = $('#mapButton').button('loading');
+            $scope.showMap = false;
+            users.getCoordinates($rootScope.currentUser.address).then(
+                function (data) {
+                    //success
+                    console.log(data);
+                    $rootScope.currentUser.address = data.formatted_address;
+                    var point = new Parse.GeoPoint(data.geometry.location.lat, data.geometry.location.lng);
+                    $rootScope.currentUser.location = point;
+                    var marker = {
+                        id    : data.formatted_address,
+                        coords: {
+                            latitude : data.geometry.location.lat,
+                            longitude: data.geometry.location.lng
+                        }
+                    };
+                    $scope.map = {
+                        center : {latitude: data.geometry.location.lat, longitude: data.geometry.location.lng},
+                        zoom   : 15,
+                        markers: [marker]
+                    };
+                    $btn.button('reset');
+                    $scope.showMap = true;
+                },
+                function (data) {
+                    //fial
+                    console.log(data);
+                });
 
-		$scope.map = {center: {latitude: 45, longitude: -73}, zoom: 8};
+        };
 
+        $scope.saveUserData = function () {
 
-		$scope.refreshMap = function getAddressCoordinates() {
-			var $btn = $('#mapButton').button('loading');
-			$scope.showMap = false;
-			users.getCoordinates($rootScope.currentUser.address).then(
-				function (data) {
-					//success
-					console.log(data);
-					$rootScope.currentUser.address = data.formatted_address;
-					var point = new Parse.GeoPoint(data.geometry.location.lat, data.geometry.location.lng);
-					$rootScope.currentUser.location = point;
-					var marker = {
-						id    : data.formatted_address,
-						coords: {
-							latitude : data.geometry.location.lat,
-							longitude: data.geometry.location.lng
-						}
-					};
-					$scope.map = {
-						center : {latitude: data.geometry.location.lat, longitude: data.geometry.location.lng},
-						zoom   : 15,
-						markers: [marker]
-					};
-					$btn.button('reset');
-					$scope.showMap = true;
-				},
-				function (data) {
-					//fial
-					console.log(data);
-				});
+            var $btn = $('#saveButton').button('loading');
 
-		};
+            Parse.User.current().set("firstName", $rootScope.currentUser.firstName);
+            Parse.User.current().set("lastName", $rootScope.currentUser.lastName);
+            Parse.User.current().set("phone", $rootScope.currentUser.phone);
+            Parse.User.current().set("mobile", $rootScope.currentUser.mobile);
+            Parse.User.current().set("address", $rootScope.currentUser.address);
+            Parse.User.current().set("location", $rootScope.currentUser.location);
+            Parse.User.current().set("showAddress", $rootScope.currentUser.showAddress);
 
+            //TODO
+            //		add social fields
 
-		$scope.saveUserData = function () {
+            Parse.User.current().save(null, {
+                success: function (user) {
 
-			var $btn = $('#saveButton').button('loading');
+                    //change the location of the user library if location has changed
+                    //todo: only if location has changed
+                    books.changeLibrary(Parse.User.current().get("location"));
+                    $rootScope.currentUser = users.getCurrent();
+                    $btn.button('reset')
+                },
+                error  : function (user, error) {
 
-			Parse.User.current().set("firstName", $rootScope.currentUser.firstName);
-			Parse.User.current().set("lastName", $rootScope.currentUser.lastName);
-			Parse.User.current().set("phone", $rootScope.currentUser.phone);
-			Parse.User.current().set("mobile", $rootScope.currentUser.mobile);
-			Parse.User.current().set("address", $rootScope.currentUser.address);
-			Parse.User.current().set("location", $rootScope.currentUser.location);
-			Parse.User.current().set("showAddress", $rootScope.currentUser.showAddress);
+                    console.log(error);
+                }
+            });
+        };
 
+        $scope.resetForm = function () {
 
-			//TODO
-			//		add social fields
+            //TODO
+            //	get current user data
 
+        }
 
-			Parse.User.current().save(null, {
-				success: function (user) {
-
-					//change the location of the user library if location has changed
-					//todo: only if location has changed
-					books.changeLibrary(Parse.User.current().get("location"));
-					$rootScope.currentUser = users.getCurrent();
-					$btn.button('reset')
-				},
-				error  : function (user, error) {
-
-					console.log(error);
-				}
-			});
-		};
-
-		$scope.resetForm = function () {
-
-			//TODO
-			//	get current user data
-
-		}
-
-	});
+    });

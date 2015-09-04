@@ -1,57 +1,57 @@
 <div class="container-fluid">
-	<div class="row topbar">
-		<div class="col-sm-3 location">
-			<div class="form-group">
-				<label for="searchradius"
-				       class="col-sm-12 control-label">Radius (km)
-				</label>
-				<div class="col-sm-12 controls">
-					<select class="form-control"
-					        name="searchradius"
-					        id="searchradius"
-					        ng-options="option.id for option in searchRadiusOptions.options track by option.value"
-					        ng-model="searchRadiusOptions.selected"></select>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-9 searchbar">
-			<div class="form-group">
-				<label for="inputfield2"
-				       class="col-sm-9 control-label">Search for books near you
-				</label>
-				<div class="col-sm-12 controls">
-					<form ng-submit="showBook(keyword)">
-						<div class="input-group">
+  <div class="row topbar">
+    <div class="col-sm-3 location">
+      <div class="form-group">
+        <label for="searchradius"
+               class="col-sm-12 control-label">Radius (km)
+        </label>
+        <div class="col-sm-12 controls">
+          <select class="form-control"
+                  name="searchradius"
+                  id="searchradius"
+                  ng-options="option.id for option in searchRadiusOptions.options track by option.value"
+                  ng-model="searchRadiusOptions.selected"></select>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9 searchbar">
+      <div class="form-group">
+        <label for="inputfield2"
+               class="col-sm-9 control-label">Search for books near you
+        </label>
+        <div class="col-sm-12 controls">
+          <form ng-submit="search(keyword)">
+            <div class="input-group">
 
-							<input type="text"
-							       class="form-control"
-							       id="inputfield2"
-							       placeholder="Book title, Genre, Author name, ISBN, ..."
-							       ng-model="keyword">
-							<span class="input-group-btn">
-								<button id="searchButton"
-								        class="btn btn-primary"
-								        type="submit"
-								        data-loading-text="Loading...">Search
-								</button>
-							</span>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+              <input type="text"
+                     class="form-control"
+                     id="inputfield2"
+                     placeholder="Book title, Genre, Author name, ISBN, ..."
+                     ng-model="keyword">
+              <span class="input-group-btn">
+                <button id="searchButton"
+                        class="btn btn-primary"
+                        type="submit"
+                        data-loading-text="Loading...">Search
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="col-sm-12">
 
-	<div class="grid"
-	     ui-grid="gridOptions"
-	     ui-grid-selection
-	     ui-grid-resize-columns
-	     ui-grid-auto-resize
-	     ng-style="{ 'height': height }">
-	</div>
+  <div class="grid"
+       ui-grid="gridOptions"
+       ui-grid-selection
+       ui-grid-resize-columns
+       ui-grid-auto-resize
+       ng-style="{ 'height': height }">
+  </div>
 
 </div>
 

@@ -1,51 +1,51 @@
 <div class="container-fluid">
-	<div class="row topbar">
-		<div class="col-sm-3 addbook">
-			<div class="form-group">
-				<label class="col-sm-12 control-label">My collection
-				</label>
-				<div class="col-sm-12 controls">
-					<button type="button"
-					        class="btn btn-info"
-					        ng-click="showNewBookModal()">
-						<i class="fa fa-plus"></i>
-						Share a book
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-9 searchbar">
-			<div class="form-group">
-				<label for="inputfield2"
-				       class="col-sm-9 control-label">Search for a book in your collection
-				</label>
-				<div class="col-sm-12 controls">
-					<div class="input-group">
-						<input type="text"
-						       class="form-control"
-						       id="inputfield2"
-						       placeholder="Book title, Genre, Author name, ISBN, ...">
-						<span class="input-group-btn">
-							<button class="btn btn-primary"
-							        data-type="last"
-							        ng-click="search(keyword)">Search
-							</button>
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="row topbar">
+    <div class="col-sm-3 addbook">
+      <div class="form-group">
+        <label class="col-sm-12 control-label">My collection
+        </label>
+        <div class="col-sm-12 controls">
+          <button type="button"
+                  class="btn btn-info"
+                  ng-click="showNewBookModal()">
+            <i class="fa fa-plus"></i>
+            Share a book
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9 searchbar">
+      <div class="form-group">
+        <label for="inputfield2"
+               class="col-sm-9 control-label">Search for a book in your collection
+        </label>
+        <div class="col-sm-12 controls">
+          <div class="input-group">
+            <input type="text"
+                   class="form-control"
+                   id="inputfield2"
+                   placeholder="Book title, Genre, Author name, ISBN, ...">
+            <span class="input-group-btn">
+              <button class="btn btn-primary"
+                      data-type="last"
+                      ng-click="search(keyword)">Search
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="col-sm-12">
-	<div class="grid"
-	     ui-grid="gridOptions"
-	     ui-grid-selection
-	     ui-grid-resize-columns
-	     ui-grid-auto-resize
-	     ng-style="{ 'height': height }">
-	</div>
+  <div class="grid"
+       ui-grid="gridOptions"
+       ui-grid-selection
+       ui-grid-resize-columns
+       ui-grid-auto-resize
+       ng-style="{ 'height': height }">
+  </div>
 
 </div>
 

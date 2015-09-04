@@ -1,443 +1,443 @@
 <br/>
 <div class="container"
      ng-controller="myProfileCtrl">
-	<div class="row">
-		<div class="col-sm-10"><h1>{{ currentUser.screenName }}</h1>
-			<button class="btn btn-danger"
-			        type="reset"
-			        ng-click="logOut()">
-				<i class="fa fa-sign-out"></i>
-				Sign out
-			</button>
-		</div>
-		<div class="col-sm-2">
-			<br/>
-			<br/>
-			<a href="/users"
-			   class="pull-right">
-				<img title="profile image"
-				     class="img-circle img-responsive"
-				     src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100">
-			</a>
+  <div class="row">
+    <div class="col-sm-10"><h1>{{ currentUser.screenName }}</h1>
+      <button class="btn btn-danger"
+              type="reset"
+              ng-click="logOut()">
+        <i class="fa fa-sign-out"></i>
+        Sign out
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <br/>
+      <br/>
+      <a href="/users"
+         class="pull-right">
+        <img title="profile image"
+             class="img-circle img-responsive"
+             src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100">
+      </a>
 
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-3">
-			<br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <br/>
 
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<i class="fa fa-user fa-1x"></i>
-					Profile
-				</div>
-				<div class="panel-body">
-					<ul class="list-group">
-						<li class="list-group-item text-right">
-							<span class="pull-left">
-								<strong>Joined</strong>
-							</span>
-							{{ currentUser.createdAt | date: 'mediumDate'}}
-						</li>
-						<li class="list-group-item text-right">
-							<span class="pull-left">
-								<strong>Last updated</strong>
-							</span>
-							{{ currentUser.updatedAt | date: 'medium'}}
-						</li>
-						<li class="list-group-item text-right">
-							<span class="pull-left">
-								<strong>Real name</strong>
-							</span>
-							{{ currentUser.firstName }} {{ currentUser.lastName }}
-						</li>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-user fa-1x"></i>
+          Profile
+        </div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item text-right">
+              <span class="pull-left">
+                <strong>Joined</strong>
+              </span>
+              {{ currentUser.createdAt | date: 'mediumDate'}}
+            </li>
+            <li class="list-group-item text-right">
+              <span class="pull-left">
+                <strong>Last updated</strong>
+              </span>
+              {{ currentUser.updatedAt | date: 'medium'}}
+            </li>
+            <li class="list-group-item text-right">
+              <span class="pull-left">
+                <strong>Real name</strong>
+              </span>
+              {{ currentUser.firstName }} {{ currentUser.lastName }}
+            </li>
 
-					</ul>
-				</div>
-			</div>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<i class="fa fa-dashboard fa-1x"></i>
-					Statistics
-				</div>
-				<div class="panel-body">
-					<ul class="list-group">
+          </ul>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-dashboard fa-1x"></i>
+          Statistics
+        </div>
+        <div class="panel-body">
+          <ul class="list-group">
 
-						<li class="list-group-item text-right">
-							<span class="pull-left">
-								<strong>Total books</strong>
-							</span>
-							{{ currentUser.totalBooks }}
-						</li>
-						<li class="list-group-item text-right">
-							<span class="pull-left">
-								<strong>Borrowed books</strong>
-							</span>
-							{{ currentUser.totalBorrowed }}
-						</li>
-						<li class="list-group-item text-right">
-							<span class="pull-left">
-								<strong>Lent books</strong>
-							</span>
-							{{ currentUser.totalLent }}
-						</li>
-						<li class="list-group-item text-right">
-							<span class="pull-left">
-								<strong>Friends</strong>
-							</span>
-							{{ currentUser.friends.length }}
-						</li>
-						<li class="list-group-item text-right">
-							<span class="pull-left">
-								<strong>Following</strong>
-							</span>
-							{{ currentUser.following.length }}
-						</li>
-						<li class="list-group-item text-right">
-							<span class="pull-left">
-								<strong>Followers</strong>
-							</span>
-							{{ currentUser.followers.length }}
-						</li>
-					</ul>
-				</div>
-			</div>
+            <li class="list-group-item text-right">
+              <span class="pull-left">
+                <strong>Total books</strong>
+              </span>
+              {{ currentUser.totalBooks }}
+            </li>
+            <li class="list-group-item text-right">
+              <span class="pull-left">
+                <strong>Borrowed books</strong>
+              </span>
+              {{ currentUser.totalBorrowed }}
+            </li>
+            <li class="list-group-item text-right">
+              <span class="pull-left">
+                <strong>Lent books</strong>
+              </span>
+              {{ currentUser.totalLent }}
+            </li>
+            <li class="list-group-item text-right">
+              <span class="pull-left">
+                <strong>Friends</strong>
+              </span>
+              {{ currentUser.friends.length }}
+            </li>
+            <li class="list-group-item text-right">
+              <span class="pull-left">
+                <strong>Following</strong>
+              </span>
+              {{ currentUser.following.length }}
+            </li>
+            <li class="list-group-item text-right">
+              <span class="pull-left">
+                <strong>Followers</strong>
+              </span>
+              {{ currentUser.followers.length }}
+            </li>
+          </ul>
+        </div>
+      </div>
 
-			<div class="panel panel-default">
-				<div class="panel-heading">Social Media</div>
-				<div class="panel-body">
-					<i class="fa fa-facebook fa-2x"></i>
-					<i class="fa fa-twitter fa-2x"></i>
-					<i class="fa fa-pinterest fa-2x"></i>
-					<i class="fa fa-google-plus fa-2x"></i>
-				</div>
-			</div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Social Media</div>
+        <div class="panel-body">
+          <i class="fa fa-facebook fa-2x"></i>
+          <i class="fa fa-twitter fa-2x"></i>
+          <i class="fa fa-pinterest fa-2x"></i>
+          <i class="fa fa-google-plus fa-2x"></i>
+        </div>
+      </div>
 
-		</div>
+    </div>
 
-		<!--activity-->
+    <!--activity-->
 
-		<div class="col-sm-9">
-			<br/>
-			<tabset justified="true">
-				<tab heading="Activity">
+    <div class="col-sm-9">
+      <br/>
+      <tabset justified="true">
+        <tab heading="Activity">
 
-					<div class="table-responsive">
-						<table class="table table-hover">
-							<thead>
-							<tr>
-								<th>#</th>
-								<th>Label 1</th>
-								<th>Label 2</th>
-								<th>Label 3</th>
-								<th>Label</th>
-								<th>Label</th>
-								<th>Label</th>
-							</tr>
-							</thead>
-							<tbody id="items">
-							<tr>
-								<td>1</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-							</tr>
-							</tbody>
-						</table>
-						<hr>
-						<div class="row">
-							<div class="col-md-4 col-md-offset-4 text-center">
-								<ul class="pagination"
-								    id="myPager"></ul>
-							</div>
-						</div>
-					</div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Label 1</th>
+                <th>Label 2</th>
+                <th>Label 3</th>
+                <th>Label</th>
+                <th>Label</th>
+                <th>Label</th>
+              </tr>
+              </thead>
+              <tbody id="items">
+              <tr>
+                <td>1</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+              </tr>
+              </tbody>
+            </table>
+            <hr>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4 text-center">
+                <ul class="pagination"
+                    id="myPager"></ul>
+              </div>
+            </div>
+          </div>
 
-					<hr>
+          <hr>
 
-					<h4>Recent Activity</h4>
+          <h4>Recent Activity</h4>
 
-					<div class="table-responsive">
-						<table class="table table-hover">
+          <div class="table-responsive">
+            <table class="table table-hover">
 
-							<tbody>
-							<tr>
-								<td>
-									<i class="pull-right fa fa-edit"></i>
-									Today, 1:00 - Jeff Manzi liked your post.
-								</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-				</tab>
+              <tbody>
+              <tr>
+                <td>
+                  <i class="pull-right fa fa-edit"></i>
+                  Today, 1:00 - Jeff Manzi liked your post.
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </tab>
 
-				<!--messages-->
+        <!--messages-->
 
-				<tab heading="Messages">
-					<div ng-controller="myMessagesCtrl">
-						<ul class="list-group">
-							<li class="list-group-item text-muted">Inbox</li>
-							<li class="list-group-item text-right">
-								<a href="#"
-								   class="pull-left">Here is your a link to the latest summary report from the..
-								</a>
-								2.13.2014
-							</li>
-						</ul>
-					</div>
-				</tab>
+        <tab heading="Messages">
+          <div ng-controller="myMessagesCtrl">
+            <ul class="list-group">
+              <li class="list-group-item text-muted">Inbox</li>
+              <li class="list-group-item text-right">
+                <a href="#"
+                   class="pull-left">Here is your a link to the latest summary report from the..
+                </a>
+                2.13.2014
+              </li>
+            </ul>
+          </div>
+        </tab>
 
-				<!--settings-->
+        <!--settings-->
 
-				<tab heading="Settings">
-					<div ng-controller="mySettingsCtrl">
-						<form class="form"
-						      id="UserInformation"
-						      ng-submit="saveUserData()">
+        <tab heading="Settings">
+          <div ng-controller="mySettingsCtrl">
+            <form class="form"
+                  id="UserInformation"
+                  ng-submit="saveUserData()">
 
-							<div class="row">
-								<div class="col-xs-6">
-									<div class="form-group">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
 
-										<label for="first_name"><h4>First name</h4></label>
-										<input type="text"
-										       class="form-control"
-										       name="first_name"
-										       id="first_name"
-										       ng-model="currentUser.firstName"
-										       placeholder="first name"
-										       title="enter your first name if any.">
-									</div>
-								</div>
+                    <label for="first_name"><h4>First name</h4></label>
+                    <input type="text"
+                           class="form-control"
+                           name="first_name"
+                           id="first_name"
+                           ng-model="currentUser.firstName"
+                           placeholder="first name"
+                           title="enter your first name if any.">
+                  </div>
+                </div>
 
-								<div class="col-xs-6">
-									<div class="form-group">
+                <div class="col-xs-6">
+                  <div class="form-group">
 
-										<label for="last_name"><h4>Last name</h4></label>
-										<input type="text"
-										       class="form-control"
-										       name="last_name"
-										       id="last_name"
-										       ng-model="currentUser.lastName"
-										       placeholder="last name"
-										       title="enter your last name if any.">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-6">
-									<div class="form-group">
+                    <label for="last_name"><h4>Last name</h4></label>
+                    <input type="text"
+                           class="form-control"
+                           name="last_name"
+                           id="last_name"
+                           ng-model="currentUser.lastName"
+                           placeholder="last name"
+                           title="enter your last name if any.">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
 
-										<label for="phone"><h4>Phone</h4></label>
-										<input type="text"
-										       class="form-control"
-										       name="phone"
-										       id="phone"
-										       placeholder="enter phone"
-										       ng-model="currentUser.phone"
-										       title="enter your phone number if any.">
-									</div>
-								</div>
-								<div class="col-xs-6">
-									<div class="form-group">
+                    <label for="phone"><h4>Phone</h4></label>
+                    <input type="text"
+                           class="form-control"
+                           name="phone"
+                           id="phone"
+                           placeholder="enter phone"
+                           ng-model="currentUser.phone"
+                           title="enter your phone number if any.">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="form-group">
 
-										<label for="mobile"><h4>Mobile</h4></label>
-										<input type="text"
-										       class="form-control"
-										       name="mobile"
-										       id="mobile"
-										       ng-model="currentUser.mobile"
-										       placeholder="enter mobile number"
-										       title="enter your mobile number if any.">
-									</div>
-								</div>
+                    <label for="mobile"><h4>Mobile</h4></label>
+                    <input type="text"
+                           class="form-control"
+                           name="mobile"
+                           id="mobile"
+                           ng-model="currentUser.mobile"
+                           placeholder="enter mobile number"
+                           title="enter your mobile number if any.">
+                  </div>
+                </div>
 
-							</div>
-							<div class="row">
-								<div class="col-xs-6">
-									<div class="form-group">
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
 
-										<label for="email"><h4>Email</h4></label>
-										<input type="email"
-										       class="form-control"
-										       name="email"
-										       id="email"
-										       ng-model="currentUser.email"
-										       placeholder="Your Email Address"
-										       title="enter your email.">
-									</div>
-								</div>
+                    <label for="email"><h4>Email</h4></label>
+                    <input type="email"
+                           class="form-control"
+                           name="email"
+                           id="email"
+                           ng-model="currentUser.email"
+                           placeholder="Your Email Address"
+                           title="enter your email.">
+                  </div>
+                </div>
 
-							</div>
+              </div>
 
-							<div class="row">
-								<hr/>
-							</div>
+              <div class="row">
+                <hr/>
+              </div>
 
-							<div class="row">
-								<div class="col-xs-6">
-									<div class="form-group">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
 
-										<label for="facebook">
-											<h4>
-												<i class="fa fa-facebook"></i>
-												Facebook
-											</h4>
-										</label>
-										<input type="text"
-										       class="form-control"
-										       name="facebook"
-										       id="facebook"
-										       placeholder="facebook profile"
-										       ng-model="currentUser.facebook"
-										       title="enter your phone number if any.">
-									</div>
-								</div>
-								<div class="col-xs-6">
-									<div class="form-group">
+                    <label for="facebook">
+                      <h4>
+                        <i class="fa fa-facebook"></i>
+                        Facebook
+                      </h4>
+                    </label>
+                    <input type="text"
+                           class="form-control"
+                           name="facebook"
+                           id="facebook"
+                           placeholder="facebook profile"
+                           ng-model="currentUser.facebook"
+                           title="enter your phone number if any.">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="form-group">
 
-										<label for="twitter">
-											<h4>
-												<i class="fa fa-twitter"></i>
-												Twitter
-											</h4>
-										</label>
-										<input type="text"
-										       class="form-control"
-										       name="twitter"
-										       id="twitter"
-										       ng-model="currentUser.twitter"
-										       placeholder="enter mobile number"
-										       title="enter your mobile number if any.">
-									</div>
-								</div>
-							</div>
+                    <label for="twitter">
+                      <h4>
+                        <i class="fa fa-twitter"></i>
+                        Twitter
+                      </h4>
+                    </label>
+                    <input type="text"
+                           class="form-control"
+                           name="twitter"
+                           id="twitter"
+                           ng-model="currentUser.twitter"
+                           placeholder="twitter profile"
+                           title="enter your mobile number if any.">
+                  </div>
+                </div>
+              </div>
 
-							<div class="row">
-								<div class="col-xs-6">
-									<div class="form-group">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
 
-										<label for="pinterest">
-											<h4>
-												<i class="fa fa-pinterest"></i>
-												Pinterest
-											</h4>
-										</label>
-										<input type="text"
-										       class="form-control"
-										       name="pinterest"
-										       id="pinterest"
-										       placeholder="pinterest profile"
-										       ng-model="currentUser.pinterest"
-										       title="enter your phone number if any.">
-									</div>
-								</div>
-								<div class="col-xs-6">
-									<div class="form-group">
+                    <label for="pinterest">
+                      <h4>
+                        <i class="fa fa-pinterest"></i>
+                        Pinterest
+                      </h4>
+                    </label>
+                    <input type="text"
+                           class="form-control"
+                           name="pinterest"
+                           id="pinterest"
+                           placeholder="pinterest profile"
+                           ng-model="currentUser.pinterest"
+                           title="enter your phone number if any.">
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="form-group">
 
-										<label for="googleplus">
-											<h4>
-												<i class="fa fa-google-plus"></i>
-												Google Plus
-											</h4>
-										</label>
-										<input type="text"
-										       class="form-control"
-										       name="googleplus"
-										       id="googleplus"
-										       ng-model="currentUser.googleplus"
-										       placeholder="google plus profile"
-										       title="enter your mobile number if any.">
-									</div>
-								</div>
-							</div>
+                    <label for="googleplus">
+                      <h4>
+                        <i class="fa fa-google-plus"></i>
+                        Google Plus
+                      </h4>
+                    </label>
+                    <input type="text"
+                           class="form-control"
+                           name="googleplus"
+                           id="googleplus"
+                           ng-model="currentUser.googleplus"
+                           placeholder="google plus profile"
+                           title="enter your mobile number if any.">
+                  </div>
+                </div>
+              </div>
 
-							<div class="row">
-								<hr/>
-							</div>
+              <div class="row">
+                <hr/>
+              </div>
 
-							<div class="row">
-								<div class="col-xs-12">
-									<div class="form-group">
-										<label for="address"><h4>Location</h4></label>
-										<p>We will use your address to offer the geolocation service that allows other users to find books
-										   nearby.</p>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <label for="address"><h4>Location</h4></label>
+                    <p>We will use your address to offer the geolocation service that allows other users to find books
+                       nearby.</p>
 
-										<div class="input-group">
-											<input type="text"
-											       id="address"
-											       class="form-control"
-											       placeholder="Full address (housenumber, street, locality, city, state, country)"
-											       ng-model="currentUser.address">
-											<span class="input-group-btn">
-												<button class="btn btn-info"
-												        type="button"
-												        id="mapButton"
-												        ng-click="refreshMap()"
-												        data-loading-text="Searching...">
-													<i class="fa fa-map-marker"></i>
-													Show on map
-												</button>
-											</span>
-										</div>
-										<br/>
-										<label class="checkbox-inline">
-											<input type="checkbox"
-											       value=""
-											       ng-model="currentUser.showAddress">
-											Enable route directions in public searches
-										</label>
-									</div>
-								</div>
-							</div>
+                    <div class="input-group">
+                      <input type="text"
+                             id="address"
+                             class="form-control"
+                             placeholder="Full address (housenumber, street, locality, city, state, country)"
+                             ng-model="currentUser.address">
+                      <span class="input-group-btn">
+                        <button class="btn btn-info"
+                                type="button"
+                                id="mapButton"
+                                ng-click="refreshMap()"
+                                data-loading-text="Searching...">
+                          <i class="fa fa-map-marker"></i>
+                          Show on map
+                        </button>
+                      </span>
+                    </div>
+                    <br/>
+                    <label class="checkbox-inline">
+                      <input type="checkbox"
+                             value=""
+                             ng-model="currentUser.showAddress">
+                      Enable route directions in public searches
+                    </label>
+                  </div>
+                </div>
+              </div>
 
-							<ui-gmap-google-map center="map.center"
-							                    zoom="map.zoom"
-							                    draggable="true"
-							                    ng-if="showMap">
-								<ui-gmap-marker ng-repeat="m in map.markers"
-								                coords="m.coords"
-								                icon="m.icon"
-								                idkey="m.id"></ui-gmap-marker>
-							</ui-gmap-google-map>
+              <ui-gmap-google-map center="map.center"
+                                  zoom="map.zoom"
+                                  draggable="true"
+                                  ng-if="showMap">
+                <ui-gmap-marker ng-repeat="m in map.markers"
+                                coords="m.coords"
+                                icon="m.icon"
+                                idkey="m.id"></ui-gmap-marker>
+              </ui-gmap-google-map>
 
-							<div class="row">
-								<hr/>
-							</div>
+              <div class="row">
+                <hr/>
+              </div>
 
-							<div class="row">
-								<div class="col-xs-12">
-									<div class="form-group">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
 
-										<br>
-										<button class="btn btn-success pull-right"
-										        type="submit"
-										        id="saveButton"
-										        data-loading-text="Saving...">
-											<i class="glyphicon glyphicon-ok-sign"></i>
-											Save
-										</button>
-										<button class="btn btn-danger"
-										        id="resetButton"
-										        data-loading-text="Resetting..."
-										        ng-click="resetForm()">
-											<i class="glyphicon glyphicon-repeat"></i>
-											Reset
-										</button>
+                    <br>
+                    <button class="btn btn-success pull-right"
+                            type="submit"
+                            id="saveButton"
+                            data-loading-text="Saving...">
+                      <i class="glyphicon glyphicon-ok-sign"></i>
+                      Save
+                    </button>
+                    <button class="btn btn-danger"
+                            id="resetButton"
+                            data-loading-text="Resetting..."
+                            ng-click="resetForm()">
+                      <i class="glyphicon glyphicon-repeat"></i>
+                      Reset
+                    </button>
 
-									</div>
-								</div>
-							</div>
+                  </div>
+                </div>
+              </div>
 
-						</form>
-					</div>
-				</tab>
+            </form>
+          </div>
+        </tab>
 
-			</tabset>
-		</div>
-	</div>
+      </tabset>
+    </div>
+  </div>
 </div>

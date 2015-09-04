@@ -16,18 +16,13 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<h4 class="modal-title"
-				    id="myModalLabel">{{newBook.title}}
-					<span ng-show="previewBook.subtitle"> -</span>
-				                      {{newBook.subtitle}}
+				    id="myModalLabel">Enter a keyword to find a book you own
 				</h4>
 
 			</div>
 			<div class="modal-body">
 				<form ng-submit="searchNewBooks(newBookKeyword)">
 
-					<label for="inputfield2"
-					       class="col-sm-12 control-label">Enter a keyword to find a book you own
-					</label>
 					<div class="input-group form-search">
 						<input type="text"
 						       class="form-control search-query"
@@ -43,7 +38,7 @@
 						</span>
 					</div>
 				</form>
-				<hr/>
+        <br/>
 				<div class="panel panel-default"
 				     ng-show="newBooks"
 				     ng-animate="'fade'">
@@ -53,7 +48,7 @@
 
 						<li class="media"
 						    ng-repeat="book in newBooks">
-							<hr/>
+
 							<a class="pull-left"
 							   href="{{book.volumeInfo.previewLink}}">
 								<img class="media-object img-rounded"
@@ -105,9 +100,9 @@
 								</a>
 
 							</div>
-
+              <hr/>
 						</li>
-						<hr/>
+
 					</ul>
 				</div>
 			</div>

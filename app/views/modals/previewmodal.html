@@ -5,89 +5,89 @@
      tabindex="-1"
      role="dialog"
      aria-labelledby="previewModal">
-	<div class="modal-dialog  modal-lg"
-	     role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button"
-				        class="close"
-				        data-dismiss="modal"
-				        aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4>{{previewBook.title}}
-					<span ng-show="previewBook.subtitle"> -</span>
-				    {{previewBook.subTitle}}
+  <div class="modal-dialog  modal-lg"
+       role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4>{{previewBook.title}}
+          <span ng-show="previewBook.subtitle"> -</span>
+            {{previewBook.subTitle}}
 
-				</h4>
-			</div>
-			<div class="modal-body">
-				<ul class="media-list"
-				    style="padding:5px;">
+        </h4>
+      </div>
+      <div class="modal-body">
+        <ul class="media-list"
+            style="padding:5px;">
 
-					<li class="media">
+          <li class="media">
 
-						<a class="pull-left"
-						   href="{{previewBook.previewlink}}">
-							<img class="media-object img-rounded"
-							     ng-src="{{previewBook.thumbnail}}">
-						</a>
+            <a class="pull-left"
+               href="{{previewBook.previewlink}}">
+              <img class="media-object img-rounded"
+                   ng-src="{{previewBook.thumbnail}}">
+            </a>
 
-						<div class="media-body">
-							<h4 style="color:#2DAFDD;"
-							    class="media-heading"
-							    ng-if="previewBook.author">by {{previewBook.author}}
-								<rating ng-model="previewBook.googleRating"
-								        max="5"
-								        class="pull-right"
-								        readonly="isReadonly"></rating>
-							</h4>
-							<p>
-								<span style="color:#DC4750;"
-								      class="pull-right"
-								      ng-if="previewBook.isbn10">ISBN: {{previewBook.isbn10}}
-								</span>
-								<br/>
-								<span style="color:#DC4750;"
-								      class="pull-right"
-								      ng-if="previewBook.isbn13">ISBN13: {{previewBook.isbn13}}
-								</span>
-							</p>
-							<p ng-if="previewBook.publisher">Published by {{previewBook.publisher}}
-								<span ng-show="previewBook.publishDate">,</span>
-							                                 {{previewBook.publishDate}}
-							</p>
-							<br/>
-							<p ng-bind-html="previewBook.description">
-							</p>
-						</div>
+            <div class="media-body">
+              <h4 style="color:#2DAFDD;"
+                  class="media-heading"
+                  ng-if="previewBook.author">by {{previewBook.author}}
+                <rating ng-model="previewBook.googleRating"
+                        max="5"
+                        class="pull-right"
+                        readonly="isReadonly"></rating>
+              </h4>
+              <p>
+                <span style="color:#DC4750;"
+                      class="pull-right"
+                      ng-if="previewBook.isbn10">ISBN: {{previewBook.isbn10}}
+                </span>
+                <br/>
+                <span style="color:#DC4750;"
+                      class="pull-right"
+                      ng-if="previewBook.isbn13">ISBN13: {{previewBook.isbn13}}
+                </span>
+              </p>
+              <p ng-if="previewBook.publisher">Published by {{previewBook.publisher}}
+                <span ng-show="previewBook.publishDate">,</span>
+                                               {{previewBook.publishDate}}
+              </p>
+              <br/>
+              <p ng-bind-html="previewBook.description">
+              </p>
+            </div>
 
-					</li>
+          </li>
 
-				</ul>
-			</div>
-			<div class="modal-footer">
-				<hr/>
-				<a ng-show="previewBook.previewlink"
-				   type="button"
-				   class="btn btn-primary"
-				   href="{{previewBook.previewlink}}"
-				   target="_blank">
-					<i class="fa fa-eye"></i>
-					Show preview on Google
-				</a>
-				<button type="button"
-				        class="btn btn-info"
-				        data-dismiss="modal">Borrow this book
-				</button>
-				<button type="button"
-				        class="btn btn-danger"
-				        data-dismiss="modal">Close
-				</button>
+        </ul>
+      </div>
+      <div class="modal-footer">
 
-			</div>
-		</div>
-	</div>
+        <a ng-show="previewBook.previewlink"
+           type="button"
+           class="btn btn-primary"
+           href="{{previewBook.previewlink}}"
+           target="_blank">
+          <i class="fa fa-eye"></i>
+          Show preview on Google
+        </a>
+        <button type="button"
+                class="btn btn-info"
+                data-dismiss="modal">Borrow this book
+        </button>
+        <button type="button"
+                class="btn btn-danger"
+                data-dismiss="modal">Close
+        </button>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 
